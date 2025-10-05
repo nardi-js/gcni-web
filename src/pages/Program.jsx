@@ -1,17 +1,11 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import AOS from 'aos';
 
 const Program = () => {
   const [activeModal, setActiveModal] = useState(null);
   const [imageErrors, setImageErrors] = useState({});
 
   useEffect(() => {
-    AOS.init({
-      duration: 1000,
-      once: true,
-      offset: 100
-    });
     document.title = 'Program GCNI Jakarta - IEBS, Tahfizh Qur\'an, TPQ, Pesantren Modern | Daftar Sekarang';
   }, []);
 
@@ -191,13 +185,13 @@ const Program = () => {
       <section className="relative pt-32 pb-20 bg-gradient-to-r from-teal-600 to-teal-800 text-white">
         <div className="absolute inset-0 bg-black/20"></div>
         <div className="relative container mx-auto px-4 text-center">
-          <div className="w-20 h-20 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center mx-auto mb-6" data-aos="zoom-in">
+          <div className="w-20 h-20 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center mx-auto mb-6">
             <i className="fas fa-graduation-cap text-5xl text-white"></i>
           </div>
-          <h1 className="text-5xl md:text-6xl font-bold mb-6" data-aos="fade-up">
+          <h1 className="text-5xl md:text-6xl font-bold mb-6">
             <span className="gradient-text">Program Unggulan</span>
           </h1>
-          <p className="text-xl md:text-2xl text-teal-100 max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="200">
+          <p className="text-xl md:text-2xl text-teal-100 max-w-3xl mx-auto">
             Berbagai program berkualitas untuk mendukung pendidikan dan pemberdayaan generasi Qur'ani
           </p>
         </div>
@@ -211,8 +205,8 @@ const Program = () => {
               <div 
                 key={program.id}
                 className="bg-white rounded-xl shadow-lg overflow-hidden hover-lift" 
-                data-aos="fade-up" 
-                data-aos-delay={200 + (index * 100)}
+                
+               
               >
                 <div className={`h-64 bg-gradient-to-r ${colorClasses[program.color].gradient} flex items-center justify-center overflow-hidden relative`}>
                   {program.image && !imageErrors[program.id] ? (
@@ -249,13 +243,13 @@ const Program = () => {
       {/* CTA Section */}
       <section className="py-20 bg-teal-600">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6" data-aos="fade-up">
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
             Daftar Program Sekarang
           </h2>
-          <p className="text-xl text-teal-100 mb-8 max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+          <p className="text-xl text-teal-100 mb-8 max-w-3xl mx-auto">
             Wujudkan impian menjadi generasi Qur'ani yang berakhlak mulia dan berjiwa entrepreneur
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center" data-aos="fade-up" data-aos-delay="200">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link 
               to="/kontak" 
               className="inline-flex items-center justify-center bg-white text-teal-600 px-8 py-4 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg"

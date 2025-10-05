@@ -1,7 +1,5 @@
 import { Link } from 'react-router-dom';
-import { useEffect, useState } from 'react';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
+import { useState } from 'react';
 import donationData, {
   formatCurrency,
   formatNumber,
@@ -27,14 +25,6 @@ const Donasi = () => {
     message: ''
   });
   const [receipt, setReceipt] = useState(null);
-
-  useEffect(() => {
-    AOS.init({
-      duration: 1000,
-      once: true,
-      offset: 100
-    });
-  }, []);
 
   // Handle amount button click
   const handleAmountClick = (amount) => {
@@ -198,13 +188,13 @@ const Donasi = () => {
       <section className="relative pt-24 md:pt-32 pb-12 md:pb-16 lg:pb-20 bg-gradient-to-r from-teal-600 to-teal-800 text-white">
         <div className="absolute inset-0 bg-black/20"></div>
         <div className="relative container mx-auto px-4 text-center">
-          <div className="w-20 h-20 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center mx-auto mb-6" data-aos="zoom-in">
+          <div className="w-20 h-20 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center mx-auto mb-6">
             <i className="fas fa-heart text-5xl text-white"></i>
           </div>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 md:mb-6 gradient-text" data-aos="fade-up">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 md:mb-6 gradient-text">
             Berdonasi
           </h1>
-          <p className="text-base md:text-lg lg:text-xl xl:text-2xl text-teal-100 max-w-3xl mx-auto px-4" data-aos="fade-up" data-aos-delay="200">
+          <p className="text-base md:text-lg lg:text-xl xl:text-2xl text-teal-100 max-w-3xl mx-auto px-4">
             Bantu kami mewujudkan pendidikan Islam berkualitas untuk generasi Qur'ani yang berakhlak mulia
           </p>
         </div>
@@ -242,14 +232,14 @@ const Donasi = () => {
         <section className="py-12 md:py-20">
           <div className="container mx-auto px-4">
             <div className="max-w-2xl mx-auto text-center">
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 md:mb-6" data-aos="fade-up">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 md:mb-6">
                 Berdonasi untuk Pendidikan Islam
               </h2>
-              <p className="text-lg md:text-xl text-gray-600 mb-8 md:mb-12 px-4" data-aos="fade-up" data-aos-delay="200">
+              <p className="text-lg md:text-xl text-gray-600 mb-8 md:mb-12 px-4">
                 Mari bersama membangun generasi Qur'ani yang berakhlak mulia dan cerdas
               </p>
 
-              <div className="bg-white rounded-2xl shadow-lg p-6 md:p-8" data-aos="fade-up" data-aos-delay="400">
+              <div className="bg-white rounded-2xl shadow-lg p-6 md:p-8">
                 <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-6 md:mb-8">Pilih Nominal Donasi</h3>
                 
                 {/* Predefined Amounts */}
@@ -314,7 +304,7 @@ const Donasi = () => {
         <section className="py-12 md:py-20">
           <div className="container mx-auto px-4">
             <div className="max-w-2xl mx-auto">
-              <div className="bg-white rounded-2xl shadow-lg p-6 md:p-8" data-aos="fade-up">
+              <div className="bg-white rounded-2xl shadow-lg p-6 md:p-8">
                 <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-6 md:mb-8 text-center">Pilih Metode Pembayaran</h3>
                 
                 <div className="space-y-3 md:space-y-4 mb-6 md:mb-8">
@@ -506,7 +496,7 @@ const Donasi = () => {
       )}
 
       {/* Impact Section */}
-      <section className="py-12 md:py-16 lg:py-20 bg-white" data-aos="fade-up">
+      <section className="py-12 md:py-16 lg:py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-10 md:mb-12 lg:mb-16">
@@ -521,8 +511,8 @@ const Donasi = () => {
                   <div
                     key={index}
                     className={`text-center ${colors.bg} rounded-2xl p-5 md:p-6`}
-                    data-aos="fade-up"
-                    data-aos-delay={100 * (index + 1)}
+                   
+                   
                   >
                     <div className={`w-14 h-14 md:w-16 md:h-16 ${colors.iconBg} rounded-full flex items-center justify-center mx-auto mb-3 md:mb-4`}>
                       <i className={`fas ${item.icon} text-xl md:text-2xl text-white`}></i>

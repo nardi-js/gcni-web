@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import { Link, useParams, useNavigate } from 'react-router-dom';
-import AOS from 'aos';
 import { getNewsById, newsData, formatDate } from '../data/newsData';
 
 const Artikel = () => {
@@ -10,12 +9,6 @@ const Artikel = () => {
   const [relatedArticles, setRelatedArticles] = useState([]);
 
   useEffect(() => {
-    AOS.init({
-      duration: 1000,
-      once: true,
-      offset: 100
-    });
-
     // Get article data
     const foundArticle = getNewsById(id);
     
@@ -63,7 +56,7 @@ const Artikel = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             {/* Breadcrumb */}
-            <div className="flex items-center justify-center text-white/80 mb-6" data-aos="fade-up">
+            <div className="flex items-center justify-center text-white/80 mb-6">
               <Link to="/" className="hover:text-white">Beranda</Link>
               <i className="fas fa-chevron-right mx-2 text-sm"></i>
               <Link to="/berita" className="hover:text-white">Berita</Link>
@@ -72,17 +65,17 @@ const Artikel = () => {
             </div>
             
             {/* Category Badge */}
-            <div className="inline-block bg-white/20 backdrop-blur-sm text-white px-4 py-2 rounded-full text-sm font-semibold mb-4" data-aos="fade-up" data-aos-delay="100">
+            <div className="inline-block bg-white/20 backdrop-blur-sm text-white px-4 py-2 rounded-full text-sm font-semibold mb-4">
               {article.category}
             </div>
             
             {/* Title */}
-            <h1 className="text-4xl md:text-5xl font-bold text-white mb-4" data-aos="fade-up" data-aos-delay="200">
+            <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
               {article.title}
             </h1>
             
             {/* Meta Info */}
-            <div className="flex items-center justify-center text-white/90 space-x-6 text-sm" data-aos="fade-up" data-aos-delay="300">
+            <div className="flex items-center justify-center text-white/90 space-x-6 text-sm">
               <div className="flex items-center">
                 <i className="far fa-calendar mr-2"></i>
                 <span>{formatDate(article.date)}</span>
@@ -101,7 +94,7 @@ const Artikel = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             {/* Featured Image */}
-            <div className="mb-12 rounded-2xl overflow-hidden shadow-2xl" data-aos="fade-up">
+            <div className="mb-12 rounded-2xl overflow-hidden shadow-2xl">
               <img
                 src={article.image}
                 alt={article.title}
@@ -113,7 +106,7 @@ const Artikel = () => {
             </div>
 
             {/* Article Body */}
-            <div className="bg-white rounded-2xl shadow-lg p-8 md:p-12" data-aos="fade-up" data-aos-delay="100">
+            <div className="bg-white rounded-2xl shadow-lg p-8 md:p-12">
               <div 
                 className="article-content prose max-w-none"
                 dangerouslySetInnerHTML={{ __html: article.content }}
@@ -170,15 +163,15 @@ const Artikel = () => {
             {/* Related Articles */}
             {relatedArticles.length > 0 && (
               <div className="mt-16">
-                <h2 className="text-3xl font-bold text-gray-900 mb-8" data-aos="fade-up">Berita Terkait</h2>
+                <h2 className="text-3xl font-bold text-gray-900 mb-8">Berita Terkait</h2>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                   {relatedArticles.map((news, index) => (
                     <Link
                       key={news.id}
                       to={`/artikel/${news.id}`}
                       className="block bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all group"
-                      data-aos="fade-up"
-                      data-aos-delay={index * 100}
+                     
+                     
                     >
                       <div className="h-48 bg-gradient-to-r from-teal-400 to-teal-600 relative overflow-hidden">
                         <img
@@ -216,7 +209,7 @@ const Artikel = () => {
             )}
 
             {/* Back to News Button */}
-            <div className="mt-12 text-center" data-aos="fade-up">
+            <div className="mt-12 text-center">
               <Link
                 to="/berita"
                 className="inline-flex items-center bg-teal-600 hover:bg-teal-700 text-white px-8 py-4 rounded-xl font-semibold transition-all shadow-lg"

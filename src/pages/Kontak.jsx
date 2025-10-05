@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
-import { useEffect, useState } from 'react';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
+import { useState, useMemo } from 'react';
+import { motion } from 'framer-motion';
 import contactData, { 
   getWhatsAppLink, 
   getGoogleMapsLink, 
@@ -21,13 +20,27 @@ const Kontak = () => {
   const [message, setMessage] = useState({ text: '', type: '' });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  useEffect(() => {
-    AOS.init({
-      duration: 1000,
-      once: true,
-      offset: 100
-    });
-  }, []);
+  // Animation variants - Memoized for performance
+  const variants = useMemo(() => ({
+    fadeUp: {
+      hidden: { opacity: 0, y: 50 },
+      visible: { opacity: 1, y: 0 }
+    },
+    fadeRight: {
+      hidden: { opacity: 0, x: -50 },
+      visible: { opacity: 1, x: 0 }
+    },
+    fadeLeft: {
+      hidden: { opacity: 0, x: 50 },
+      visible: { opacity: 1, x: 0 }
+    },
+    zoomIn: {
+      hidden: { opacity: 0, scale: 0.8 },
+      visible: { opacity: 1, scale: 1 }
+    }
+  }), []);
+
+  const transition = useMemo(() => ({ duration: 0.6, ease: "easeOut" }), []);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -101,28 +114,56 @@ const Kontak = () => {
   };
 
   return (
-    <div className="min-h-screen overflow-x-hidden">
+    <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 bg-gradient-to-r from-teal-600 to-teal-800 text-white overflow-hidden">
+      <section className="relative pt-32 pb-20 bg-gradient-to-r from-teal-600 to-teal-800 text-white">
         <div className="absolute inset-0 bg-black/20"></div>
         <div className="relative container mx-auto px-4 text-center">
-          <div className="w-20 h-20 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center mx-auto mb-6" data-aos="zoom-in">
+          <motion.div 
+            className="w-20 h-20 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center mx-auto mb-6"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={variants.zoomIn}
+            transition={transition}
+          >
             <i className="fas fa-phone text-5xl text-white"></i>
-          </div>
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 gradient-text break-words" data-aos="fade-up">
+          </motion.div>
+          <motion.h1 
+            className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 gradient-text break-words"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={variants.fadeUp}
+            transition={transition}
+          >
             Hubungi Kami
-          </h1>
-          <p className="text-lg sm:text-xl md:text-2xl text-teal-100 max-w-3xl mx-auto px-4" data-aos="fade-up" data-aos-delay="200">
+          </motion.h1>
+          <motion.p 
+            className="text-lg sm:text-xl md:text-2xl text-teal-100 max-w-3xl mx-auto px-4"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={variants.fadeUp}
+            transition={{ ...transition, delay: 0.2 }}
+          >
             Kami siap membantu Anda dengan informasi lengkap tentang program dan layanan GCNI
-          </p>
+          </motion.p>
         </div>
       </section>
 
       {/* Pendaftaran Section */}
-      <section className="py-16 bg-gradient-to-br from-teal-50 via-white to-yellow-50 overflow-hidden">
+      <section className="py-16 bg-gradient-to-br from-teal-50 via-white to-yellow-50">
         <div className="container mx-auto px-4">
           <div className="max-w-5xl mx-auto">
-            <div className="bg-white rounded-3xl shadow-2xl overflow-hidden" data-aos="zoom-in">
+            <motion.div 
+              className="bg-white rounded-3xl shadow-2xl overflow-hidden"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.3 }}
+              variants={variants.zoomIn}
+              transition={transition}
+            >
               <div className="grid grid-cols-1 md:grid-cols-2 gap-0">
                 {/* Left Side - Info */}
                 <div className="bg-gradient-to-br from-teal-600 to-teal-800 p-6 sm:p-8 md:p-12 text-white flex flex-col justify-center">
@@ -196,10 +237,17 @@ const Kontak = () => {
                   </div>
                 </div>
               </div>
-            </div>
+            </motion.div>
             
             {/* Info Tambahan */}
-            <div className="mt-8 text-center" data-aos="fade-up" data-aos-delay="200">
+            <motion.div 
+              className="mt-8 text-center"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.3 }}
+              variants={variants.fadeUp}
+              transition={{ ...transition, delay: 0.2 }}
+            >
               <p className="text-gray-600 px-4 break-words">
                 <i className="fas fa-info-circle mr-2 text-teal-600"></i>
                 Butuh bantuan? Hubungi kami di{' '}
@@ -212,7 +260,7 @@ const Kontak = () => {
                   WhatsApp <i className="fab fa-whatsapp ml-1"></i>
                 </a>
               </p>
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>
@@ -223,7 +271,14 @@ const Kontak = () => {
           <div className="max-w-6xl mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
               {/* Contact Form */}
-              <div className="bg-gray-50 rounded-2xl p-8" data-aos="fade-right">
+              <motion.div 
+                className="bg-gray-50 rounded-2xl p-8"
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.3 }}
+                variants={variants.fadeRight}
+                transition={transition}
+              >
                 <h2 className="text-3xl font-bold text-gray-900 mb-6">Kirim Pesan</h2>
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -337,10 +392,17 @@ const Kontak = () => {
                     </div>
                   </div>
                 )}
-              </div>
+              </motion.div>
 
               {/* Contact Information */}
-              <div className="space-y-8" data-aos="fade-left">
+              <motion.div 
+                className="space-y-8"
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.3 }}
+                variants={variants.fadeLeft}
+                transition={transition}
+              >
                 <div>
                   <h2 className="text-3xl font-bold text-gray-900 mb-6">Informasi Kontak</h2>
                   <p className="text-gray-600 text-lg mb-8">
@@ -429,14 +491,21 @@ const Kontak = () => {
                     ))}
                   </div>
                 </div>
-              </div>
+              </motion.div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Access & Transportation */}
-      <section className="py-20 bg-white" data-aos="fade-up">
+      <motion.section 
+        className="py-20 bg-white"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+        variants={variants.fadeUp}
+        transition={transition}
+      >
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
@@ -495,10 +564,17 @@ const Kontak = () => {
             </div>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Office Hours */}
-      <section className="py-20 bg-gray-50" data-aos="fade-up">
+      <motion.section 
+        className="py-20 bg-gray-50"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+        variants={variants.fadeUp}
+        transition={transition}
+      >
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
@@ -533,10 +609,17 @@ const Kontak = () => {
             </div>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Map Section */}
-      <section className="py-20 bg-white" data-aos="fade-up">
+      <motion.section 
+        className="py-20 bg-white"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+        variants={variants.fadeUp}
+        transition={transition}
+      >
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
@@ -576,10 +659,17 @@ const Kontak = () => {
             </div>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-teal-600 text-white" data-aos="fade-up">
+      <motion.section 
+        className="py-20 bg-teal-600 text-white"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+        variants={variants.fadeUp}
+        transition={transition}
+      >
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
             Siap Bergabung dengan GCNI?
@@ -606,7 +696,7 @@ const Kontak = () => {
             </a>
           </div>
         </div>
-      </section>
+      </motion.section>
     </div>
   );
 };
