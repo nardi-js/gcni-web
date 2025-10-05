@@ -8,7 +8,7 @@ export const newsData = [
     category: "Pendaftaran",
     date: "2024-10-01",
     author: "Admin GCNI",
-    image: "https://awsimages.detik.net.id/community/media/visual/2025/02/26/ilustrasi-ramadhan-1740568157033_169.jpeg?w=600&q=90",
+    image: "https://res.cloudinary.com/dof6csq4i/image/upload/v1759636036/ppdb_2425_jyydrq.jpg",
     content: `
       <h2>Pembukaan Pendaftaran Santri Baru Tahun Ajaran 2024/2025</h2>
       
@@ -59,7 +59,7 @@ export const newsData = [
     category: "Prestasi",
     date: "2024-09-25",
     author: "Tim Media GCNI",
-    image: "https://via.placeholder.com/800x600/10b981/FFFFFF?text=Juara+Tahfizh",
+    image: "https://res.cloudinary.com/dof6csq4i/image/upload/v1759636149/Gemini_Generated_Image_gwk2svgwk2svgwk2_ldolas.png",
     content: `
       <h2>Prestasi Membanggakan: Juara 1 Tahfizh Tingkat Nasional</h2>
       
@@ -88,7 +88,7 @@ export const newsData = [
     category: "Kegiatan",
     date: "2024-09-15",
     author: "Divisi Humas",
-    image: "https://via.placeholder.com/800x600/8b5cf6/FFFFFF?text=Workshop+Entrepreneurship",
+    image: "https://res.cloudinary.com/dof6csq4i/image/upload/v1759636456/Gemini_Generated_Image_pcqe0npcqe0npcqe_sroosp.png",
     content: `
       <h2>Workshop Entrepreneurship: Membangun Jiwa Wirausaha Santri</h2>
       
@@ -113,7 +113,7 @@ export const newsData = [
     category: "Kegiatan",
     date: "2024-03-20",
     author: "Tim Dakwah",
-    image: "https://via.placeholder.com/800x600/14b8a6/FFFFFF?text=Ramadhan+Ceria",
+    image: "https://res.cloudinary.com/dof6csq4i/image/upload/v1759636422/Gemini_Generated_Image_enlivuenlivuenli_zoforl.png",
     content: `
       <h2>Ramadhan Ceria: Menyambut Bulan Penuh Berkah</h2>
       
@@ -137,7 +137,7 @@ export const newsData = [
     category: "Beasiswa",
     date: "2024-08-10",
     author: "Divisi Beasiswa",
-    image: "https://via.placeholder.com/800x600/f59e0b/FFFFFF?text=Beasiswa+GCNI",
+    image: "https://res.cloudinary.com/dof6csq4i/image/upload/v1759636424/Gemini_Generated_Image_oka9w8oka9w8oka9_h2t87h.png",
     content: `
       <h2>Program Beasiswa GCNI: Tidak Ada Anak Bangsa yang Tertinggal</h2>
       
@@ -164,7 +164,7 @@ export const newsData = [
     category: "Kegiatan",
     date: "2024-07-15",
     author: "Tim Akademik",
-    image: "https://via.placeholder.com/800x600/6366f1/FFFFFF?text=Study+Tour+Malaysia",
+    image: "https://res.cloudinary.com/dof6csq4i/image/upload/v1759636424/Gemini_Generated_Image_noh2l3noh2l3noh2_p2yn0r.png",
     content: `
       <h2>Study Tour ke Malaysia: Membuka Wawasan Global Santri</h2>
       

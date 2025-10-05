@@ -119,7 +119,7 @@ const Home = () => {
             <div className="bg-white rounded-xl shadow-lg overflow-hidden hover-lift" data-aos="fade-up" data-aos-delay="200">
               <div className="h-48 bg-gradient-to-r from-teal-400 to-teal-600 relative">
                 <img
-                  src="/images/programs/iebs.jpg"
+                  src="https://res.cloudinary.com/dof6csq4i/image/upload/v1758591275/santri_zzlfdp.jpg"
                   alt="IEBS Program"
                   className="w-full h-full object-cover"
                   onError={(e) => {
@@ -148,7 +148,7 @@ const Home = () => {
             <div className="bg-white rounded-xl shadow-lg overflow-hidden hover-lift" data-aos="fade-up" data-aos-delay="300">
               <div className="h-48 bg-gradient-to-r from-green-400 to-green-600 relative">
                 <img
-                  src="/images/programs/tahfizh.jpg"
+                  src="https://res.cloudinary.com/dof6csq4i/image/upload/v1758594705/pesantren/blog/f9blppo5nwwwgja39wp7.png"
                   alt="Tahfizh Program"
                   className="w-full h-full object-cover"
                   onError={(e) => {
@@ -177,7 +177,7 @@ const Home = () => {
             <div className="bg-white rounded-xl shadow-lg overflow-hidden hover-lift" data-aos="fade-up" data-aos-delay="400">
               <div className="h-48 bg-gradient-to-r from-blue-400 to-blue-600 relative">
                 <img
-                  src="/images/programs/tpq.jpg"
+                  src="https://res.cloudinary.com/dof6csq4i/image/upload/v1759634549/tpq.png"
                   alt="TPQ Program"
                   className="w-full h-full object-cover"
                   onError={(e) => {

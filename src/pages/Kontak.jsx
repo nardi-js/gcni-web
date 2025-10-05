@@ -101,34 +101,34 @@ const Kontak = () => {
   };
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen overflow-x-hidden">
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 bg-gradient-to-r from-teal-600 to-teal-800 text-white">
+      <section className="relative pt-32 pb-20 bg-gradient-to-r from-teal-600 to-teal-800 text-white overflow-hidden">
         <div className="absolute inset-0 bg-black/20"></div>
         <div className="relative container mx-auto px-4 text-center">
-          <h1 className="text-5xl md:text-6xl font-bold mb-6 gradient-text" data-aos="fade-up">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 gradient-text break-words" data-aos="fade-up">
             Hubungi Kami
           </h1>
-          <p className="text-xl md:text-2xl text-teal-100 max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="200">
+          <p className="text-lg sm:text-xl md:text-2xl text-teal-100 max-w-3xl mx-auto px-4" data-aos="fade-up" data-aos-delay="200">
             Kami siap membantu Anda dengan informasi lengkap tentang program dan layanan GCNI
           </p>
         </div>
       </section>
 
       {/* Pendaftaran Section */}
-      <section className="py-16 bg-gradient-to-br from-teal-50 via-white to-yellow-50">
+      <section className="py-16 bg-gradient-to-br from-teal-50 via-white to-yellow-50 overflow-hidden">
         <div className="container mx-auto px-4">
           <div className="max-w-5xl mx-auto">
             <div className="bg-white rounded-3xl shadow-2xl overflow-hidden" data-aos="zoom-in">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-0">
                 {/* Left Side - Info */}
-                <div className="bg-gradient-to-br from-teal-600 to-teal-800 p-8 md:p-12 text-white flex flex-col justify-center">
+                <div className="bg-gradient-to-br from-teal-600 to-teal-800 p-6 sm:p-8 md:p-12 text-white flex flex-col justify-center">
                   <div className="mb-6">
-                    <div className="w-16 h-16 bg-yellow-400 rounded-2xl flex items-center justify-center mb-4">
-                      <i className="fas fa-user-graduate text-3xl text-teal-800"></i>
+                    <div className="w-14 h-14 sm:w-16 sm:h-16 bg-yellow-400 rounded-2xl flex items-center justify-center mb-4">
+                      <i className="fas fa-user-graduate text-2xl sm:text-3xl text-teal-800"></i>
                     </div>
-                    <h2 className="text-3xl md:text-4xl font-bold mb-4">Daftar Santri Baru</h2>
-                    <p className="text-teal-100 text-lg mb-6">
+                    <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 break-words">Daftar Santri Baru</h2>
+                    <p className="text-teal-100 text-base sm:text-lg mb-6 break-words">
                       Jadilah bagian dari generasi Qur'ani berakhlak mulia dan berjiwa entrepreneur
                     </p>
                   </div>
@@ -136,10 +136,10 @@ const Kontak = () => {
                   <div className="space-y-4">
                     {contactData.registrationForm.features.map((feature, index) => (
                       <div key={index} className="flex items-start">
-                        <i className={`fas ${feature.icon} text-yellow-400 mt-1 mr-3 text-xl`}></i>
-                        <div>
-                          <h4 className="font-semibold mb-1">{feature.title}</h4>
-                          <p className="text-teal-100 text-sm">{feature.description}</p>
+                        <i className={`fas ${feature.icon} text-yellow-400 mt-1 mr-3 text-lg sm:text-xl flex-shrink-0`}></i>
+                        <div className="min-w-0 flex-1">
+                          <h4 className="font-semibold mb-1 break-words">{feature.title}</h4>
+                          <p className="text-teal-100 text-sm break-words">{feature.description}</p>
                         </div>
                       </div>
                     ))}
@@ -147,15 +147,15 @@ const Kontak = () => {
                 </div>
                 
                 {/* Right Side - CTA */}
-                <div className="p-8 md:p-12 flex flex-col justify-center items-center text-center bg-gradient-to-br from-gray-50 to-white">
-                  <div className="mb-8">
-                    <div className="inline-block px-4 py-2 bg-yellow-100 text-yellow-800 rounded-full text-sm font-semibold mb-4">
+                <div className="p-6 sm:p-8 md:p-12 flex flex-col justify-center items-center text-center bg-gradient-to-br from-gray-50 to-white">
+                  <div className="mb-8 w-full">
+                    <div className="inline-block px-4 py-2 bg-yellow-100 text-yellow-800 rounded-full text-sm font-semibold mb-4 break-words">
                       <i className="fas fa-star mr-1"></i> Tahun Ajaran {contactData.registrationForm.tahunAjaran}
                     </div>
-                    <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
+                    <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 mb-4 px-2 break-words">
                       Pendaftaran Dibuka!
                     </h3>
-                    <p className="text-gray-600 mb-8">
+                    <p className="text-gray-600 mb-8 px-2 break-words">
                       Isi formulir pendaftaran online dan bergabunglah bersama kami. Proses pendaftaran hanya membutuhkan waktu 5 menit.
                     </p>
                   </div>
@@ -165,30 +165,30 @@ const Kontak = () => {
                     href={contactData.registrationForm.googleFormUrl} 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="group inline-flex items-center justify-center bg-gradient-to-r from-teal-600 to-teal-700 hover:from-teal-700 hover:to-teal-800 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl mb-4 w-full md:w-auto"
+                    className="group inline-flex items-center justify-center bg-gradient-to-r from-teal-600 to-teal-700 hover:from-teal-700 hover:to-teal-800 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-bold text-base sm:text-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl mb-4 w-full md:w-auto"
                   >
-                    <i className="fas fa-clipboard-list mr-3 text-xl"></i>
+                    <i className="fas fa-clipboard-list mr-2 sm:mr-3 text-lg sm:text-xl"></i>
                     <span>Daftar Sekarang</span>
-                    <i className="fas fa-arrow-right ml-3 group-hover:translate-x-1 transition-transform"></i>
+                    <i className="fas fa-arrow-right ml-2 sm:ml-3 group-hover:translate-x-1 transition-transform"></i>
                   </a>
                   
-                  <p className="text-sm text-gray-500 mt-4">
+                  <p className="text-xs sm:text-sm text-gray-500 mt-4">
                     <i className="fas fa-lock mr-1"></i> Data Anda aman dan terlindungi
                   </p>
                   
                   {/* Stats */}
-                  <div className="grid grid-cols-3 gap-4 mt-8 w-full">
+                  <div className="grid grid-cols-3 gap-2 sm:gap-4 mt-8 w-full">
                     <div className="text-center">
-                      <div className="text-2xl font-bold text-teal-600"><i className="fas fa-graduation-cap"></i></div>
-                      <div className="text-xs text-gray-600">Kurikulum Terpadu</div>
+                      <div className="text-xl sm:text-2xl font-bold text-teal-600"><i className="fas fa-graduation-cap"></i></div>
+                      <div className="text-[10px] sm:text-xs text-gray-600 break-words">Kurikulum Terpadu</div>
                     </div>
                     <div className="text-center border-x border-gray-200">
-                      <div className="text-2xl font-bold text-teal-600"><i className="fas fa-mosque"></i></div>
-                      <div className="text-xs text-gray-600">Islami Modern</div>
+                      <div className="text-xl sm:text-2xl font-bold text-teal-600"><i className="fas fa-mosque"></i></div>
+                      <div className="text-[10px] sm:text-xs text-gray-600 break-words">Islami Modern</div>
                     </div>
                     <div className="text-center">
-                      <div className="text-2xl font-bold text-teal-600"><i className="fas fa-award"></i></div>
-                      <div className="text-xs text-gray-600">Berkualitas</div>
+                      <div className="text-xl sm:text-2xl font-bold text-teal-600"><i className="fas fa-award"></i></div>
+                      <div className="text-[10px] sm:text-xs text-gray-600 break-words">Berkualitas</div>
                     </div>
                   </div>
                 </div>
@@ -197,7 +197,7 @@ const Kontak = () => {
             
             {/* Info Tambahan */}
             <div className="mt-8 text-center" data-aos="fade-up" data-aos-delay="200">
-              <p className="text-gray-600">
+              <p className="text-gray-600 px-4 break-words">
                 <i className="fas fa-info-circle mr-2 text-teal-600"></i>
                 Butuh bantuan? Hubungi kami di{' '}
                 <a 

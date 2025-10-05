@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Layout from './components/Layout';
+import ScrollToTop from './components/ScrollToTop';
 import Home from './pages/Home';
 import Tentang from './pages/Tentang';
 import Program from './pages/Program';
@@ -8,11 +9,11 @@ import Artikel from './pages/Artikel';
 import FAQ from './pages/FAQ';
 import Kontak from './pages/Kontak';
 import Donasi from './pages/Donasi';
-import './App.css';
 
 function App() {
   return (
     <Router>
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />

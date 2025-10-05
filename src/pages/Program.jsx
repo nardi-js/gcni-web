@@ -4,6 +4,7 @@ import AOS from 'aos';
 
 const Program = () => {
   const [activeModal, setActiveModal] = useState(null);
+  const [imageErrors, setImageErrors] = useState({});
 
   useEffect(() => {
     AOS.init({
@@ -13,6 +14,13 @@ const Program = () => {
     });
     document.title = 'Program GCNI Jakarta - IEBS, Tahfizh Qur\'an, TPQ, Pesantren Modern | Daftar Sekarang';
   }, []);
+
+  const handleImageError = (programId) => {
+    setImageErrors(prev => ({
+      ...prev,
+      [programId]: true
+    }));
+  };
 
   const openModal = (programId) => {
     setActiveModal(programId);
@@ -40,6 +48,7 @@ const Program = () => {
       subtitle: 'Islamic Entrepreneurship Boarding School',
       description: 'Program SMP & SMA dengan kurikulum terpadu Islam, IT, dan Entrepreneurship untuk mencetak generasi unggul yang siap menghadapi tantangan masa depan.',
       icon: 'fa-graduation-cap',
+      image: 'https://res.cloudinary.com/dof6csq4i/image/upload/v1758591275/santri_zzlfdp.jpg', // Path ke gambar program
       color: 'teal',
       features: [
         'Kurikulum Terpadu (Nasional + Islam + IT)',
@@ -56,6 +65,7 @@ const Program = () => {
       subtitle: 'Program Penghafal Al-Qur\'an',
       description: 'Program intensif menghafal Al-Qur\'an 30 juz dengan bimbingan para ustadz berpengalaman dan metode pembelajaran yang terbukti efektif.',
       icon: 'fa-quran',
+      image: 'https://res.cloudinary.com/dof6csq4i/image/upload/v1758594705/pesantren/blog/f9blppo5nwwwgja39wp7.png', // Path ke gambar program
       color: 'green',
       features: [
         'Target Hafal 30 Juz',
@@ -72,6 +82,7 @@ const Program = () => {
       subtitle: 'Taman Pendidikan Al-Qur\'an',
       description: 'Pendidikan dasar Al-Qur\'an untuk anak-anak usia 4-12 tahun dengan metode fun learning dan pembinaan akhlak yang menyenangkan.',
       icon: 'fa-child',
+      image: 'https://res.cloudinary.com/dof6csq4i/image/upload/v1759634549/tpq.png', // Path ke gambar program
       color: 'blue',
       features: [
         'Metode Fun Learning',
@@ -88,6 +99,7 @@ const Program = () => {
       subtitle: 'Pendidikan Agama Islam',
       description: 'Program pendidikan agama Islam yang komprehensif meliputi fiqh, akidah, akhlaq, dan sejarah Islam untuk semua kalangan.',
       icon: 'fa-mosque',
+      image: 'https://res.cloudinary.com/dof6csq4i/image/upload/v1758594351/pesantren/blog/guctu7vjf67czgapmfrp.png', // Path ke gambar program
       color: 'purple',
       features: [
         'Kurikulum Diniyah Terpadu',
@@ -104,6 +116,7 @@ const Program = () => {
       subtitle: 'Kewirausahaan Islam',
       description: 'Pelatihan kewirausahaan dengan nilai-nilai Islam untuk mengembangkan jiwa entrepreneur yang mandiri dan berkah.',
       icon: 'fa-briefcase',
+      image: 'https://res.cloudinary.com/dof6csq4i/image/upload/v1759635307/_storage_emulated_0_Android_data_com.miui.gallery_cache_SecurityShare_IMG_20250707_103340_ujhdks.jpg', // Path ke gambar program
       color: 'orange',
       features: [
         'Mindset Entrepreneur Islami',
@@ -120,6 +133,7 @@ const Program = () => {
       subtitle: 'Dakwah & Pemberdayaan',
       description: 'Program kajian rutin dan pemberdayaan masyarakat untuk meningkatkan pemahaman agama dan kualitas hidup umat.',
       icon: 'fa-users',
+      image: 'https://res.cloudinary.com/dof6csq4i/image/upload/v1759635309/IMG_20210304_055050_ctlkd9.jpg', // Path ke gambar program
       color: 'indigo',
       features: [
         'Kajian Mingguan & Bulanan',
@@ -197,8 +211,17 @@ const Program = () => {
                 data-aos="fade-up" 
                 data-aos-delay={200 + (index * 100)}
               >
-                <div className={`h-64 bg-gradient-to-r ${colorClasses[program.color].gradient} flex items-center justify-center`}>
-                  <i className={`fas ${program.icon} text-8xl text-white`}></i>
+                <div className={`h-64 bg-gradient-to-r ${colorClasses[program.color].gradient} flex items-center justify-center overflow-hidden relative`}>
+                  {program.image && !imageErrors[program.id] ? (
+                    <img 
+                      src={program.image} 
+                      alt={program.title}
+                      onError={() => handleImageError(program.id)}
+                      className="w-full h-full object-cover"
+                    />
+                  ) : (
+                    <i className={`fas ${program.icon} text-8xl text-white`}></i>
+                  )}
                 </div>
                 <div className="p-8">
                   <h3 className="text-2xl font-bold text-gray-900 mb-3">{program.title}</h3>

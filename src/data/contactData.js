@@ -119,19 +119,19 @@ export const contactData = {
             url: "https://www.instagram.com/pm.gcni_iebs",
             username: "@pm.gcni_iebs",
             icon: "fab fa-instagram",
-            color: "gradient-to-br from-purple-600 via-pink-600 to-orange-500"
+            color: "bg-gradient-to-br from-purple-600 via-pink-600 to-orange-500"
         },
         youtube: {
             url: "https://www.youtube.com/@gcnitv9792",
             username: "@gcnitv9792",
             icon: "fab fa-youtube",
-            color: "bg-red-600 hover:bg-red-700"
+            color: "bg-red-600"
         },
         tiktok: {
             url: "https://www.tiktok.com/@ponpes.gcni.iebs",
             username: "@ponpes.gcni.iebs",
             icon: "fab fa-tiktok",
-            color: "bg-black"
+            color: "bg-gray-900"
         },
         email: {
             url: "mailto:iebs.gcni@gmail.com",

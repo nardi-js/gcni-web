@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import AOS from 'aos';
 import { faqData, getFaqByCategory, searchFaq, categories, getCategoryStats } from '../data/faqData';
 
 const FAQ = () => {
@@ -11,11 +10,6 @@ const FAQ = () => {
   const [categoryStats] = useState(getCategoryStats());
 
   useEffect(() => {
-    AOS.init({
-      duration: 1000,
-      once: true,
-      offset: 100
-    });
     document.title = 'FAQ - Pertanyaan Umum GCNI | Informasi Lengkap Program & Pendaftaran';
   }, []);
 
@@ -68,16 +62,16 @@ const FAQ = () => {
       <section className="relative pt-32 pb-20 bg-gradient-to-r from-teal-600 to-teal-800 text-white">
         <div className="absolute inset-0 bg-black/20"></div>
         <div className="relative container mx-auto px-4 text-center">
-          <div className="w-20 h-20 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center mx-auto mb-6" data-aos="zoom-in">
+          <div className="w-20 h-20 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center mx-auto mb-6">
             <i className="fas fa-question-circle text-5xl text-white"></i>
           </div>
-          <h1 className="text-5xl md:text-6xl font-bold mb-6" data-aos="fade-up">
+          <h1 className="text-5xl md:text-6xl font-bold mb-6">
             <span className="gradient-text">Pertanyaan Umum</span>
           </h1>
-          <p className="text-xl md:text-2xl text-teal-100 max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="200">
+          <p className="text-xl md:text-2xl text-teal-100 max-w-3xl mx-auto">
             Temukan jawaban untuk pertanyaan Anda seputar GCNI, program, pendaftaran, dan fasilitas
           </p>
-          <p className="text-teal-200 mt-4" data-aos="fade-up" data-aos-delay="300">
+          <p className="text-teal-200 mt-4">
             <i className="fas fa-book mr-2"></i>
             {faqData.length} pertanyaan yang sering ditanyakan
           </p>
@@ -88,7 +82,7 @@ const FAQ = () => {
       <section className="py-8 bg-white shadow-sm">
         <div className="container mx-auto px-4">
           <div className="max-w-2xl mx-auto">
-            <div className="relative" data-aos="fade-up">
+            <div className="relative">
               <input
                 type="text"
                 value={searchTerm}
@@ -113,7 +107,7 @@ const FAQ = () => {
       {/* Category Filter */}
       <section className="py-8 bg-gray-50">
         <div className="container mx-auto px-4">
-          <div className="flex flex-wrap justify-center gap-4" data-aos="fade-up">
+          <div className="flex flex-wrap justify-center gap-4">
             {categories.map((cat) => (
               <button
                 key={cat.value}
@@ -138,14 +132,14 @@ const FAQ = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             {searchTerm && (
-              <div className="mb-8 text-gray-600" data-aos="fade-up">
+              <div className="mb-8 text-gray-600">
                 <i className="fas fa-search mr-2"></i>
                 Menampilkan {filteredFaqs.length} hasil untuk "<strong>{searchTerm}</strong>"
               </div>
             )}
 
             {filteredFaqs.length === 0 ? (
-              <div className="text-center py-16" data-aos="fade-up">
+              <div className="text-center py-16">
                 <i className="fas fa-search text-6xl text-gray-300 mb-4"></i>
                 <h3 className="text-2xl font-bold text-gray-700 mb-2">Tidak ada hasil</h3>
                 <p className="text-gray-500 mb-6">
@@ -167,7 +161,7 @@ const FAQ = () => {
               Object.keys(groupedFaqs).map((category) => {
                 const catInfo = getCategoryInfo(category);
                 return (
-                  <div key={category} className="mb-12" data-aos="fade-up">
+                  <div key={category} className="mb-12">
                     {(activeCategory === 'all' || searchTerm) && (
                       <h2 className="text-3xl font-bold text-gray-900 mb-8 flex items-center">
                         <i className={`fas ${catInfo.icon} text-teal-600 mr-3`}></i>
@@ -181,23 +175,21 @@ const FAQ = () => {
                       {groupedFaqs[category].map((faq, index) => (
                         <div
                           key={faq.id}
-                          className="bg-white rounded-xl p-6 shadow-md border border-gray-100 hover:shadow-lg transition-all duration-300 cursor-pointer"
+                          className="bg-white rounded-xl p-6 shadow-md border border-gray-100 hover:shadow-lg transition-all duration-150 cursor-pointer"
                           onClick={() => toggleFaq(faq.id)}
-                          data-aos="fade-up"
-                          data-aos-delay={index * 50}
                         >
                           <div className="flex items-center justify-between">
                             <h3 className="text-lg font-semibold text-gray-900 pr-8 flex-1">
                               {faq.question}
                             </h3>
                             <i
-                              className={`fas fa-chevron-down text-teal-600 transition-transform duration-300 ${
+                              className={`fas fa-chevron-down text-teal-600 transition-transform duration-150 ${
                                 openFaqId === faq.id ? 'rotate-180' : ''
                               }`}
                             ></i>
                           </div>
                           <div
-                            className={`overflow-hidden transition-all duration-300 ${
+                            className={`overflow-hidden transition-all duration-150 ${
                               openFaqId === faq.id ? 'max-h-[1000px] mt-4' : 'max-h-0'
                             }`}
                           >
@@ -220,7 +212,7 @@ const FAQ = () => {
       {/* Still Have Questions CTA */}
       <section className="py-20 bg-gradient-to-br from-teal-600 to-teal-800 text-white">
         <div className="container mx-auto px-4 text-center">
-          <div className="max-w-3xl mx-auto" data-aos="fade-up">
+          <div className="max-w-3xl mx-auto">
             <i className="fas fa-comments text-6xl mb-6 opacity-80"></i>
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
               Masih Ada Pertanyaan?
