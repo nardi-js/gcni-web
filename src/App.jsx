@@ -9,6 +9,8 @@ import Artikel from './pages/Artikel';
 import FAQ from './pages/FAQ';
 import Kontak from './pages/Kontak';
 import Donasi from './pages/Donasi';
+import AdminNews from './pages/admin/AdminNews';
+import AdminMessages from './pages/admin/AdminMessages';
 
 function App() {
   return (
@@ -20,11 +22,15 @@ function App() {
           <Route path="tentang" element={<Tentang />} />
           <Route path="program" element={<Program />} />
           <Route path="berita" element={<Berita />} />
-          <Route path="artikel/:id" element={<Artikel />} />
+          <Route path="artikel/:slug" element={<Artikel />} />
           <Route path="faq" element={<FAQ />} />
           <Route path="kontak" element={<Kontak />} />
           <Route path="donasi" element={<Donasi />} />
         </Route>
+        
+        {/* Admin Routes - Without Layout (No Header/Footer) */}
+        <Route path="/admin/news" element={<AdminNews />} />
+        <Route path="/admin/messages" element={<AdminMessages />} />
       </Routes>
     </Router>
   );

@@ -35,15 +35,27 @@ img {
   display: block;
 }
 
-/* Static Gradient Text - Optimized */
+/* Animated Gradient Text - Performance Optimized */
 .gradient-text {
-  background: linear-gradient(135deg, #14B8A6 0%, #FBBF24 100%);
+  background: linear-gradient(135deg, #14B8A6 0%, #10B981 25%, #FBBF24 50%, #F59E0B 75%, #14B8A6 100%);
+  background-size: 200% 200%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   display: inline-block;
   padding-bottom: 0.2em;
   line-height: 1.3;
+  animation: gradientShift 4s ease-in-out infinite;
+  will-change: background-position;
+}
+
+@keyframes gradientShift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
 }
 
 /* Hover Lift Effect - Optimized */
@@ -86,4 +98,98 @@ img {
     opacity: 1; 
     transform: translateY(0); 
   }
+}
+
+/* Article Content Styling */
+.article-content {
+  line-height: 1.8;
+  color: #374151;
+}
+
+.article-content h2 {
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: #111827;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  line-height: 1.3;
+}
+
+.article-content h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #1f2937;
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+  line-height: 1.4;
+}
+
+.article-content p {
+  margin-bottom: 1.25rem;
+  font-size: 1.0625rem;
+  text-align: justify;
+}
+
+.article-content ul,
+.article-content ol {
+  margin-left: 1.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.article-content li {
+  margin-bottom: 0.5rem;
+  font-size: 1.0625rem;
+}
+
+.article-content strong {
+  font-weight: 600;
+  color: #111827;
+}
+
+.article-content a {
+  color: #14B8A6;
+  text-decoration: underline;
+  transition: color 0.2s;
+}
+
+.article-content a:hover {
+  color: #0D9488;
+}
+
+/* Article Images - FIT & RESPONSIVE */
+.article-content img {
+  max-width: 100% !important;
+  height: auto !important;
+  max-height: 500px !important; /* Batas maksimal tinggi gambar */
+  width: auto !important;
+  object-fit: contain !important; /* Gambar akan fit tanpa terpotong */
+  margin: 2rem auto !important;
+  display: block !important;
+  border-radius: 0.75rem !important;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Untuk gambar yang sangat tinggi (portrait) */
+@media (min-width: 768px) {
+  .article-content img {
+    max-height: 600px !important; /* Desktop: max 600px */
+  }
+}
+
+/* Untuk mobile */
+@media (max-width: 767px) {
+  .article-content img {
+    max-height: 400px !important; /* Mobile: max 400px */
+  }
+}
+
+.article-content blockquote {
+  border-left: 4px solid #14B8A6;
+  padding-left: 1rem;
+  margin: 1.5rem 0;
+  font-style: italic;
+  color: #4B5563;
+  background-color: #F0FDFA;
+  padding: 1rem;
+  border-radius: 0.5rem;
 }

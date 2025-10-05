@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useState, useMemo } from 'react';
 import { motion } from 'framer-motion';
+import { createMessage } from '../services/messageService';
 import contactData, { 
   getWhatsAppLink, 
   getGoogleMapsLink, 
@@ -82,32 +83,32 @@ const Kontak = () => {
     setIsSubmitting(true);
 
     try {
-      // Simulate form submission (2 seconds delay)
-      await new Promise(resolve => setTimeout(resolve, 2000));
-      
-      showMessage('Terima kasih! Pesan Anda telah terkirim. Kami akan segera menghubungi Anda.', 'success');
-      
-      // Reset form
-      setFormData({
-        nama: '',
-        email: '',
-        telepon: '',
-        subjek: '',
-        pesan: ''
+      // Send to Firebase
+      const result = await createMessage({
+        name: formData.nama,
+        email: formData.email,
+        phone: formData.telepon,
+        subject: formData.subjek,
+        message: formData.pesan
       });
 
-      // Optional: Redirect to WhatsApp
-      const whatsappMessage = formatFormDataForWhatsApp(formData);
-      const whatsappUrl = getWhatsAppLink(whatsappMessage);
-      
-      setTimeout(() => {
-        if (window.confirm('Apakah Anda ingin melanjutkan ke WhatsApp untuk komunikasi lebih lanjut?')) {
-          window.open(whatsappUrl, '_blank');
-        }
-      }, 1000);
-
-    } catch {
-      showMessage('Maaf, terjadi kesalahan. Silakan coba lagi atau hubungi kami melalui WhatsApp.', 'error');
+      if (result.success) {
+        showMessage('Terima kasih! Pesan Anda telah terkirim. Kami akan segera menghubungi Anda.', 'success');
+        
+        // Reset form
+        setFormData({
+          nama: '',
+          email: '',
+          telepon: '',
+          subjek: '',
+          pesan: ''
+        });
+      } else {
+        showMessage(`Gagal mengirim pesan: ${result.error}`, 'error');
+      }
+    } catch (error) {
+      showMessage('Terjadi kesalahan. Silakan coba lagi.', 'error');
+      console.error('Form submission error:', error);
     } finally {
       setIsSubmitting(false);
     }

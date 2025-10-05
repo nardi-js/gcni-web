@@ -26,9 +26,9 @@ export const contactData = {
     },
     
     // Kontak
-    phone: "(021) 1234-5678",
-    whatsapp: "628123456789", // Format tanpa + dan spasi
-    whatsappFormatted: "+62 812-3456-789",
+    phone: "+62 896-8044-0055",
+    whatsapp: "6289680440055", // Format tanpa + dan spasi
+    whatsappFormatted: "+62 896-8044-0055",
     email: "info@gcni.or.id",
     emailRegistration: "pendaftaran@gcni.or.id",
     

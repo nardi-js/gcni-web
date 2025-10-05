@@ -5,9 +5,9 @@ const Home = () => {
     <div className="min-h-screen">
       {/* Hero Section */}
       <section
-        className="relative w-full min-h-screen pt-32 bg-gradient-to-r from-teal-600 to-teal-800 flex items-center justify-center"
+        className="relative w-full min-h-screen pt-31 bg-gradient-to-r from-teal-600 to-teal-800 flex items-center justify-center"
         style={{
-          backgroundImage: "url('../../hero.jpg')",
+          backgroundImage: "url('./hero.jpg')",
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundBlendMode: 'overlay',

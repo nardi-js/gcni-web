@@ -4,7 +4,7 @@
  */
 
 export const siteMetadata = {
-  siteName: "GCNI - Global Center for Nusantara Islam",
+  siteName: "GCNI - Global Cahaya Nurbuwwah Insani",
   siteUrl: "https://gcni.or.id",
   domain: "gcni.or.id",
   
@@ -13,8 +13,8 @@ export const siteMetadata = {
     phone: "+62 896-8044-0055",
     whatsapp: "+62 896-8044-0055",
     email: "info@gcni.or.id",
-    address: "Kp. Babakan RT 05 / RW 02 Kel. Neglasari Kec. Neglasari, Kota Tangerang 15129",
-    addressShort: "Neglasari, Kota Tangerang 15129",
+    address: "Jl. Raya Purwakarta - Subang KM. 7, Desa Maniis, Kec. Purwakarta, Kabupaten Purwakarta, Jawa Barat 41181",
+    addressShort: "Purwakarta, Jawa Barat 41181",
     coordinates: {
       lat: "-6.5056",
       lng: "107.4929"
@@ -29,25 +29,25 @@ export const siteMetadata = {
   },
   
   // Default SEO
-  defaultTitle: "GCNI - Pondok Pesantren Tahfidz & Entrepreneur di Tangerang",
-  defaultDescription: "Pondok Pesantren GCNI (Global Center for Nusantara Islam) - Lembaga pendidikan Islam terpadu dengan program Tahfidz Quran, Tahsin, dan Entrepreneur Islamic Boarding School di Tangerang.",
-  defaultKeywords: "pondok pesantren tangerang, pesantren tahfidz tangerang, islamic boarding school, tahfidz quran, entrepreneur islamic boarding school, pesantren modern, pendidikan islam, GCNI, tahsin quran",
+  defaultTitle: "GCNI - Pondok Pesantren Tahfidz & Entrepreneur di Purwakarta",
+  defaultDescription: "Pondok Pesantren GCNI (Global Cahaya Nurbuwwah Insani) - Lembaga pendidikan Islam terpadu dengan program Tahfidz Quran, Tahsin, dan Entrepreneur Islamic Boarding School di Purwakarta, Jawa Barat.",
+  defaultKeywords: "pondok pesantren purwakarta, pesantren tahfidz purwakarta, islamic boarding school jawa barat, tahfidz quran, entrepreneur islamic boarding school, pesantren modern, pendidikan islam, GCNI, tahsin quran, pesantren jawa barat",
   
   // Organization Schema
   organization: {
     "@context": "https://schema.org",
     "@type": "EducationalOrganization",
-    "name": "GCNI - Global Center for Nusantara Islam",
+    "name": "GCNI - Global Cahaya Nurbuwwah Insani",
     "alternateName": "Pondok Pesantren GCNI",
     "url": "https://gcni.or.id",
     "logo": "https://gcni.or.id/logo.png",
-    "description": "Pondok Pesantren Islam terpadu dengan program Tahfidz Quran dan Entrepreneur Islamic Boarding School",
+    "description": "Pondok Pesantren Islam terpadu dengan program Tahfidz Quran dan Entrepreneur Islamic Boarding School di Purwakarta, Jawa Barat",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "Kp. Babakan RT 05 / RW 02 Kel. Neglasari Kec. Neglasari",
-      "addressLocality": "Tangerang",
-      "addressRegion": "Banten",
-      "postalCode": "15129",
+      "streetAddress": "Jl. Raya Purwakarta - Subang KM. 7, Desa Maniis",
+      "addressLocality": "Purwakarta",
+      "addressRegion": "Jawa Barat",
+      "postalCode": "41181",
       "addressCountry": "ID"
     },
     "contactPoint": {
@@ -68,51 +68,51 @@ export const siteMetadata = {
 // SEO Configuration untuk setiap halaman
 export const pageMetadata = {
   home: {
-    title: "GCNI - Pondok Pesantren Tahfidz & Entrepreneur di Tangerang",
-    description: "Bergabunglah dengan GCNI, pondok pesantren modern yang menggabungkan program Tahfidz Quran, Tahsin, dan Entrepreneur Islamic Boarding School. Wujudkan generasi Qur'ani yang berakhlak mulia.",
-    keywords: "pondok pesantren tangerang, pesantren tahfidz, islamic boarding school, entrepreneur islamic boarding school, pendidikan islam modern, tahfidz quran tangerang",
+    title: "GCNI - Pondok Pesantren Tahfidz & Entrepreneur di Purwakarta, Jawa Barat",
+    description: "Bergabunglah dengan GCNI, pondok pesantren modern yang menggabungkan program Tahfidz Quran, Tahsin, dan Entrepreneur Islamic Boarding School. Wujudkan generasi Qur'ani yang berakhlak mulia di Purwakarta, Jawa Barat.",
+    keywords: "pondok pesantren purwakarta, pesantren tahfidz purwakarta, islamic boarding school jawa barat, entrepreneur islamic boarding school, pendidikan islam modern, tahfidz quran purwakarta, pesantren jawa barat",
     canonical: "https://gcni.or.id"
   },
   
   tentang: {
-    title: "Tentang Kami - GCNI Pondok Pesantren Tangerang",
-    description: "Mengenal lebih dekat GCNI - Pondok Pesantren Islam yang berfokus pada pembentukan generasi Qur'ani melalui program Tahfidz, Tahsin, dan kewirausahaan Islam.",
-    keywords: "tentang gcni, profil pesantren, visi misi pesantren, sejarah gcni, pondok pesantren modern tangerang",
+    title: "Tentang Kami - GCNI Pondok Pesantren Purwakarta",
+    description: "Mengenal lebih dekat GCNI - Pondok Pesantren Islam yang berfokus pada pembentukan generasi Qur'ani melalui program Tahfidz, Tahsin, dan kewirausahaan Islam di Purwakarta, Jawa Barat.",
+    keywords: "tentang gcni, profil pesantren, visi misi pesantren, sejarah gcni, pondok pesantren modern purwakarta, pesantren jawa barat",
     canonical: "https://gcni.or.id/tentang"
   },
   
   program: {
-    title: "Program Pendidikan - GCNI Pondok Pesantren",
-    description: "Program unggulan GCNI: Tahfidz Quran 30 Juz, Tahsin & Tartil, Entrepreneur Islamic Boarding School, Pendidikan Formal, Kegiatan Ekstrakurikuler, dan Bimbingan Spiritual.",
-    keywords: "program tahfidz, program pesantren, entrepreneur islamic boarding school, tahsin quran, tartil quran, pendidikan islam, ekstrakurikuler pesantren",
+    title: "Program Pendidikan - GCNI Pondok Pesantren Purwakarta",
+    description: "Program unggulan GCNI: Tahfidz Quran 30 Juz, Tahsin & Tartil, Entrepreneur Islamic Boarding School, Pendidikan Formal, Kegiatan Ekstrakurikuler, dan Bimbingan Spiritual di Purwakarta, Jawa Barat.",
+    keywords: "program tahfidz purwakarta, program pesantren jawa barat, entrepreneur islamic boarding school, tahsin quran, tartil quran, pendidikan islam, ekstrakurikuler pesantren",
     canonical: "https://gcni.or.id/program"
   },
   
   berita: {
-    title: "Berita & Kegiatan - GCNI Pondok Pesantren",
-    description: "Berita terkini, kegiatan, dan pengumuman dari Pondok Pesantren GCNI. Ikuti perkembangan dan aktivitas santri GCNI.",
-    keywords: "berita pesantren, kegiatan pesantren, pengumuman gcni, aktivitas santri, berita gcni tangerang",
+    title: "Berita & Kegiatan - GCNI Pondok Pesantren Purwakarta",
+    description: "Berita terkini, kegiatan, dan pengumuman dari Pondok Pesantren GCNI Purwakarta. Ikuti perkembangan dan aktivitas santri GCNI.",
+    keywords: "berita pesantren, kegiatan pesantren, pengumuman gcni, aktivitas santri, berita gcni purwakarta, berita pesantren jawa barat",
     canonical: "https://gcni.or.id/berita"
   },
   
   faq: {
-    title: "FAQ - Pertanyaan Umum GCNI Pondok Pesantren",
-    description: "Temukan jawaban atas pertanyaan umum seputar pendaftaran, program, biaya, fasilitas, dan kehidupan santri di Pondok Pesantren GCNI Tangerang.",
-    keywords: "faq pesantren, pertanyaan pendaftaran, biaya pesantren, syarat pendaftaran, fasilitas pesantren, tanya jawab gcni",
+    title: "FAQ - Pertanyaan Umum GCNI Pondok Pesantren Purwakarta",
+    description: "Temukan jawaban atas pertanyaan umum seputar pendaftaran, program, biaya, fasilitas, dan kehidupan santri di Pondok Pesantren GCNI Purwakarta, Jawa Barat.",
+    keywords: "faq pesantren, pertanyaan pendaftaran, biaya pesantren, syarat pendaftaran, fasilitas pesantren, tanya jawab gcni purwakarta",
     canonical: "https://gcni.or.id/faq"
   },
   
   kontak: {
-    title: "Kontak Kami - GCNI Pondok Pesantren Tangerang",
-    description: "Hubungi kami di GCNI Pondok Pesantren Tangerang. Alamat: Neglasari, Tangerang 15129. Telepon/WA: +62 896-8044-0055. Email: info@gcni.or.id",
-    keywords: "kontak gcni, alamat pesantren tangerang, nomor telepon gcni, email gcni, lokasi pondok pesantren, hubungi gcni",
+    title: "Kontak Kami - GCNI Pondok Pesantren Purwakarta, Jawa Barat",
+    description: "Hubungi kami di GCNI Pondok Pesantren Purwakarta. Alamat: Jl. Raya Purwakarta - Subang KM. 7, Desa Maniis, Purwakarta 41181. Telepon/WA: +62 896-8044-0055. Email: info@gcni.or.id",
+    keywords: "kontak gcni, alamat pesantren purwakarta, nomor telepon gcni, email gcni, lokasi pondok pesantren jawa barat, hubungi gcni purwakarta",
     canonical: "https://gcni.or.id/kontak"
   },
   
   donasi: {
-    title: "Donasi - Dukung Pendidikan Islam GCNI",
-    description: "Salurkan donasi Anda untuk mendukung pembangunan infrastruktur, fasilitas pembelajaran, dan program pendidikan Islam di Pondok Pesantren GCNI Tangerang.",
-    keywords: "donasi pesantren, sedekah pendidikan, wakaf pesantren, donasi pembangunan, infaq pesantren, charity islamic education",
+    title: "Donasi - Dukung Pendidikan Islam GCNI Purwakarta",
+    description: "Salurkan donasi Anda untuk mendukung pembangunan infrastruktur, fasilitas pembelajaran, dan program pendidikan Islam di Pondok Pesantren GCNI Purwakarta, Jawa Barat.",
+    keywords: "donasi pesantren, sedekah pendidikan, wakaf pesantren, donasi pembangunan, infaq pesantren purwakarta, charity islamic education, donasi pesantren jawa barat",
     canonical: "https://gcni.or.id/donasi"
   }
 };

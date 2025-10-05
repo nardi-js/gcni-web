@@ -1,22 +1,48 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { newsData, formatDate, getCategoryColor } from '../data/newsData';
+import { getAllNews, getNewsByCategory } from '../services/newsService';
+import { formatDate, getCategoryColor } from '../data/newsData';
 
 const Berita = () => {
-  const [filteredNews, setFilteredNews] = useState(newsData);
+  const [filteredNews, setFilteredNews] = useState([]);
   const [activeFilter, setActiveFilter] = useState('all');
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    document.title = 'Berita GCNI Jakarta - Info Pendaftaran, Prestasi Santri, Kegiatan Islamic Boarding School';
+    document.title = 'Berita GCNI - Info Pendaftaran, Prestasi Santri, Kegiatan Islamic Boarding School';
+    loadNews('all');
   }, []);
+
+  const loadNews = async (category = 'all') => {
+    setLoading(true);
+    setError(null);
+    
+    try {
+      let result;
+      if (category === 'all') {
+        result = await getAllNews();
+      } else {
+        // Capitalize first letter untuk match dengan Firestore data
+        const categoryCapitalized = category.charAt(0).toUpperCase() + category.slice(1);
+        result = await getNewsByCategory(categoryCapitalized);
+      }
+
+      if (result.success) {
+        setFilteredNews(result.data);
+      } else {
+        setError(result.message);
+      }
+    } catch (err) {
+      setError('Gagal memuat berita: ' + err.message);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   const filterNews = (category) => {
     setActiveFilter(category);
-    if (category === 'all') {
-      setFilteredNews(newsData);
-    } else {
-      setFilteredNews(newsData.filter(news => news.category.toLowerCase() === category.toLowerCase()));
-    }
+    loadNews(category);
   };
 
   const categories = [
@@ -70,14 +96,41 @@ const Berita = () => {
       {/* News Section */}
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
-          {filteredNews.length === 0 ? (
+          {/* Loading State */}
+          {loading && (
+            <div className="text-center py-20">
+              <i className="fas fa-spinner fa-spin text-6xl text-teal-600 mb-4"></i>
+              <p className="text-gray-600 text-lg">Memuat berita...</p>
+            </div>
+          )}
+
+          {/* Error State */}
+          {error && !loading && (
+            <div className="text-center py-12">
+              <i className="fas fa-exclamation-triangle text-6xl text-red-400 mb-4"></i>
+              <p className="text-red-600 text-lg mb-4">{error}</p>
+              <button
+                onClick={() => loadNews(activeFilter)}
+                className="bg-teal-600 hover:bg-teal-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors"
+              >
+                <i className="fas fa-redo mr-2"></i>
+                Coba Lagi
+              </button>
+            </div>
+          )}
+
+          {/* Empty State */}
+          {!loading && !error && filteredNews.length === 0 && (
             <div className="text-center py-12">
               <i className="fas fa-newspaper text-6xl text-gray-300 mb-4"></i>
               <p className="text-gray-500 text-lg">Tidak ada berita untuk kategori ini</p>
             </div>
-          ) : (
+          )}
+
+          {/* News Grid */}
+          {!loading && !error && filteredNews.length > 0 && (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {filteredNews.map((news, index) => (
+              {filteredNews.map((news) => (
                 <article
                   key={news.id}
                   className="bg-white rounded-xl shadow-lg overflow-hidden hover-lift"
@@ -114,7 +167,7 @@ const Berita = () => {
                       {news.excerpt}
                     </p>
                     <Link
-                      to={`/artikel/${news.id}`}
+                      to={`/artikel/${news.slug}`}
                       className={`inline-flex items-center text-${getCategoryColor(news.category)}-600 hover:text-${getCategoryColor(news.category)}-700 font-semibold group`}
                     >
                       <i className="fas fa-arrow-right mr-2 group-hover:translate-x-1 transition-transform"></i>
@@ -123,16 +176,6 @@ const Berita = () => {
                   </div>
                 </article>
               ))}
-            </div>
-          )}
-
-          {/* Load More Button */}
-          {filteredNews.length > 0 && (
-            <div className="text-center mt-12">
-              <button className="bg-teal-600 hover:bg-teal-700 text-white px-8 py-4 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg">
-                <i className="fas fa-plus mr-2"></i>
-                Muat Berita Lainnya
-              </button>
             </div>
           )}
         </div>
