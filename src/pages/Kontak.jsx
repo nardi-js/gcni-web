@@ -106,6 +106,9 @@ const Kontak = () => {
       <section className="relative pt-32 pb-20 bg-gradient-to-r from-teal-600 to-teal-800 text-white overflow-hidden">
         <div className="absolute inset-0 bg-black/20"></div>
         <div className="relative container mx-auto px-4 text-center">
+          <div className="w-20 h-20 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center mx-auto mb-6" data-aos="zoom-in">
+            <i className="fas fa-phone text-5xl text-white"></i>
+          </div>
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 gradient-text break-words" data-aos="fade-up">
             Hubungi Kami
           </h1>

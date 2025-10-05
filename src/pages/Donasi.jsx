@@ -198,6 +198,9 @@ const Donasi = () => {
       <section className="relative pt-24 md:pt-32 pb-12 md:pb-16 lg:pb-20 bg-gradient-to-r from-teal-600 to-teal-800 text-white">
         <div className="absolute inset-0 bg-black/20"></div>
         <div className="relative container mx-auto px-4 text-center">
+          <div className="w-20 h-20 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center mx-auto mb-6" data-aos="zoom-in">
+            <i className="fas fa-heart text-5xl text-white"></i>
+          </div>
           <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 md:mb-6 gradient-text" data-aos="fade-up">
             Berdonasi
           </h1>
@@ -208,9 +211,9 @@ const Donasi = () => {
       </section>
 
       {/* Progress Indicator */}
-      <div className="bg-white shadow-sm border-b sticky top-16 z-40">
-        <div className="container mx-auto px-2 md:px-4 py-2 md:py-3">
-          <div className="flex items-center justify-center space-x-1 sm:space-x-2 md:space-x-3 overflow-x-auto">
+      <div className="bg-white shadow-md border-b sticky top-[79px] z-40 h-16">
+        <div className="container mx-auto px-2 md:px-4 h-full flex items-center">
+          <div className="flex items-center justify-center space-x-1 sm:space-x-2 md:space-x-3 overflow-x-auto w-full">
             <div className="flex items-center flex-shrink-0">
               <div className={getIndicatorClass(1)}>1</div>
               <span className="ml-1 text-[10px] sm:text-xs font-medium text-gray-700">Nominal</span>
