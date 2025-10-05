@@ -137,7 +137,7 @@ const Berita = () => {
                  
                  
                 >
-                  <div className={`h-48 bg-gradient-to-r from-${getCategoryColor(news.category)}-400 to-${getCategoryColor(news.category)}-600 flex items-center justify-center relative overflow-hidden`}>
+                  <div className={`h-40 sm:h-48 bg-gradient-to-r from-${getCategoryColor(news.category)}-400 to-${getCategoryColor(news.category)}-600 flex items-center justify-center relative overflow-hidden`}>
                     <img
                       src={news.image}
                       alt={news.title}

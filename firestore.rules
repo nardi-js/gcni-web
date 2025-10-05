@@ -1,0 +1,60 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // Helper function - Check if user is admin
+    function isAdmin() {
+      let email = request.auth.token.email;
+      
+      // Super admins (hardcoded di authService.js)
+      let superAdmins = [
+        'gcnigroup@gmail.com'  // 👈 GANTI DENGAN EMAIL KAMU (sama seperti authService.js)
+      ];
+      
+      return request.auth != null && (
+        email in superAdmins ||
+        exists(/databases/$(database)/documents/admins/$(email))
+      );
+    }
+    
+    // ========================================
+    // NEWS COLLECTION
+    // ========================================
+    match /news/{newsId} {
+      // Anyone can read
+      allow read: if true;
+      
+      // Only admins can write
+      allow create, update, delete: if isAdmin();
+    }
+    
+    // ========================================
+    // MESSAGES COLLECTION
+    // ========================================
+    match /messages/{messageId} {
+      // Anyone can create (contact form)
+      allow create: if true;
+      
+      // Only admins can read, update, delete
+      allow read, update, delete: if isAdmin();
+    }
+    
+    // ========================================
+    // ADMINS COLLECTION
+    // ========================================
+    match /admins/{email} {
+      // Only admins can read
+      allow read: if isAdmin();
+      
+      // Only super admins can write (manage other admins)
+      // Cek manual di authService.js
+      allow write: if false; // Manage via Firebase Console
+    }
+    
+    // Block all other collections
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

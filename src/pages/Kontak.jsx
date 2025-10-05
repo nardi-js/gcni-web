@@ -267,233 +267,331 @@ const Kontak = () => {
       </section>
 
       {/* Contact Form & Info */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-gradient-to-br from-gray-50 to-white">
         <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-              {/* Contact Form */}
-              <motion.div 
-                className="bg-gray-50 rounded-2xl p-8"
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.3 }}
-                variants={variants.fadeRight}
-                transition={transition}
-              >
-                <h2 className="text-3xl font-bold text-gray-900 mb-6">Kirim Pesan</h2>
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
-                      <label htmlFor="nama" className="block text-sm font-medium text-gray-700 mb-2">
-                        Nama Lengkap *
-                      </label>
-                      <input
-                        type="text"
-                        id="nama"
-                        name="nama"
-                        value={formData.nama}
-                        onChange={handleInputChange}
-                        required
-                        className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-teal-600 focus:outline-none transition-colors"
-                      />
+          <div className="max-w-5xl mx-auto">
+            {/* Section Header */}
+            <motion.div 
+              className="text-center mb-12"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.3 }}
+              variants={variants.fadeUp}
+              transition={transition}
+            >
+              <h2 className="text-4xl font-bold text-gray-900 mb-4">Hubungi Kami</h2>
+              <p className="text-gray-600 max-w-2xl mx-auto">
+                Jangan ragu untuk menghubungi kami melalui berbagai cara berikut ini. Tim kami siap melayani Anda dengan sepenuh hati.
+              </p>
+            </motion.div>
+
+            {/* Contact Form - Full Width */}
+            <motion.div 
+              className="mb-16"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.3 }}
+              variants={variants.fadeUp}
+              transition={transition}
+            >
+              <div className="bg-white rounded-3xl shadow-xl p-8 lg:p-12 border border-gray-100">
+                {/* Form Header */}
+                <div className="mb-8">
+                  <div className="flex items-center mb-3">
+                    <div className="w-14 h-14 bg-teal-100 rounded-xl flex items-center justify-center mr-4">
+                      <i className="fas fa-envelope text-2xl text-teal-600"></i>
                     </div>
                     <div>
-                      <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-                        Email *
+                      <h3 className="text-2xl font-bold text-gray-900">Kirim Pesan</h3>
+                      <p className="text-gray-600 text-sm">
+                        Isi formulir di bawah ini dan kami akan merespons secepat mungkin
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  {/* Row 1: Nama & Email */}
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                      <label htmlFor="nama" className="block text-sm font-semibold text-gray-700 mb-2">
+                        Nama Lengkap <span className="text-red-500">*</span>
                       </label>
-                      <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        value={formData.email}
-                        onChange={handleInputChange}
-                        required
-                        className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-teal-600 focus:outline-none transition-colors"
-                      />
+                      <div className="relative">
+                        <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                          <i className="fas fa-user text-gray-400"></i>
+                        </div>
+                        <input
+                          type="text"
+                          id="nama"
+                          name="nama"
+                          value={formData.nama}
+                          onChange={handleInputChange}
+                          required
+                          placeholder="Masukkan nama Anda"
+                          className="w-full pl-11 pr-4 py-3.5 border-2 border-gray-200 rounded-xl focus:border-teal-500 focus:ring-2 focus:ring-teal-200 focus:outline-none transition-all"
+                        />
+                      </div>
+                    </div>
+                    <div>
+                      <label htmlFor="email" className="block text-sm font-semibold text-gray-700 mb-2">
+                        Email <span className="text-red-500">*</span>
+                      </label>
+                      <div className="relative">
+                        <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                          <i className="fas fa-envelope text-gray-400"></i>
+                        </div>
+                        <input
+                          type="email"
+                          id="email"
+                          name="email"
+                          value={formData.email}
+                          onChange={handleInputChange}
+                          required
+                          placeholder="nama@email.com"
+                          className="w-full pl-11 pr-4 py-3.5 border-2 border-gray-200 rounded-xl focus:border-teal-500 focus:ring-2 focus:ring-teal-200 focus:outline-none transition-all"
+                        />
+                      </div>
                     </div>
                   </div>
 
+                  {/* Row 2: Telepon & Subjek */}
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                      <label htmlFor="telepon" className="block text-sm font-medium text-gray-700 mb-2">
+                      <label htmlFor="telepon" className="block text-sm font-semibold text-gray-700 mb-2">
                         No. Telepon
                       </label>
-                      <input
-                        type="tel"
-                        id="telepon"
-                        name="telepon"
-                        value={formData.telepon}
-                        onChange={handleInputChange}
-                        className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-teal-600 focus:outline-none transition-colors"
-                      />
+                      <div className="relative">
+                        <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                          <i className="fas fa-phone text-gray-400"></i>
+                        </div>
+                        <input
+                          type="tel"
+                          id="telepon"
+                          name="telepon"
+                          value={formData.telepon}
+                          onChange={handleInputChange}
+                          placeholder="08123456789"
+                          className="w-full pl-11 pr-4 py-3.5 border-2 border-gray-200 rounded-xl focus:border-teal-500 focus:ring-2 focus:ring-teal-200 focus:outline-none transition-all"
+                        />
+                      </div>
                     </div>
                     <div>
-                      <label htmlFor="subjek" className="block text-sm font-medium text-gray-700 mb-2">
-                        Subjek *
+                      <label htmlFor="subjek" className="block text-sm font-semibold text-gray-700 mb-2">
+                        Subjek <span className="text-red-500">*</span>
                       </label>
-                      <select
-                        id="subjek"
-                        name="subjek"
-                        value={formData.subjek}
-                        onChange={handleInputChange}
-                        required
-                        className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-teal-600 focus:outline-none transition-colors"
-                      >
-                        {contactData.formSubjects.map((subject, index) => (
-                          <option key={index} value={subject.value}>
-                            {subject.label}
-                          </option>
-                        ))}
-                      </select>
+                      <div className="relative">
+                        <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                          <i className="fas fa-tag text-gray-400"></i>
+                        </div>
+                        <select
+                          id="subjek"
+                          name="subjek"
+                          value={formData.subjek}
+                          onChange={handleInputChange}
+                          required
+                          className="w-full pl-11 pr-4 py-3.5 border-2 border-gray-200 rounded-xl focus:border-teal-500 focus:ring-2 focus:ring-teal-200 focus:outline-none transition-all appearance-none bg-white cursor-pointer"
+                        >
+                          {contactData.formSubjects.map((subject, index) => (
+                            <option key={index} value={subject.value}>
+                              {subject.label}
+                            </option>
+                          ))}
+                        </select>
+                        <div className="absolute inset-y-0 right-0 pr-4 flex items-center pointer-events-none">
+                          <i className="fas fa-chevron-down text-gray-400 text-sm"></i>
+                        </div>
+                      </div>
                     </div>
                   </div>
 
+                  {/* Row 3: Pesan */}
                   <div>
-                    <label htmlFor="pesan" className="block text-sm font-medium text-gray-700 mb-2">
-                      Pesan *
+                    <label htmlFor="pesan" className="block text-sm font-semibold text-gray-700 mb-2">
+                      Pesan <span className="text-red-500">*</span>
                     </label>
-                    <textarea
-                      id="pesan"
-                      name="pesan"
-                      rows="6"
-                      value={formData.pesan}
-                      onChange={handleInputChange}
-                      required
-                      placeholder="Tuliskan pesan Anda di sini..."
-                      className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-teal-600 focus:outline-none transition-colors resize-none"
-                    ></textarea>
+                    <div className="relative">
+                      <div className="absolute top-4 left-4 pointer-events-none">
+                        <i className="fas fa-comment-dots text-gray-400"></i>
+                      </div>
+                      <textarea
+                        id="pesan"
+                        name="pesan"
+                        rows="5"
+                        value={formData.pesan}
+                        onChange={handleInputChange}
+                        required
+                        placeholder="Tuliskan pesan Anda di sini..."
+                        className="w-full pl-11 pr-4 py-4 border-2 border-gray-200 rounded-xl focus:border-teal-500 focus:ring-2 focus:ring-teal-200 focus:outline-none transition-all resize-none"
+                      ></textarea>
+                    </div>
+                    <p className="text-xs text-gray-500 mt-2">
+                      <i className="fas fa-info-circle mr-1"></i>
+                      Minimal 10 karakter
+                    </p>
                   </div>
 
-                  <button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className="w-full bg-teal-600 hover:bg-teal-700 disabled:bg-gray-400 text-white py-4 px-8 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg disabled:transform-none disabled:cursor-not-allowed"
-                  >
-                    {isSubmitting ? (
-                      <>
-                        <i className="fas fa-spinner fa-spin mr-2"></i>
-                        Mengirim...
-                      </>
-                    ) : (
-                      'Kirim Pesan'
-                    )}
-                  </button>
+                  {/* Submit Button */}
+                  <div className="flex justify-end">
+                    <button
+                      type="submit"
+                      disabled={isSubmitting}
+                      className="bg-gradient-to-r from-teal-600 to-teal-700 hover:from-teal-700 hover:to-teal-800 disabled:from-gray-400 disabled:to-gray-400 text-white py-4 px-12 rounded-xl font-bold text-lg transition-all duration-300 transform hover:scale-[1.02] hover:shadow-xl disabled:transform-none disabled:cursor-not-allowed disabled:shadow-none flex items-center space-x-2"
+                    >
+                      {isSubmitting ? (
+                        <>
+                          <i className="fas fa-spinner fa-spin"></i>
+                          <span>Mengirim...</span>
+                        </>
+                      ) : (
+                        <>
+                          <i className="fas fa-paper-plane"></i>
+                          <span>Kirim Pesan</span>
+                        </>
+                      )}
+                    </button>
+                  </div>
                 </form>
 
                 {/* Success/Error Messages */}
                 {message.text && (
-                  <div id="form-message" className="mt-4">
-                    <div className={`p-4 rounded-xl border flex items-start space-x-3 ${
+                  <div id="form-message" className="mt-6 animate-fade-in">
+                    <div className={`p-4 rounded-xl border-2 flex items-start space-x-3 ${
                       message.type === 'success' 
-                        ? 'bg-green-100 text-green-800 border-green-200' 
-                        : 'bg-red-100 text-red-800 border-red-200'
+                        ? 'bg-green-50 text-green-800 border-green-300' 
+                        : 'bg-red-50 text-red-800 border-red-300'
                     }`}>
-                      <i className={`fas ${message.type === 'success' ? 'fa-check-circle' : 'fa-exclamation-circle'} mt-0.5 flex-shrink-0`}></i>
-                      <span>{message.text}</span>
+                      <i className={`fas ${message.type === 'success' ? 'fa-check-circle' : 'fa-exclamation-circle'} text-xl mt-0.5 flex-shrink-0`}></i>
+                      <span className="text-sm font-medium">{message.text}</span>
                     </div>
                   </div>
                 )}
-              </motion.div>
+              </div>
+            </motion.div>
 
-              {/* Contact Information */}
-              <motion.div 
-                className="space-y-8"
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.3 }}
-                variants={variants.fadeLeft}
-                transition={transition}
-              >
-                <div>
-                  <h2 className="text-3xl font-bold text-gray-900 mb-6">Informasi Kontak</h2>
-                  <p className="text-gray-600 text-lg mb-8">
-                    Jangan ragu untuk menghubungi kami melalui berbagai cara berikut ini. 
-                    Tim kami siap melayani Anda dengan sepenuh hati.
-                  </p>
+            {/* Contact Information - Grid Below Form */}
+            <motion.div 
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.3 }}
+              variants={variants.fadeUp}
+              transition={{ ...transition, delay: 0.2 }}
+            >
+              <div className="text-center mb-8">
+                <h3 className="text-2xl font-bold text-gray-900 mb-2">Informasi Kontak</h3>
+                <p className="text-gray-600">
+                  Atau hubungi kami melalui salah satu channel di bawah ini
+                </p>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                {/* Address */}
+                <div className="flex flex-col items-center text-center p-6 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow border border-gray-100">
+                  <div className="w-16 h-16 bg-teal-100 rounded-2xl flex items-center justify-center mb-4">
+                    <i className="fas fa-map-marker-alt text-2xl text-teal-600"></i>
+                  </div>
+                  <h3 className="text-lg font-bold text-gray-900 mb-3">Alamat</h3>
+                  <p className="text-gray-600 text-sm font-medium">{contactData.address.street}</p>
+                  <p className="text-gray-600 text-sm">{contactData.address.district}</p>
+                  <p className="text-gray-600 text-sm">{contactData.address.regency}</p>
+                  <p className="text-gray-600 text-sm">{contactData.address.province} {contactData.address.postalCode}</p>
+                  <a
+                    href={getGoogleMapsLink()}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-4 text-teal-600 hover:text-teal-700 font-semibold text-sm flex items-center"
+                  >
+                    <i className="fas fa-directions mr-2"></i>
+                    Lihat di Maps
+                  </a>
                 </div>
 
-                {/* Contact Details */}
-                <div className="space-y-6">
-                  {/* Address */}
-                  <div className="flex items-start space-x-4 p-6 bg-white rounded-xl shadow-md hover-lift">
-                    <div className="w-12 h-12 bg-teal-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <i className="fas fa-map-marker-alt text-teal-600"></i>
-                    </div>
-                    <div>
-                      <h3 className="text-lg font-semibold text-gray-900 mb-2">Alamat</h3>
-                      <p className="text-gray-600 font-medium">{contactData.address.street}</p>
-                      <p className="text-gray-600">{contactData.address.district}</p>
-                      <p className="text-gray-600">{contactData.address.regency}, {contactData.address.province} {contactData.address.postalCode}</p>
-                      <p className="text-sm text-teal-600 mt-2">📍 Plus Code: {contactData.coordinates.plusCode.split(',')[0]}</p>
-                    </div>
+                {/* Phone */}
+                <div className="flex flex-col items-center text-center p-6 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow border border-gray-100">
+                  <div className="w-16 h-16 bg-yellow-100 rounded-2xl flex items-center justify-center mb-4">
+                    <i className="fas fa-phone text-2xl text-yellow-600"></i>
                   </div>
-
-                  {/* Phone */}
-                  <div className="flex items-start space-x-4 p-6 bg-white rounded-xl shadow-md hover-lift">
-                    <div className="w-12 h-12 bg-yellow-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <i className="fas fa-phone text-yellow-600"></i>
-                    </div>
-                    <div>
-                      <h3 className="text-lg font-semibold text-gray-900 mb-2">Telepon</h3>
-                      <p className="text-gray-600">{contactData.phone}</p>
-                      <p className="text-sm text-gray-500 mt-1">Senin - Jumat: {contactData.operatingHours.weekdays}</p>
-                      <p className="text-sm text-gray-500">Sabtu: {contactData.operatingHours.saturday}</p>
-                    </div>
+                  <h3 className="text-lg font-bold text-gray-900 mb-3">Telepon</h3>
+                  <p className="text-gray-700 font-semibold mb-2">{contactData.phone}</p>
+                  <div className="text-xs text-gray-600">
+                    <p className="mb-1">
+                      <i className="far fa-clock mr-1"></i>
+                      Senin - Jumat
+                    </p>
+                    <p className="font-medium">{contactData.operatingHours.weekdays}</p>
+                    <p className="mt-2 mb-1">
+                      <i className="far fa-clock mr-1"></i>
+                      Sabtu
+                    </p>
+                    <p className="font-medium">{contactData.operatingHours.saturday}</p>
                   </div>
+                </div>
 
-                  {/* WhatsApp */}
-                  <div className="flex items-start space-x-4 p-6 bg-white rounded-xl shadow-md hover-lift">
-                    <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <i className="fab fa-whatsapp text-green-600"></i>
+                {/* WhatsApp */}
+                <div className="flex flex-col items-center text-center p-6 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow border border-gray-100">
+                  <div className="w-16 h-16 bg-green-100 rounded-2xl flex items-center justify-center mb-4">
+                    <i className="fab fa-whatsapp text-2xl text-green-600"></i>
+                  </div>
+                  <h3 className="text-lg font-bold text-gray-900 mb-3">WhatsApp</h3>
+                  <p className="text-gray-700 font-semibold mb-2">{contactData.whatsappFormatted}</p>
+                  <p className="text-xs text-gray-600 mb-4">Chat langsung dengan kami</p>
+                  <a 
+                    href={getWhatsAppLink()} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center bg-green-500 hover:bg-green-600 text-white px-6 py-2.5 rounded-xl font-semibold text-sm transition-colors"
+                  >
+                    <i className="fab fa-whatsapp mr-2"></i>
+                    Chat Sekarang
+                  </a>
+                </div>
+
+                {/* Email */}
+                <div className="flex flex-col items-center text-center p-6 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow border border-gray-100">
+                  <div className="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center mb-4">
+                    <i className="fas fa-envelope text-2xl text-blue-600"></i>
+                  </div>
+                  <h3 className="text-lg font-bold text-gray-900 mb-3">Email</h3>
+                  <div className="space-y-2">
+                    <div>
+                      <p className="text-xs text-gray-500 mb-1">Info Umum</p>
+                      <a href={`mailto:${contactData.email.info}`} className="text-gray-700 hover:text-teal-600 font-medium text-sm block">
+                        {contactData.email.info}
+                      </a>
                     </div>
                     <div>
-                      <h3 className="text-lg font-semibold text-gray-900 mb-2">WhatsApp</h3>
-                      <p className="text-gray-600">{contactData.whatsappFormatted}</p>
-                      <a 
-                        href={getWhatsAppLink()} 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center text-green-600 hover:text-green-700 font-semibold mt-2"
-                      >
-                        Chat Sekarang
-                        <i className="fas fa-external-link-alt text-sm ml-1"></i>
+                      <p className="text-xs text-gray-500 mb-1">Pendaftaran</p>
+                      <a href={`mailto:${contactData.email.registration}`} className="text-gray-700 hover:text-teal-600 font-medium text-sm block">
+                        {contactData.email.registration}
                       </a>
                     </div>
                   </div>
-
-                  {/* Email */}
-                  <div className="flex items-start space-x-4 p-6 bg-white rounded-xl shadow-md hover-lift">
-                    <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <i className="fas fa-envelope text-blue-600"></i>
-                    </div>
-                    <div>
-                      <h3 className="text-lg font-semibold text-gray-900 mb-2">Email</h3>
-                      <p className="text-gray-600">{contactData.email}</p>
-                      <p className="text-gray-600">{contactData.emailRegistration}</p>
-                    </div>
-                  </div>
                 </div>
+              </div>
 
-                {/* Social Media */}
-                <div className="bg-gray-50 rounded-xl p-6">
-                  <h3 className="text-lg font-semibold text-gray-900 mb-4">Ikuti Kami</h3>
-                  <div className="flex space-x-4">
-                    {Object.values(contactData.social).map((social, index) => (
-                      <a
-                        key={index}
-                        href={social.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className={`w-12 h-12 ${social.color} rounded-xl flex items-center justify-center text-white hover:scale-110 transition-all shadow-lg`}
-                        title={social.username}
-                      >
-                        <i className={`${social.icon} text-xl`}></i>
-                      </a>
-                    ))}
-                  </div>
+              {/* Social Media Section */}
+              <div className="mt-12">
+                <div className="text-center mb-6">
+                  <h3 className="text-2xl font-bold text-gray-900 mb-2">Ikuti Kami</h3>
+                  <p className="text-gray-600">Tetap terhubung dengan kami melalui media sosial</p>
                 </div>
-              </motion.div>
-            </div>
+                <div className="flex justify-center items-center space-x-4">
+                  {Object.values(contactData.social).map((social, index) => (
+                    <a
+                      key={index}
+                      href={social.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`w-14 h-14 ${social.color} rounded-2xl flex items-center justify-center text-white hover:scale-110 transition-all shadow-lg hover:shadow-xl`}
+                      title={social.username}
+                    >
+                      <i className={`${social.icon} text-2xl`}></i>
+                    </a>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
+
           </div>
         </div>
       </section>

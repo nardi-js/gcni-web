@@ -140,13 +140,12 @@ const Artikel = () => {
       <section className="py-16">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            {/* Featured Image */}
-            <div className="mb-12 rounded-2xl overflow-hidden shadow-2xl" style={{ maxHeight: '600px' }}>
+            {/* Featured Image - Optimized for Mobile */}
+            <div className="mb-8 md:mb-12 rounded-xl md:rounded-2xl overflow-hidden shadow-2xl">
               <img
                 src={article.image}
                 alt={article.title}
-                className="w-full h-full object-cover"
-                style={{ maxHeight: '600px', objectFit: 'cover' }}
+                className="w-full featured-image"
                 onError={(e) => {
                   e.target.src = 'https://via.placeholder.com/1200x600/14B8A6/FFFFFF?text=GCNI+News';
                 }}

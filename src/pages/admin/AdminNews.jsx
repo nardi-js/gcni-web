@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import { createNews, getAllNews, updateNews, deleteNews } from '../../services/newsService';
-import { seedNewsData } from '../../utils/seedFirestore';
 import AdminLayout from '../../components/AdminLayout';
 
 const AdminNews = () => {
@@ -40,26 +39,6 @@ const AdminNews = () => {
       // Don't show alert on initial load, just log the error
     }
     setLoading(false);
-  };
-
-  const handleSeedData = async () => {
-    if (newsList.length > 0) {
-      const confirmSeed = window.confirm(
-        `Sudah ada ${newsList.length} berita di database.\n\nApakah Anda yakin ingin menambahkan data sample? Ini akan menambah data, tidak menghapus yang sudah ada.`
-      );
-      if (!confirmSeed) return;
-    }
-
-    setLoading(true);
-    const result = await seedNewsData();
-    setLoading(false);
-
-    if (result.success) {
-      alert(`✅ ${result.message}\n\nBerhasil: ${result.successCount}\nGagal: ${result.errorCount}`);
-      loadNews(); // Reload data
-    } else {
-      alert(`❌ Gagal seed data:\n${result.error}\n\nPastikan Firestore rules sudah diatur dengan benar.`);
-    }
   };
 
   const handleInputChange = (e) => {
@@ -164,20 +143,10 @@ const AdminNews = () => {
                 <p className="text-gray-600 mt-1">Manajemen konten berita GCNI</p>
               </div>
               <div className="flex flex-col sm:flex-row gap-2 w-full sm:w-auto">
-                {newsList.length === 0 && !loading && (
-                  <button
-                    onClick={handleSeedData}
-                    className="w-full sm:w-auto bg-purple-600 hover:bg-purple-700 text-white px-4 py-3 rounded-lg font-semibold transition-colors flex items-center justify-center gap-2"
-                    title="Import data sample dari newsData.js"
+                <button
+                  onClick={() => setIsFormOpen(!isFormOpen)}
+                  className="w-full sm:w-auto bg-teal-600 hover:bg-teal-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors flex items-center justify-center gap-2"
                 >
-                  <i className="fas fa-database"></i>
-                  Import Data Sample
-                </button>
-              )}
-              <button
-                onClick={() => setIsFormOpen(!isFormOpen)}
-                className="w-full sm:w-auto bg-teal-600 hover:bg-teal-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors flex items-center justify-center gap-2"
-              >
                 <i className={`fas ${isFormOpen ? 'fa-times' : 'fa-plus'}`}></i>
                 {isFormOpen ? 'Tutup Form' : 'Tambah Berita'}
               </button>
@@ -411,22 +380,14 @@ const AdminNews = () => {
 
           {/* Empty State */}
           {!loading && newsList.length === 0 && (
-            <div className="text-center py-12">
-              <i className="fas fa-newspaper text-6xl text-gray-300 mb-4"></i>
-              <p className="text-gray-600 text-lg font-semibold mb-2">Belum ada berita di Firebase</p>
-              <p className="text-gray-400 text-sm mb-6">Pilih salah satu opsi di bawah untuk memulai:</p>
-              <div className="flex flex-col sm:flex-row gap-3 justify-center items-center">
-                <button
-                  onClick={handleSeedData}
-                  className="bg-purple-600 hover:bg-purple-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors flex items-center gap-2"
-                >
-                  <i className="fas fa-database"></i>
-                  Import 6 Data Sample
-                </button>
-                <span className="text-gray-400">atau</span>
+            <div className="text-center py-16">
+              <div className="bg-gray-50 rounded-2xl p-12 border-2 border-dashed border-gray-300">
+                <i className="fas fa-newspaper text-7xl text-gray-300 mb-6"></i>
+                <p className="text-gray-600 text-xl font-semibold mb-3">Belum ada berita</p>
+                <p className="text-gray-400 text-sm mb-8">Klik tombol di atas untuk membuat berita pertama</p>
                 <button
                   onClick={() => setIsFormOpen(true)}
-                  className="bg-teal-600 hover:bg-teal-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors flex items-center gap-2"
+                  className="bg-teal-600 hover:bg-teal-700 text-white px-8 py-4 rounded-xl font-semibold transition-all shadow-lg hover:shadow-xl flex items-center gap-3 mx-auto"
                 >
                   <i className="fas fa-plus"></i>
                   Buat Berita Baru

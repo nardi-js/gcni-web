@@ -1,11 +1,16 @@
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { getUnreadCount } from '../services/messageService';
+import { useAuth } from '../context/AuthContext';
+import { logout } from '../services/authService';
 
 const AdminLayout = ({ children }) => {
   const location = useLocation();
+  const navigate = useNavigate();
+  const { user } = useAuth();
   const [unreadCount, setUnreadCount] = useState(0);
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [showLogoutConfirm, setShowLogoutConfirm] = useState(false);
 
   useEffect(() => {
     loadUnreadCount();
@@ -18,6 +23,13 @@ const AdminLayout = ({ children }) => {
     const result = await getUnreadCount();
     if (result.success) {
       setUnreadCount(result.count);
+    }
+  };
+
+  const handleLogout = async () => {
+    const result = await logout();
+    if (result.success) {
+      navigate('/admin/login');
     }
   };
 
@@ -113,7 +125,38 @@ const AdminLayout = ({ children }) => {
         </nav>
 
         {/* Footer */}
-        <div className="absolute bottom-0 left-0 right-0 p-4 border-t">
+        <div className="absolute bottom-0 left-0 right-0 p-4 border-t space-y-2">
+          {/* User Info */}
+          {user && (
+            <div className="px-4 py-3 bg-gray-50 rounded-lg mb-2">
+              <div className="flex items-center gap-3">
+                <img
+                  src={user.photoURL || 'https://via.placeholder.com/40'}
+                  alt={user.displayName || 'User'}
+                  className="w-10 h-10 rounded-full border-2 border-teal-600"
+                />
+                <div className="flex-1 min-w-0">
+                  <p className="text-sm font-semibold text-gray-900 truncate">
+                    {user.displayName || 'Admin'}
+                  </p>
+                  <p className="text-xs text-gray-500 truncate">
+                    {user.email}
+                  </p>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* Logout Button */}
+          <button
+            onClick={() => setShowLogoutConfirm(true)}
+            className="w-full flex items-center gap-3 px-4 py-3 rounded-lg text-red-600 hover:bg-red-50 font-semibold transition-all"
+          >
+            <i className="fas fa-sign-out-alt"></i>
+            <span>Logout</span>
+          </button>
+
+          {/* Back to Website */}
           <Link
             to="/"
             className="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-700 hover:bg-gray-100 font-semibold transition-all"
@@ -128,6 +171,40 @@ const AdminLayout = ({ children }) => {
       <div className="lg:ml-64">
         {children}
       </div>
+
+      {/* Logout Confirmation Modal */}
+      {showLogoutConfirm && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+          <div className="bg-white rounded-2xl shadow-2xl max-w-md w-full p-6">
+            <div className="text-center mb-6">
+              <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <i className="fas fa-sign-out-alt text-3xl text-red-600"></i>
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 mb-2">
+                Konfirmasi Logout
+              </h3>
+              <p className="text-gray-600">
+                Apakah Anda yakin ingin keluar dari admin panel?
+              </p>
+            </div>
+
+            <div className="flex gap-3">
+              <button
+                onClick={() => setShowLogoutConfirm(false)}
+                className="flex-1 px-4 py-3 border-2 border-gray-300 text-gray-700 rounded-xl font-semibold hover:bg-gray-50 transition-all"
+              >
+                Batal
+              </button>
+              <button
+                onClick={handleLogout}
+                className="flex-1 px-4 py-3 bg-red-600 text-white rounded-xl font-semibold hover:bg-red-700 transition-all"
+              >
+                Ya, Logout
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

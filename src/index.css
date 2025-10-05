@@ -100,6 +100,22 @@ img {
   }
 }
 
+/* Fade In Animation */
+@keyframes fadeInAnimation {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeInAnimation 0.4s ease-out;
+}
+
 /* Article Content Styling */
 .article-content {
   line-height: 1.8;
@@ -159,27 +175,51 @@ img {
 /* Article Images - FIT & RESPONSIVE */
 .article-content img {
   max-width: 100% !important;
+  width: 100% !important; /* Full width container */
   height: auto !important;
   max-height: 500px !important; /* Batas maksimal tinggi gambar */
-  width: auto !important;
-  object-fit: contain !important; /* Gambar akan fit tanpa terpotong */
+  object-fit: cover !important; /* Cover untuk landscape, contain untuk portrait */
   margin: 2rem auto !important;
   display: block !important;
   border-radius: 0.75rem !important;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1) !important;
 }
 
-/* Untuk gambar yang sangat tinggi (portrait) */
+/* Featured Image (di atas artikel) */
+.featured-image {
+  width: 100% !important;
+  height: auto !important;
+  max-height: 300px !important; /* Mobile: 300px */
+  object-fit: cover !important;
+  display: block !important;
+}
+
+/* Desktop - Gambar lebih besar, centered */
 @media (min-width: 768px) {
   .article-content img {
+    max-width: 90% !important; /* 90% dari container */
     max-height: 600px !important; /* Desktop: max 600px */
+    width: auto !important; /* Auto width untuk centered */
+  }
+  
+  .featured-image {
+    max-height: 500px !important; /* Desktop: 500px */
   }
 }
 
-/* Untuk mobile */
+/* Mobile - Full width, fit container */
 @media (max-width: 767px) {
   .article-content img {
-    max-height: 400px !important; /* Mobile: max 400px */
+    max-width: 100% !important; /* Full width */
+    width: 100% !important; /* Force full width */
+    max-height: 300px !important; /* Mobile: lebih rendah (300px) */
+    object-fit: cover !important; /* Cover agar fit dengan frame */
+    margin: 1.5rem auto !important; /* Margin lebih kecil di mobile */
+    border-radius: 0.5rem !important; /* Border radius lebih kecil */
+  }
+  
+  .featured-image {
+    max-height: 250px !important; /* Mobile: 250px (lebih kecil) */
   }
 }
 
