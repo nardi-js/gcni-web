@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const location = useLocation();
 
   const openMobileMenu = () => {
     setIsMobileMenuOpen(true);
@@ -55,22 +56,22 @@ const Header = () => {
             </Link>
 
             <div className="hidden md:flex items-center space-x-8">
-              <Link to="/" className="text-gray-700 hover:text-teal-600 font-medium transition-colors">
+              <Link to="/" className={`font-medium transition-colors ${location.pathname === '/' ? 'text-teal-600' : 'text-gray-700 hover:text-teal-600'}`}>
                 Beranda
               </Link>
-              <Link to="/tentang" className="text-gray-700 hover:text-teal-600 font-medium transition-colors">
+              <Link to="/tentang" className={`font-medium transition-colors ${location.pathname === '/tentang' ? 'text-teal-600' : 'text-gray-700 hover:text-teal-600'}`}>
                 Tentang
               </Link>
-              <Link to="/program" className="text-gray-700 hover:text-teal-600 font-medium transition-colors">
+              <Link to="/program" className={`font-medium transition-colors ${location.pathname === '/program' ? 'text-teal-600' : 'text-gray-700 hover:text-teal-600'}`}>
                 Program
               </Link>
-              <Link to="/berita" className="text-gray-700 hover:text-teal-600 font-medium transition-colors">
+              <Link to="/berita" className={`font-medium transition-colors ${location.pathname === '/berita' || location.pathname.startsWith('/artikel/') ? 'text-teal-600' : 'text-gray-700 hover:text-teal-600'}`}>
                 Berita
               </Link>
-              <Link to="/faq" className="text-gray-700 hover:text-teal-600 font-medium transition-colors">
+              <Link to="/faq" className={`font-medium transition-colors ${location.pathname === '/faq' ? 'text-teal-600' : 'text-gray-700 hover:text-teal-600'}`}>
                 FAQ
               </Link>
-              <Link to="/kontak" className="text-gray-700 hover:text-teal-600 font-medium transition-colors">
+              <Link to="/kontak" className={`font-medium transition-colors ${location.pathname === '/kontak' ? 'text-teal-600' : 'text-gray-700 hover:text-teal-600'}`}>
                 Kontak
               </Link>
               <Link 
@@ -116,42 +117,42 @@ const Header = () => {
             <Link
               to="/"
               onClick={closeMobileMenu}
-              className="block py-3 px-4 bg-teal-50 text-teal-600 rounded-lg font-medium transition-colors mb-2"
+              className={`block py-3 px-4 rounded-lg font-medium transition-colors mb-2 ${location.pathname === '/' ? 'bg-teal-50 text-teal-600' : 'text-gray-700 hover:bg-teal-50 hover:text-teal-600'}`}
             >
               <i className="fas fa-home mr-3"></i>Beranda
             </Link>
             <Link
               to="/tentang"
               onClick={closeMobileMenu}
-              className="block py-3 px-4 text-gray-700 hover:bg-teal-50 hover:text-teal-600 rounded-lg font-medium transition-colors mb-2"
+              className={`block py-3 px-4 rounded-lg font-medium transition-colors mb-2 ${location.pathname === '/tentang' ? 'bg-teal-50 text-teal-600' : 'text-gray-700 hover:bg-teal-50 hover:text-teal-600'}`}
             >
               <i className="fas fa-info-circle mr-3"></i>Tentang
             </Link>
             <Link
               to="/program"
               onClick={closeMobileMenu}
-              className="block py-3 px-4 text-gray-700 hover:bg-teal-50 hover:text-teal-600 rounded-lg font-medium transition-colors mb-2"
+              className={`block py-3 px-4 rounded-lg font-medium transition-colors mb-2 ${location.pathname === '/program' ? 'bg-teal-50 text-teal-600' : 'text-gray-700 hover:bg-teal-50 hover:text-teal-600'}`}
             >
               <i className="fas fa-graduation-cap mr-3"></i>Program
             </Link>
             <Link
               to="/berita"
               onClick={closeMobileMenu}
-              className="block py-3 px-4 text-gray-700 hover:bg-teal-50 hover:text-teal-600 rounded-lg font-medium transition-colors mb-2"
+              className={`block py-3 px-4 rounded-lg font-medium transition-colors mb-2 ${location.pathname === '/berita' || location.pathname.startsWith('/artikel/') ? 'bg-teal-50 text-teal-600' : 'text-gray-700 hover:bg-teal-50 hover:text-teal-600'}`}
             >
               <i className="fas fa-newspaper mr-3"></i>Berita
             </Link>
             <Link
               to="/faq"
               onClick={closeMobileMenu}
-              className="block py-3 px-4 text-gray-700 hover:bg-teal-50 hover:text-teal-600 rounded-lg font-medium transition-colors mb-2"
+              className={`block py-3 px-4 rounded-lg font-medium transition-colors mb-2 ${location.pathname === '/faq' ? 'bg-teal-50 text-teal-600' : 'text-gray-700 hover:bg-teal-50 hover:text-teal-600'}`}
             >
               <i className="fas fa-question-circle mr-3"></i>FAQ
             </Link>
             <Link
               to="/kontak"
               onClick={closeMobileMenu}
-              className="block py-3 px-4 text-gray-700 hover:bg-teal-50 hover:text-teal-600 rounded-lg font-medium transition-colors mb-2"
+              className={`block py-3 px-4 rounded-lg font-medium transition-colors mb-2 ${location.pathname === '/kontak' ? 'bg-teal-50 text-teal-600' : 'text-gray-700 hover:bg-teal-50 hover:text-teal-600'}`}
             >
               <i className="fas fa-envelope mr-3"></i>Kontak
             </Link>
