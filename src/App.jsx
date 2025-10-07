@@ -14,6 +14,7 @@ const Artikel = lazy(() => import('./pages/Artikel'));
 const FAQ = lazy(() => import('./pages/FAQ'));
 const Kontak = lazy(() => import('./pages/Kontak'));
 const Donasi = lazy(() => import('./pages/Donasi'));
+const Integration = lazy(() => import('./pages/Integration'));
 const AdminLogin = lazy(() => import('./pages/admin/AdminLogin'));
 const AdminNews = lazy(() => import('./pages/admin/AdminNews'));
 const AdminMessages = lazy(() => import('./pages/admin/AdminMessages'));
@@ -44,6 +45,7 @@ function App() {
               <Route path="faq" element={<FAQ />} />
               <Route path="kontak" element={<Kontak />} />
               <Route path="donasi" element={<Donasi />} />
+              <Route path="integrasi" element={<Integration />} />
             </Route>
             
             {/* Admin Login - No Protection */}

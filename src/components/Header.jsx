@@ -68,6 +68,9 @@ const Header = () => {
               <Link to="/berita" className={`font-medium transition-colors ${location.pathname === '/berita' || location.pathname.startsWith('/artikel/') ? 'text-teal-600' : 'text-gray-700 hover:text-teal-600'}`}>
                 Berita
               </Link>
+              <Link to="/integrasi" className={`font-medium transition-colors ${location.pathname === '/integrasi' ? 'text-teal-600' : 'text-gray-700 hover:text-teal-600'}`}>
+                Ekosistem
+              </Link>
               <Link to="/faq" className={`font-medium transition-colors ${location.pathname === '/faq' ? 'text-teal-600' : 'text-gray-700 hover:text-teal-600'}`}>
                 FAQ
               </Link>
@@ -141,6 +144,13 @@ const Header = () => {
               className={`block py-3 px-4 rounded-lg font-medium transition-colors mb-2 ${location.pathname === '/berita' || location.pathname.startsWith('/artikel/') ? 'bg-teal-50 text-teal-600' : 'text-gray-700 hover:bg-teal-50 hover:text-teal-600'}`}
             >
               <i className="fas fa-newspaper mr-3"></i>Berita
+            </Link>
+            <Link
+              to="/integrasi"
+              onClick={closeMobileMenu}
+              className={`block py-3 px-4 rounded-lg font-medium transition-colors mb-2 ${location.pathname === '/integrasi' ? 'bg-teal-50 text-teal-600' : 'text-gray-700 hover:bg-teal-50 hover:text-teal-600'}`}
+            >
+              <i className="fas fa-layer-group mr-3"></i>Ekosistem
             </Link>
             <Link
               to="/faq"

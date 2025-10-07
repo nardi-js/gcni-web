@@ -55,6 +55,11 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
+                <Link to="/integrasi" className="hover:text-white transition-colors">
+                  Ekosistem & Aplikasi
+                </Link>
+              </li>
+              <li>
                 <Link to="/kontak" className="hover:text-white transition-colors">
                   Kontak
                 </Link>
