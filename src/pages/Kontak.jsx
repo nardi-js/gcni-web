@@ -127,8 +127,13 @@ const Kontak = () => {
             viewport={{ once: true, amount: 0.3 }}
             variants={variants.zoomIn}
             transition={transition}
+            whileHover={{ scale: 1.1, rotate: 360 }}
           >
-            <i className="fas fa-phone text-5xl text-white"></i>
+            <motion.i 
+              className="fas fa-phone text-5xl text-white"
+              animate={{ rotate: [0, 15, -15, 0] }}
+              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+            ></motion.i>
           </motion.div>
           <motion.h1 
             className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 gradient-text break-words"
@@ -169,9 +174,17 @@ const Kontak = () => {
                 {/* Left Side - Info */}
                 <div className="bg-gradient-to-br from-teal-600 to-teal-800 p-6 sm:p-8 md:p-12 text-white flex flex-col justify-center">
                   <div className="mb-6">
-                    <div className="w-14 h-14 sm:w-16 sm:h-16 bg-yellow-400 rounded-2xl flex items-center justify-center mb-4">
-                      <i className="fas fa-user-graduate text-2xl sm:text-3xl text-teal-800"></i>
-                    </div>
+                    <motion.div 
+                      className="w-14 h-14 sm:w-16 sm:h-16 bg-yellow-400 rounded-2xl flex items-center justify-center mb-4"
+                      whileHover={{ scale: 1.1, rotate: 360 }}
+                      transition={{ duration: 0.5 }}
+                    >
+                      <motion.i 
+                        className="fas fa-user-graduate text-2xl sm:text-3xl text-teal-800"
+                        animate={{ y: [0, -5, 0] }}
+                        transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
+                      ></motion.i>
+                    </motion.div>
                     <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 break-words">Daftar Santri Baru</h2>
                     <p className="text-teal-100 text-base sm:text-lg mb-6 break-words">
                       Jadilah bagian dari generasi Qur'ani berakhlak mulia dan berjiwa entrepreneur
@@ -298,9 +311,17 @@ const Kontak = () => {
                 {/* Form Header */}
                 <div className="mb-8">
                   <div className="flex items-center mb-3">
-                    <div className="w-14 h-14 bg-teal-100 rounded-xl flex items-center justify-center mr-4">
-                      <i className="fas fa-envelope text-2xl text-teal-600"></i>
-                    </div>
+                    <motion.div 
+                      className="w-14 h-14 bg-teal-100 rounded-xl flex items-center justify-center mr-4"
+                      whileHover={{ scale: 1.1, rotate: 360 }}
+                      transition={{ duration: 0.5 }}
+                    >
+                      <motion.i 
+                        className="fas fa-envelope text-2xl text-teal-600"
+                        animate={{ y: [0, -3, 0] }}
+                        transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                      ></motion.i>
+                    </motion.div>
                     <div>
                       <h3 className="text-2xl font-bold text-gray-900">Kirim Pesan</h3>
                       <p className="text-gray-600 text-sm">
@@ -445,7 +466,11 @@ const Kontak = () => {
                         </>
                       ) : (
                         <>
-                          <i className="fas fa-paper-plane"></i>
+                          <motion.i 
+                            className="fas fa-paper-plane"
+                            animate={{ x: [0, 3, 0] }}
+                            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                          ></motion.i>
                           <span>Kirim Pesan</span>
                         </>
                       )}
@@ -487,9 +512,17 @@ const Kontak = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 {/* Address */}
                 <div className="flex flex-col items-center text-center p-6 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow border border-gray-100">
-                  <div className="w-16 h-16 bg-teal-100 rounded-2xl flex items-center justify-center mb-4">
-                    <i className="fas fa-map-marker-alt text-2xl text-teal-600"></i>
-                  </div>
+                  <motion.div 
+                    className="w-16 h-16 bg-teal-100 rounded-2xl flex items-center justify-center mb-4"
+                    whileHover={{ scale: 1.1, rotate: 360 }}
+                    transition={{ duration: 0.5 }}
+                  >
+                    <motion.i 
+                      className="fas fa-map-marker-alt text-2xl text-teal-600"
+                      animate={{ y: [0, -5, 0] }}
+                      transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                    ></motion.i>
+                  </motion.div>
                   <h3 className="text-lg font-bold text-gray-900 mb-3">Alamat</h3>
                   <p className="text-gray-600 text-sm font-medium">{contactData.address.street}</p>
                   <p className="text-gray-600 text-sm">{contactData.address.district}</p>

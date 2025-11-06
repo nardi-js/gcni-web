@@ -43,8 +43,13 @@ const Tentang = () => {
               viewport={{ once: true, amount: 0.3 }}
               variants={variants.zoomIn}
               transition={transition}
+              whileHover={{ scale: 1.1, rotate: 360 }}
             >
-              <i className="fas fa-info-circle text-5xl text-white"></i>
+              <motion.i 
+                className="fas fa-info-circle text-5xl text-white"
+                animate={{ rotate: [0, 10, -10, 0] }}
+                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+              ></motion.i>
             </motion.div>
             <motion.h1 
               className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 break-words"
@@ -83,9 +88,17 @@ const Tentang = () => {
               >
                 <div className="bg-teal-50 rounded-2xl p-6 md:p-8">
                   <div className="flex items-center mb-4 md:mb-6">
-                    <div className="w-12 h-12 md:w-16 md:h-16 bg-teal-600 rounded-full flex items-center justify-center mr-3 md:mr-4 flex-shrink-0">
-                      <i className="fas fa-eye text-xl md:text-2xl text-white"></i>
-                    </div>
+                    <motion.div 
+                      className="w-12 h-12 md:w-16 md:h-16 bg-teal-600 rounded-full flex items-center justify-center mr-3 md:mr-4 flex-shrink-0"
+                      whileHover={{ scale: 1.1, rotate: 360 }}
+                      transition={{ duration: 0.5 }}
+                    >
+                      <motion.i 
+                        className="fas fa-eye text-xl md:text-2xl text-white"
+                        animate={{ scale: [1, 1.1, 1] }}
+                        transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                      ></motion.i>
+                    </motion.div>
                     <h2 className="text-2xl md:text-3xl font-bold text-gray-900">Visi</h2>
                   </div>
                   <p className="text-gray-700 text-base md:text-lg leading-relaxed break-words">
@@ -104,26 +117,50 @@ const Tentang = () => {
               >
                 <div className="bg-yellow-50 rounded-2xl p-6 md:p-8">
                   <div className="flex items-center mb-4 md:mb-6">
-                    <div className="w-12 h-12 md:w-16 md:h-16 bg-yellow-500 rounded-full flex items-center justify-center mr-3 md:mr-4 flex-shrink-0">
-                      <i className="fas fa-bullseye text-xl md:text-2xl text-white"></i>
-                    </div>
+                    <motion.div 
+                      className="w-12 h-12 md:w-16 md:h-16 bg-yellow-500 rounded-full flex items-center justify-center mr-3 md:mr-4 flex-shrink-0"
+                      whileHover={{ scale: 1.1, rotate: 360 }}
+                      transition={{ duration: 0.5 }}
+                    >
+                      <motion.i 
+                        className="fas fa-bullseye text-xl md:text-2xl text-white"
+                        animate={{ rotate: [0, 360] }}
+                        transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
+                      ></motion.i>
+                    </motion.div>
                     <h2 className="text-2xl md:text-3xl font-bold text-gray-900">Misi</h2>
                   </div>
                   <ul className="text-gray-700 text-base md:text-lg leading-relaxed space-y-2 md:space-y-3">
                     <li className="flex items-start">
-                      <i className="fas fa-check-circle text-yellow-500 mt-1 mr-2 md:mr-3 flex-shrink-0"></i>
+                      <motion.i 
+                        className="fas fa-check-circle text-yellow-500 mt-1 mr-2 md:mr-3 flex-shrink-0"
+                        animate={{ scale: [1, 1.2, 1] }}
+                        transition={{ duration: 2, repeat: Infinity, ease: "easeInOut", delay: 0 }}
+                      ></motion.i>
                       <span>Menyelenggarakan pendidikan Islam yang holistik dan berkualitas</span>
                     </li>
                     <li className="flex items-start">
-                      <i className="fas fa-check-circle text-yellow-500 mt-1 mr-2 md:mr-3 flex-shrink-0"></i>
+                      <motion.i 
+                        className="fas fa-check-circle text-yellow-500 mt-1 mr-2 md:mr-3 flex-shrink-0"
+                        animate={{ scale: [1, 1.2, 1] }}
+                        transition={{ duration: 2, repeat: Infinity, ease: "easeInOut", delay: 0.2 }}
+                      ></motion.i>
                       <span>Membina generasi penghafal Al-Qur'an yang berakhlak mulia</span>
                     </li>
                     <li className="flex items-start">
-                      <i className="fas fa-check-circle text-yellow-500 mt-1 mr-2 md:mr-3 flex-shrink-0"></i>
+                      <motion.i 
+                        className="fas fa-check-circle text-yellow-500 mt-1 mr-2 md:mr-3 flex-shrink-0"
+                        animate={{ scale: [1, 1.2, 1] }}
+                        transition={{ duration: 2, repeat: Infinity, ease: "easeInOut", delay: 0.4 }}
+                      ></motion.i>
                       <span>Mengembangkan jiwa kewirausahaan dan kemandirian</span>
                     </li>
                     <li className="flex items-start">
-                      <i className="fas fa-check-circle text-yellow-500 mt-1 mr-2 md:mr-3 flex-shrink-0"></i>
+                      <motion.i 
+                        className="fas fa-check-circle text-yellow-500 mt-1 mr-2 md:mr-3 flex-shrink-0"
+                        animate={{ scale: [1, 1.2, 1] }}
+                        transition={{ duration: 2, repeat: Infinity, ease: "easeInOut", delay: 0.6 }}
+                      ></motion.i>
                       <span>Memberdayakan masyarakat melalui program dakwah dan sosial</span>
                     </li>
                   </ul>
@@ -282,9 +319,17 @@ const Tentang = () => {
                 transition={{ ...transition, delay: 0.2 }}
               >
                 <div className="bg-white rounded-2xl p-6 md:p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 h-full">
-                  <div className="w-16 h-16 md:w-20 md:h-20 bg-gradient-to-br from-teal-500 to-teal-600 rounded-2xl flex items-center justify-center mx-auto mb-4 md:mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
-                    <i className="fas fa-quran text-2xl md:text-3xl text-white"></i>
-                  </div>
+                  <motion.div 
+                    className="w-16 h-16 md:w-20 md:h-20 bg-gradient-to-br from-teal-500 to-teal-600 rounded-2xl flex items-center justify-center mx-auto mb-4 md:mb-6 shadow-lg"
+                    whileHover={{ scale: 1.2, rotate: 360 }}
+                    transition={{ duration: 0.5 }}
+                  >
+                    <motion.i 
+                      className="fas fa-quran text-2xl md:text-3xl text-white"
+                      animate={{ rotateY: [0, 360] }}
+                      transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
+                    ></motion.i>
+                  </motion.div>
                   <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-3 md:mb-4 text-center">Qur'ani</h3>
                   <p className="text-gray-600 text-sm md:text-base text-center leading-relaxed">
                     Menjadikan Al-Qur'an sebagai pedoman utama dalam kehidupan dan pendidikan
@@ -302,9 +347,17 @@ const Tentang = () => {
                 transition={{ ...transition, delay: 0.3 }}
               >
                 <div className="bg-white rounded-2xl p-6 md:p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 h-full">
-                  <div className="w-16 h-16 md:w-20 md:h-20 bg-gradient-to-br from-green-500 to-green-600 rounded-2xl flex items-center justify-center mx-auto mb-4 md:mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
-                    <i className="fas fa-heart text-2xl md:text-3xl text-white"></i>
-                  </div>
+                  <motion.div 
+                    className="w-16 h-16 md:w-20 md:h-20 bg-gradient-to-br from-green-500 to-green-600 rounded-2xl flex items-center justify-center mx-auto mb-4 md:mb-6 shadow-lg"
+                    whileHover={{ scale: 1.2, rotate: 360 }}
+                    transition={{ duration: 0.5 }}
+                  >
+                    <motion.i 
+                      className="fas fa-heart text-2xl md:text-3xl text-white"
+                      animate={{ scale: [1, 1.15, 1] }}
+                      transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                    ></motion.i>
+                  </motion.div>
                   <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-3 md:mb-4 text-center">Akhlak Mulia</h3>
                   <p className="text-gray-600 text-sm md:text-base text-center leading-relaxed">
                     Membentuk karakter yang berakhlak mulia sesuai dengan ajaran Rasulullah SAW
@@ -322,9 +375,17 @@ const Tentang = () => {
                 transition={{ ...transition, delay: 0.4 }}
               >
                 <div className="bg-white rounded-2xl p-6 md:p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 h-full">
-                  <div className="w-16 h-16 md:w-20 md:h-20 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-4 md:mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
-                    <i className="fas fa-lightbulb text-2xl md:text-3xl text-white"></i>
-                  </div>
+                  <motion.div 
+                    className="w-16 h-16 md:w-20 md:h-20 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-4 md:mb-6 shadow-lg"
+                    whileHover={{ scale: 1.2, rotate: 360 }}
+                    transition={{ duration: 0.5 }}
+                  >
+                    <motion.i 
+                      className="fas fa-lightbulb text-2xl md:text-3xl text-white"
+                      animate={{ y: [0, -5, 0] }}
+                      transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
+                    ></motion.i>
+                  </motion.div>
                   <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-3 md:mb-4 text-center">Inovatif</h3>
                   <p className="text-gray-600 text-sm md:text-base text-center leading-relaxed">
                     Mengembangkan metode pembelajaran yang inovatif dan sesuai perkembangan zaman
@@ -342,9 +403,17 @@ const Tentang = () => {
                 transition={{ ...transition, delay: 0.5 }}
               >
                 <div className="bg-white rounded-2xl p-6 md:p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 h-full">
-                  <div className="w-16 h-16 md:w-20 md:h-20 bg-gradient-to-br from-yellow-500 to-yellow-600 rounded-2xl flex items-center justify-center mx-auto mb-4 md:mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
-                    <i className="fas fa-handshake text-2xl md:text-3xl text-white"></i>
-                  </div>
+                  <motion.div 
+                    className="w-16 h-16 md:w-20 md:h-20 bg-gradient-to-br from-yellow-500 to-yellow-600 rounded-2xl flex items-center justify-center mx-auto mb-4 md:mb-6 shadow-lg"
+                    whileHover={{ scale: 1.2, rotate: 360 }}
+                    transition={{ duration: 0.5 }}
+                  >
+                    <motion.i 
+                      className="fas fa-handshake text-2xl md:text-3xl text-white"
+                      animate={{ rotate: [0, 15, -15, 0] }}
+                      transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                    ></motion.i>
+                  </motion.div>
                   <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-3 md:mb-4 text-center">Kemitraan</h3>
                   <p className="text-gray-600 text-sm md:text-base text-center leading-relaxed">
                     Membangun kemitraan yang kuat dengan berbagai pihak untuk kemajuan bersama
@@ -390,14 +459,22 @@ const Tentang = () => {
                 to="/program"
                 className="inline-flex items-center justify-center bg-white text-teal-600 px-6 md:px-8 py-3 md:py-4 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg text-sm md:text-base"
               >
-                <i className="fas fa-graduation-cap mr-2"></i>
+                <motion.i 
+                  className="fas fa-graduation-cap mr-2"
+                  animate={{ rotate: [0, 10, -10, 0] }}
+                  transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                ></motion.i>
                 Lihat Program Kami
               </Link>
               <Link
                 to="/donasi"
                 className="inline-flex items-center justify-center bg-yellow-400 text-gray-900 px-6 md:px-8 py-3 md:py-4 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg text-sm md:text-base"
               >
-                <i className="fas fa-heart mr-2"></i>
+                <motion.i 
+                  className="fas fa-heart mr-2"
+                  animate={{ scale: [1, 1.15, 1] }}
+                  transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                ></motion.i>
                 Dukung Misi Kami
               </Link>
             </motion.div>

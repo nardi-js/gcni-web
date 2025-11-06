@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import { getAllNews, getNewsByCategory } from '../services/newsService';
 import { formatDate, getCategoryColor } from '../data/newsData';
 
@@ -60,9 +61,17 @@ const Berita = () => {
       <section className="relative pt-32 pb-20 bg-gradient-to-r from-teal-600 to-teal-800 text-white">
         <div className="absolute inset-0 bg-black/20"></div>
         <div className="relative container mx-auto px-4 text-center">
-          <div className="w-20 h-20 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center mx-auto mb-6">
-            <i className="fas fa-newspaper text-5xl text-white"></i>
-          </div>
+          <motion.div 
+            className="w-20 h-20 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center mx-auto mb-6"
+            whileHover={{ scale: 1.1, rotate: 360 }}
+            transition={{ duration: 0.5 }}
+          >
+            <motion.i 
+              className="fas fa-newspaper text-5xl text-white"
+              animate={{ rotate: [0, 5, -5, 0] }}
+              transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+            ></motion.i>
+          </motion.div>
           <h1 className="text-5xl md:text-6xl font-bold mb-6">
             <span className="gradient-text">Berita & Artikel</span>
           </h1>

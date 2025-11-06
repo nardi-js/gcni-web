@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 
 const Home = () => {
   return (
@@ -19,7 +20,7 @@ const Home = () => {
             <span className="gradient-text">Yayasan GCNI</span>
           </h1>
           <h2 className="text-xl md:text-2xl mb-4 fade-up">
-            Global Cahaya Nurbuwwah Insani - Islamic Entrepreneurship Boarding School Jakarta
+            Global Cahaya Nurbuwwah Insani - Islamic Entrepreneurship Boarding School
           </h2>
           <p className="text-lg md:text-xl mb-8 fade-up max-w-3xl mx-auto">
             Lembaga Pendidikan Islam Terpadu untuk Membangun Generasi Qur'ani yang Berakhlak Mulia, Cerdas, dan Berjiwa Entrepreneur
@@ -29,14 +30,22 @@ const Home = () => {
               to="/tentang"
               className="inline-flex items-center bg-white text-teal-600 px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg"
             >
-              <i className="fas fa-info-circle mr-2"></i>
+              <motion.i 
+                className="fas fa-info-circle mr-2"
+                animate={{ rotate: [0, 10, -10, 0] }}
+                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+              ></motion.i>
               Selengkapnya
             </Link>
             <Link
               to="/donasi"
               className="inline-flex items-center bg-yellow-400 text-gray-900 px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg"
             >
-              <i className="fas fa-heart mr-2"></i>
+              <motion.i 
+                className="fas fa-heart mr-2"
+                animate={{ scale: [1, 1.2, 1] }}
+                transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+              ></motion.i>
               Donasi Sekarang
             </Link>
           </div>
@@ -57,21 +66,33 @@ const Home = () => {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
               <div className="text-center">
                 <div className="w-16 h-16 bg-teal-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <i className="fas fa-book-open text-2xl text-teal-600"></i>
+                  <motion.i 
+                    className="fas fa-book-open text-2xl text-teal-600"
+                    animate={{ rotateY: [0, 360] }}
+                    transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                  ></motion.i>
                 </div>
                 <h3 className="text-xl font-semibold mb-2">Pendidikan Holistik</h3>
                 <p className="text-gray-600">Integrasi kurikulum nasional, agama, dan kewirausahaan</p>
               </div>
               <div className="text-center">
                 <div className="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <i className="fas fa-heart text-2xl text-yellow-600"></i>
+                  <motion.i 
+                    className="fas fa-heart text-2xl text-yellow-600"
+                    animate={{ scale: [1, 1.15, 1] }}
+                    transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                  ></motion.i>
                 </div>
                 <h3 className="text-xl font-semibold mb-2">Akhlak Mulia</h3>
                 <p className="text-gray-600">Pembentukan karakter Islami dan kepribadian yang terpuji</p>
               </div>
               <div className="text-center">
                 <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <i className="fas fa-users text-2xl text-green-600"></i>
+                  <motion.i 
+                    className="fas fa-users text-2xl text-green-600"
+                    animate={{ y: [0, -5, 0] }}
+                    transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
+                  ></motion.i>
                 </div>
                 <h3 className="text-xl font-semibold mb-2">Pemberdayaan Umat</h3>
                 <p className="text-gray-600">Program dakwah dan pemberdayaan ekonomi masyarakat</p>
@@ -81,10 +102,12 @@ const Home = () => {
             <Link
               to="/tentang"
               className="inline-flex items-center bg-teal-600 hover:bg-teal-700 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg"
-             
-             
             >
-              <i className="fas fa-arrow-right mr-2"></i>
+              <motion.i 
+                className="fas fa-arrow-right mr-2"
+                animate={{ x: [0, 5, 0] }}
+                transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+              ></motion.i>
               Selengkapnya
             </Link>
           </div>
@@ -117,7 +140,11 @@ const Home = () => {
                   }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-r from-teal-400 to-teal-600 flex items-center justify-center hidden">
-                  <i className="fas fa-graduation-cap text-6xl text-white"></i>
+                  <motion.i 
+                    className="fas fa-graduation-cap text-6xl text-white"
+                    animate={{ rotate: [0, 360] }}
+                    transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
+                  ></motion.i>
                 </div>
               </div>
               <div className="p-6">
@@ -127,7 +154,11 @@ const Home = () => {
                   Program SMP & SMA dengan kurikulum terpadu Islam, IT, dan Entrepreneurship untuk mencetak generasi unggul.
                 </p>
                 <Link to="/program" className="inline-flex items-center text-teal-600 hover:text-teal-700 font-semibold">
-                  <i className="fas fa-arrow-right mr-2"></i>
+                  <motion.i 
+                    className="fas fa-arrow-right mr-2"
+                    animate={{ x: [0, 5, 0] }}
+                    transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+                  ></motion.i>
                   Selengkapnya
                 </Link>
               </div>
@@ -146,7 +177,11 @@ const Home = () => {
                   }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-r from-green-400 to-green-600 flex items-center justify-center hidden">
-                  <i className="fas fa-quran text-6xl text-white"></i>
+                  <motion.i 
+                    className="fas fa-quran text-6xl text-white"
+                    animate={{ rotateY: [0, 360] }}
+                    transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
+                  ></motion.i>
                 </div>
               </div>
               <div className="p-6">
@@ -156,7 +191,11 @@ const Home = () => {
                   Program intensif menghafal Al-Qur'an dengan bimbingan para ustadz berpengalaman dan metode terbukti.
                 </p>
                 <Link to="/program" className="inline-flex items-center text-green-600 hover:text-green-700 font-semibold">
-                  <i className="fas fa-arrow-right mr-2"></i>
+                  <motion.i 
+                    className="fas fa-arrow-right mr-2"
+                    animate={{ x: [0, 5, 0] }}
+                    transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+                  ></motion.i>
                   Selengkapnya
                 </Link>
               </div>
@@ -175,7 +214,11 @@ const Home = () => {
                   }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-blue-600 flex items-center justify-center hidden">
-                  <i className="fas fa-child text-6xl text-white"></i>
+                  <motion.i 
+                    className="fas fa-child text-6xl text-white"
+                    animate={{ y: [0, -10, 0] }}
+                    transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                  ></motion.i>
                 </div>
               </div>
               <div className="p-6">
@@ -185,7 +228,11 @@ const Home = () => {
                   Pendidikan dasar Al-Qur'an untuk anak-anak dengan metode fun learning dan pembinaan akhlak.
                 </p>
                 <Link to="/program" className="inline-flex items-center text-blue-600 hover:text-blue-700 font-semibold">
-                  <i className="fas fa-arrow-right mr-2"></i>
+                  <motion.i 
+                    className="fas fa-arrow-right mr-2"
+                    animate={{ x: [0, 5, 0] }}
+                    transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+                  ></motion.i>
                   Selengkapnya
                 </Link>
               </div>
@@ -196,10 +243,12 @@ const Home = () => {
             <Link
               to="/program"
               className="inline-flex items-center bg-teal-600 hover:bg-teal-700 text-white px-8 py-4 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg"
-             
-             
             >
-              <i className="fas fa-arrow-right mr-2"></i>
+              <motion.i 
+                className="fas fa-th-large mr-2"
+                animate={{ rotate: [0, 360] }}
+                transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
+              ></motion.i>
               Lihat Semua Program
             </Link>
           </div>
@@ -218,16 +267,24 @@ const Home = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               to="/program"
-              className="inline-flex items-center bg-white text-teal-600 px-8 py-4 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg"
+              className="inline-flex items-center bg-white text-teal-600 px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg"
             >
-              <i className="fas fa-graduation-cap mr-2"></i>
+              <motion.i 
+                className="fas fa-graduation-cap mr-2"
+                animate={{ rotate: [0, 15, -15, 0] }}
+                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+              ></motion.i>
               Daftar Program
             </Link>
             <Link
               to="/donasi"
-              className="inline-flex items-center bg-yellow-400 text-gray-900 px-8 py-4 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg"
+              className="inline-flex items-center bg-yellow-400 text-gray-900 px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg"
             >
-              <i className="fas fa-heart mr-2"></i>
+              <motion.i 
+                className="fas fa-heart mr-2"
+                animate={{ scale: [1, 1.3, 1] }}
+                transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+              ></motion.i>
               Donasi Sekarang
             </Link>
           </div>

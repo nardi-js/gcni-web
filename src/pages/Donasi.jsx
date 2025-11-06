@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
+import { motion } from 'framer-motion';
 import donationData, {
   formatCurrency,
   formatNumber,
@@ -188,9 +189,17 @@ const Donasi = () => {
       <section className="relative pt-24 md:pt-32 pb-12 md:pb-16 lg:pb-20 bg-gradient-to-r from-teal-600 to-teal-800 text-white">
         <div className="absolute inset-0 bg-black/20"></div>
         <div className="relative container mx-auto px-4 text-center">
-          <div className="w-20 h-20 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center mx-auto mb-6">
-            <i className="fas fa-heart text-5xl text-white"></i>
-          </div>
+          <motion.div 
+            className="w-20 h-20 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center mx-auto mb-6"
+            whileHover={{ scale: 1.1, rotate: 360 }}
+            transition={{ duration: 0.5 }}
+          >
+            <motion.i 
+              className="fas fa-heart text-5xl text-white"
+              animate={{ scale: [1, 1.15, 1] }}
+              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+            ></motion.i>
+          </motion.div>
           <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 md:mb-6 gradient-text">
             Berdonasi
           </h1>
@@ -452,9 +461,19 @@ const Donasi = () => {
             <div className="max-w-2xl mx-auto">
               <div className="bg-white rounded-2xl shadow-lg p-6 md:p-8">
                 <div className="text-center">
-                  <div className="w-20 h-20 md:w-24 md:h-24 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4 md:mb-6">
-                    <i className="fas fa-check text-3xl md:text-4xl text-green-600"></i>
-                  </div>
+                  <motion.div 
+                    className="w-20 h-20 md:w-24 md:h-24 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4 md:mb-6"
+                    initial={{ scale: 0 }}
+                    animate={{ scale: 1 }}
+                    transition={{ type: "spring", duration: 0.5 }}
+                  >
+                    <motion.i 
+                      className="fas fa-check text-3xl md:text-4xl text-green-600"
+                      initial={{ scale: 0 }}
+                      animate={{ scale: 1 }}
+                      transition={{ type: "spring", delay: 0.2, duration: 0.5 }}
+                    ></motion.i>
+                  </motion.div>
                   <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-3 md:mb-4">Terima Kasih!</h2>
                   <p className="text-base md:text-lg lg:text-xl text-gray-600 mb-6 md:mb-8 px-2">
                     Donasi Anda sebesar <span className="font-bold text-teal-600">{formatCurrency(selectedAmount)}</span>

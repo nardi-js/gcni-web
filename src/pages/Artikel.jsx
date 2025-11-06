@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link, useParams, useNavigate } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import { getNewsBySlug, getAllNews } from '../services/newsService';
 import { formatDate } from '../data/newsData';
 
@@ -81,7 +82,11 @@ const Artikel = () => {
             to="/berita"
             className="bg-teal-600 hover:bg-teal-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors inline-block"
           >
-            <i className="fas fa-arrow-left mr-2"></i>
+            <motion.i 
+              className="fas fa-arrow-left mr-2"
+              animate={{ x: [-2, 0] }}
+              transition={{ duration: 1, repeat: Infinity, repeatType: "reverse" }}
+            ></motion.i>
             Kembali ke Berita
           </Link>
         </div>

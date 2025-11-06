@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 
 const Program = () => {
   const [activeModal, setActiveModal] = useState(null);
@@ -185,9 +186,17 @@ const Program = () => {
       <section className="relative pt-32 pb-20 bg-gradient-to-r from-teal-600 to-teal-800 text-white">
         <div className="absolute inset-0 bg-black/20"></div>
         <div className="relative container mx-auto px-4 text-center">
-          <div className="w-20 h-20 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center mx-auto mb-6">
-            <i className="fas fa-graduation-cap text-5xl text-white"></i>
-          </div>
+          <motion.div 
+            className="w-20 h-20 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center mx-auto mb-6"
+            whileHover={{ scale: 1.1, rotate: 360 }}
+            transition={{ duration: 0.5 }}
+          >
+            <motion.i 
+              className="fas fa-graduation-cap text-5xl text-white"
+              animate={{ rotate: [0, 10, -10, 0] }}
+              transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+            ></motion.i>
+          </motion.div>
           <h1 className="text-5xl md:text-6xl font-bold mb-6">
             <span className="gradient-text">Program Unggulan</span>
           </h1>
@@ -230,7 +239,11 @@ const Program = () => {
                     onClick={() => openModal(program.id)}
                     className={`inline-flex items-center ${colorClasses[program.color].button} text-white px-6 py-3 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105`}
                   >
-                    <i className="fas fa-info-circle mr-2"></i>
+                    <motion.i 
+                      className="fas fa-info-circle mr-2"
+                      animate={{ rotate: [0, 10, -10, 0] }}
+                      transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                    ></motion.i>
                     Detail Program
                   </button>
                 </div>
@@ -254,14 +267,22 @@ const Program = () => {
               to="/kontak" 
               className="inline-flex items-center justify-center bg-white text-teal-600 px-8 py-4 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg"
             >
-              <i className="fas fa-phone mr-2"></i>
+              <motion.i 
+                className="fas fa-phone mr-2"
+                animate={{ rotate: [0, 15, -15, 0] }}
+                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+              ></motion.i>
               Hubungi Kami
             </Link>
             <Link 
               to="/donasi" 
               className="inline-flex items-center justify-center bg-yellow-400 text-gray-900 px-8 py-4 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg"
             >
-              <i className="fas fa-heart mr-2"></i>
+              <motion.i 
+                className="fas fa-heart mr-2"
+                animate={{ scale: [1, 1.15, 1] }}
+                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+              ></motion.i>
               Dukung Program
             </Link>
           </div>
@@ -289,7 +310,11 @@ const Program = () => {
                 onClick={closeModal}
                 className="text-gray-500 hover:text-gray-700"
               >
-                <i className="fas fa-times text-xl"></i>
+                <motion.i 
+                  className="fas fa-times text-xl"
+                  whileHover={{ rotate: 90 }}
+                  transition={{ duration: 0.3 }}
+                ></motion.i>
               </button>
             </div>
             <div className="space-y-4">
@@ -299,7 +324,11 @@ const Program = () => {
                 <ul className="space-y-2 text-gray-600">
                   {program.features.map((feature, idx) => (
                     <li key={idx} className="flex items-start">
-                      <i className={`fas fa-check ${colorClasses[program.color].check} mt-1 mr-2`}></i>
+                      <motion.i 
+                        className={`fas fa-check ${colorClasses[program.color].check} mt-1 mr-2`}
+                        animate={{ scale: [1, 1.2, 1] }}
+                        transition={{ duration: 2, repeat: Infinity, ease: "easeInOut", delay: idx * 0.2 }}
+                      ></motion.i>
                       {feature}
                     </li>
                   ))}

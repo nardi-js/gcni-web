@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import { faqData, getFaqByCategory, searchFaq, categories, getCategoryStats } from '../data/faqData';
 
 const FAQ = () => {
@@ -62,9 +63,17 @@ const FAQ = () => {
       <section className="relative pt-32 pb-20 bg-gradient-to-r from-teal-600 to-teal-800 text-white">
         <div className="absolute inset-0 bg-black/20"></div>
         <div className="relative container mx-auto px-4 text-center">
-          <div className="w-20 h-20 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center mx-auto mb-6">
-            <i className="fas fa-question-circle text-5xl text-white"></i>
-          </div>
+          <motion.div 
+            className="w-20 h-20 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center mx-auto mb-6"
+            whileHover={{ scale: 1.1, rotate: 360 }}
+            transition={{ duration: 0.5 }}
+          >
+            <motion.i 
+              className="fas fa-question-circle text-5xl text-white"
+              animate={{ rotate: [0, 10, -10, 0] }}
+              transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+            ></motion.i>
+          </motion.div>
           <h1 className="text-5xl md:text-6xl font-bold mb-6">
             <span className="gradient-text">Pertanyaan Umum</span>
           </h1>
@@ -213,7 +222,11 @@ const FAQ = () => {
       <section className="py-20 bg-gradient-to-br from-teal-600 to-teal-800 text-white">
         <div className="container mx-auto px-4 text-center">
           <div className="max-w-3xl mx-auto">
-            <i className="fas fa-comments text-6xl mb-6 opacity-80"></i>
+            <motion.i 
+              className="fas fa-comments text-6xl mb-6 opacity-80"
+              animate={{ y: [0, -10, 0] }}
+              transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
+            ></motion.i>
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
               Masih Ada Pertanyaan?
             </h2>
@@ -234,7 +247,11 @@ const FAQ = () => {
                 to="/kontak"
                 className="inline-flex items-center justify-center bg-white text-teal-600 px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 transform hover:scale-105 shadow-xl"
               >
-                <i className="fas fa-envelope mr-3"></i>
+                <motion.i 
+                  className="fas fa-envelope mr-3"
+                  animate={{ y: [0, -3, 0] }}
+                  transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                ></motion.i>
                 Hubungi Kami
               </Link>
             </div>

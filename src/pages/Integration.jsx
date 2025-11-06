@@ -207,10 +207,18 @@ const Integration = () => {
             className="text-center max-w-4xl mx-auto"
           >
             <div className="inline-block mb-6">
-              <div className="flex items-center gap-4 bg-white/10 backdrop-blur-sm px-6 py-3 rounded-full">
-                <i className="fas fa-layer-group text-3xl"></i>
+              <motion.div 
+                className="flex items-center gap-4 bg-white/10 backdrop-blur-sm px-6 py-3 rounded-full"
+                whileHover={{ scale: 1.05 }}
+                transition={{ duration: 0.3 }}
+              >
+                <motion.i 
+                  className="fas fa-layer-group text-3xl"
+                  animate={{ rotateY: [0, 360] }}
+                  transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
+                ></motion.i>
                 <span className="text-xl font-semibold">Ekosistem Digital GCNI</span>
-              </div>
+              </motion.div>
             </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
               Platform & Aplikasi GCNI
