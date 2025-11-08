@@ -1,6 +1,6 @@
-# GCNI - Global Center for Nusantara Islam
+# GCNI - Global Cahya Nubuwwah Inshani
 
-This is the official website for the Pondok Pesantren GCNI (Global Center for Nusantara Islam), an integrated Islamic educational institution with programs in Tahfidz Quran, Tahsin, and an Entrepreneur Islamic Boarding School in Tangerang.
+This is the official website for the Pondok Pesantren GCNI (Global Cahya Nubuwwah Inshani), an integrated Islamic educational institution with programs in Tahfidz Quran, Tahsin, and an Entrepreneur Islamic Boarding School in Jawa Barat Purwakarta.
 
 ## Description
 
