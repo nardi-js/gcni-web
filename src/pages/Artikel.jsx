@@ -1,49 +1,101 @@
 import { useEffect, useState } from 'react';
 import { Link, useParams, useNavigate } from 'react-router-dom';
-import { getNewsById, newsData, formatDate } from '../data/newsData';
+import { motion } from 'framer-motion';
+import { getNewsBySlug, getAllNews } from '../services/newsService';
+import { formatDate } from '../data/newsData';
 
 const Artikel = () => {
-  const { id } = useParams();
+  const { slug } = useParams();
   const navigate = useNavigate();
   const [article, setArticle] = useState(null);
   const [relatedArticles, setRelatedArticles] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    // Get article data
-    const foundArticle = getNewsById(id);
-    
-    if (!foundArticle) {
-      navigate('/berita');
-      return;
+    loadArticle();
+  }, [slug]);
+
+  const loadArticle = async () => {
+    setLoading(true);
+    setError(null);
+
+    try {
+      // Get article by slug
+      const result = await getNewsBySlug(slug);
+      
+      if (!result.success || !result.data) {
+        setError('Artikel tidak ditemukan');
+        setTimeout(() => navigate('/berita'), 2000);
+        return;
+      }
+
+      setArticle(result.data);
+      document.title = `${result.data.title} - GCNI`;
+
+      // Get related articles (same category, excluding current)
+      const allNewsResult = await getAllNews();
+      if (allNewsResult.success) {
+        const related = allNewsResult.data
+          .filter(news => 
+            news.category === result.data.category && 
+            news.slug !== result.data.slug
+          )
+          .slice(0, 3);
+        setRelatedArticles(related);
+      }
+
+      // Scroll to top
+      window.scrollTo(0, 0);
+    } catch (err) {
+      setError('Gagal memuat artikel: ' + err.message);
+    } finally {
+      setLoading(false);
     }
-
-    setArticle(foundArticle);
-    document.title = `${foundArticle.title} - GCNI`;
-
-    // Get related articles (same category, excluding current)
-    const related = newsData
-      .filter(news => news.category === foundArticle.category && news.id !== foundArticle.id)
-      .slice(0, 3);
-    setRelatedArticles(related);
-
-    // Scroll to top
-    window.scrollTo(0, 0);
-  }, [id, navigate]);
+  };
 
   const copyToClipboard = () => {
     navigator.clipboard.writeText(window.location.href);
     alert('Link berhasil disalin!');
   };
 
-  if (!article) {
+  // Loading State
+  if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
-          <i className="fas fa-spinner fa-spin text-4xl text-teal-600 mb-4"></i>
-          <p className="text-gray-600">Memuat artikel...</p>
+          <i className="fas fa-spinner fa-spin text-6xl text-teal-600 mb-4"></i>
+          <p className="text-gray-600 text-lg">Memuat artikel...</p>
         </div>
       </div>
     );
+  }
+
+  // Error State
+  if (error) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="text-center">
+          <i className="fas fa-exclamation-triangle text-6xl text-red-400 mb-4"></i>
+          <p className="text-red-600 text-lg mb-4">{error}</p>
+          <Link
+            to="/berita"
+            className="bg-teal-600 hover:bg-teal-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors inline-block"
+          >
+            <motion.i 
+              className="fas fa-arrow-left mr-2"
+              animate={{ x: [-2, 0] }}
+              transition={{ duration: 1, repeat: Infinity, repeatType: "reverse" }}
+            ></motion.i>
+            Kembali ke Berita
+          </Link>
+        </div>
+      </div>
+    );
+  }
+
+  if (!article) {
+    return null;
   }
 
   const shareUrl = encodeURIComponent(window.location.href);
@@ -93,12 +145,12 @@ const Artikel = () => {
       <section className="py-16">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            {/* Featured Image */}
-            <div className="mb-12 rounded-2xl overflow-hidden shadow-2xl">
+            {/* Featured Image - Optimized for Mobile */}
+            <div className="mb-8 md:mb-12 rounded-xl md:rounded-2xl overflow-hidden shadow-2xl">
               <img
                 src={article.image}
                 alt={article.title}
-                className="w-full h-auto object-cover"
+                className="w-full featured-image"
                 onError={(e) => {
                   e.target.src = 'https://via.placeholder.com/1200x600/14B8A6/FFFFFF?text=GCNI+News';
                 }}
@@ -108,7 +160,7 @@ const Artikel = () => {
             {/* Article Body */}
             <div className="bg-white rounded-2xl shadow-lg p-8 md:p-12">
               <div 
-                className="article-content prose max-w-none"
+                className="article-content"
                 dangerouslySetInnerHTML={{ __html: article.content }}
               />
               
@@ -165,10 +217,10 @@ const Artikel = () => {
               <div className="mt-16">
                 <h2 className="text-3xl font-bold text-gray-900 mb-8">Berita Terkait</h2>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                  {relatedArticles.map((news, index) => (
+                  {relatedArticles.map((news) => (
                     <Link
                       key={news.id}
-                      to={`/artikel/${news.id}`}
+                      to={`/artikel/${news.slug}`}
                       className="block bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all group"
                      
                      

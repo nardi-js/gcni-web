@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useState, useMemo } from 'react';
 import { motion } from 'framer-motion';
+import { createMessage } from '../services/messageService';
 import contactData, { 
   getWhatsAppLink, 
   getGoogleMapsLink, 
@@ -82,31 +83,42 @@ const Kontak = () => {
     setIsSubmitting(true);
 
     try {
-      // Simulate form submission (2 seconds delay)
-      await new Promise(resolve => setTimeout(resolve, 2000));
-      
-      showMessage('Terima kasih! Pesan Anda telah terkirim. Kami akan segera menghubungi Anda.', 'success');
-      
-      // Reset form
-      setFormData({
-        nama: '',
-        email: '',
-        telepon: '',
-        subjek: '',
-        pesan: ''
+      // Kirim pesan ke Firebase
+      const result = await createMessage({
+        nama: formData.nama,
+        email: formData.email,
+        telepon: formData.telepon || '-',
+        subjek: formData.subjek,
+        pesan: formData.pesan
       });
 
-      // Optional: Redirect to WhatsApp
-      const whatsappMessage = formatFormDataForWhatsApp(formData);
-      const whatsappUrl = getWhatsAppLink(whatsappMessage);
-      
-      setTimeout(() => {
-        if (window.confirm('Apakah Anda ingin melanjutkan ke WhatsApp untuk komunikasi lebih lanjut?')) {
-          window.open(whatsappUrl, '_blank');
-        }
-      }, 1000);
+      if (result.success) {
+        showMessage('Terima kasih! Pesan Anda telah terkirim. Kami akan segera menghubungi Anda.', 'success');
+        
+        // Reset form
+        setFormData({
+          nama: '',
+          email: '',
+          telepon: '',
+          subjek: '',
+          pesan: ''
+        });
 
-    } catch {
+        // Optional: Redirect to WhatsApp
+        const whatsappMessage = formatFormDataForWhatsApp(formData);
+        const whatsappUrl = getWhatsAppLink(whatsappMessage);
+        
+        setTimeout(() => {
+          if (window.confirm('Apakah Anda ingin melanjutkan ke WhatsApp untuk komunikasi lebih lanjut?')) {
+            window.open(whatsappUrl, '_blank');
+          }
+        }, 1000);
+      } else {
+        showMessage('Maaf, terjadi kesalahan: ' + result.message, 'error');
+      }
+
+    } catch (error) {
+      console.error('Error submitting form:', error);
       showMessage('Maaf, terjadi kesalahan. Silakan coba lagi atau hubungi kami melalui WhatsApp.', 'error');
     } finally {
       setIsSubmitting(false);
