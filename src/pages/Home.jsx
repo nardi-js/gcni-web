@@ -114,8 +114,13 @@ const Home = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {/* Tahfidz */}
             <div className="bg-white rounded-xl shadow-lg overflow-hidden hover-lift">
-              <div className="h-48 bg-gradient-to-r from-emerald-400 to-teal-600 relative flex items-center justify-center">
-                <i className="fas fa-quran text-6xl text-white"></i>
+              <div className="h-48 overflow-hidden relative">
+                <img 
+                  src="https://res.cloudinary.com/dof6csq4i/image/upload/v1758594705/pesantren/blog/f9blppo5nwwwgja39wp7.png" 
+                  alt="Program Tahfidz"
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
               </div>
               <div className="p-6">
                 <h3 className="text-xl font-bold text-gray-900 mb-2">Tahfidz</h3>
@@ -132,8 +137,13 @@ const Home = () => {
 
             {/* Courtesy */}
             <div className="bg-white rounded-xl shadow-lg overflow-hidden hover-lift">
-              <div className="h-48 bg-gradient-to-r from-yellow-400 to-amber-600 relative flex items-center justify-center">
-                <i className="fas fa-handshake text-6xl text-white"></i>
+              <div className="h-48 overflow-hidden relative">
+                <img 
+                  src="https://res.cloudinary.com/dtcfexttw/image/upload/v1759675078/IMG_20210304_055050_xkk59n.jpg" 
+                  alt="Program Courtesy"
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
               </div>
               <div className="p-6">
                 <h3 className="text-xl font-bold text-gray-900 mb-2">Courtesy</h3>
@@ -150,8 +160,13 @@ const Home = () => {
 
             {/* Entrepreneurship */}
             <div className="bg-white rounded-xl shadow-lg overflow-hidden hover-lift">
-              <div className="h-48 bg-gradient-to-r from-blue-400 to-indigo-600 relative flex items-center justify-center">
-                <i className="fas fa-lightbulb text-6xl text-white"></i>
+              <div className="h-48 overflow-hidden relative">
+                <img 
+                  src="https://res.cloudinary.com/dtcfexttw/image/upload/v1759675082/_storage_emulated_0_Android_data_com.miui.gallery_cache_SecurityShare_IMG20250707_091615_lmc_8.4_p4w0v8.jpg" 
+                  alt="Program Entrepreneurship"
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
               </div>
               <div className="p-6">
                 <h3 className="text-xl font-bold text-gray-900 mb-2">Entrepreneurship</h3>
@@ -168,8 +183,13 @@ const Home = () => {
 
             {/* International Program */}
             <div className="bg-white rounded-xl shadow-lg overflow-hidden hover-lift">
-              <div className="h-48 bg-gradient-to-r from-purple-400 to-purple-600 relative flex items-center justify-center">
-                <i className="fas fa-globe text-6xl text-white"></i>
+              <div className="h-48 overflow-hidden relative">
+                <img 
+                  src="https://res.cloudinary.com/dof6csq4i/image/upload/v1758591275/santri_zzlfdp.jpg" 
+                  alt="International Program"
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
               </div>
               <div className="p-6">
                 <h3 className="text-xl font-bold text-gray-900 mb-2">International Program</h3>
@@ -186,8 +206,13 @@ const Home = () => {
 
             {/* Language Development Center */}
             <div className="bg-white rounded-xl shadow-lg overflow-hidden hover-lift">
-              <div className="h-48 bg-gradient-to-r from-red-400 to-pink-600 relative flex items-center justify-center">
-                <i className="fas fa-comments text-6xl text-white"></i>
+              <div className="h-48 overflow-hidden relative">
+                <img 
+                  src="https://res.cloudinary.com/dtcfexttw/image/upload/v1759675073/f_bi8ais.jpg" 
+                  alt="Language Development Center"
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
               </div>
               <div className="p-6">
                 <h3 className="text-xl font-bold text-gray-900 mb-2">Language Development Center</h3>
