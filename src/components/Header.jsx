@@ -71,11 +71,11 @@ const Header = () => {
               <Link to="/faq" className={`font-medium transition-colors ${location.pathname === '/faq' ? 'text-teal-600' : 'text-gray-700 hover:text-teal-600'}`}>
                 FAQ
               </Link>
-              <Link to="/kontak" className={`font-medium transition-colors ${location.pathname === '/kontak' ? 'text-teal-600' : 'text-gray-700 hover:text-teal-600'}`}>
-                Kontak
-              </Link>
               <Link to="/pendaftaran" className={`font-medium transition-colors ${location.pathname === '/pendaftaran' ? 'text-teal-600' : 'text-gray-700 hover:text-teal-600'}`}>
                 Pendaftaran
+              </Link>
+              <Link to="/kontak" className={`font-medium transition-colors ${location.pathname === '/kontak' ? 'text-teal-600' : 'text-gray-700 hover:text-teal-600'}`}>
+                Kontak
               </Link>
               <Link 
                 to="/donasi" 

@@ -786,7 +786,7 @@ const Pendaftaran = () => {
                       <i className="fas fa-bed text-2xl text-emerald-600"></i>
                     </div>
                     <h4 className="font-semibold text-gray-900 mb-1">Asrama Nyaman</h4>
-                    <p className="text-sm text-gray-600">Full AC dengan kasur & lemari</p>
+                    <p className="text-sm text-gray-600">Full fasilitas dengan kasur & lemari</p>
                   </div>
                   <div className="text-center">
                     <div className="w-14 h-14 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-3">
