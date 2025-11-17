@@ -176,7 +176,7 @@ const Berita = () => {
                       {news.excerpt}
                     </p>
                     <Link
-                      to={`/artikel/${news.slug}`}
+                      to={`/artikel/${news.id}`}
                       className={`inline-flex items-center text-${getCategoryColor(news.category)}-600 hover:text-${getCategoryColor(news.category)}-700 font-semibold group`}
                     >
                       <i className="fas fa-arrow-right mr-2 group-hover:translate-x-1 transition-transform"></i>

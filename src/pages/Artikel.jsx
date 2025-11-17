@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
 import { Link, useParams, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { getNewsBySlug, getAllNews } from '../services/newsService';
+import { getNewsById, getAllNews } from '../services/newsService';
 import { formatDate } from '../data/newsData';
 
 const Artikel = () => {
-  const { slug } = useParams();
+  const { id } = useParams();
   const navigate = useNavigate();
   const [article, setArticle] = useState(null);
   const [relatedArticles, setRelatedArticles] = useState([]);
@@ -14,15 +14,15 @@ const Artikel = () => {
 
   useEffect(() => {
     loadArticle();
-  }, [slug]);
+  }, [id]);
 
   const loadArticle = async () => {
     setLoading(true);
     setError(null);
 
     try {
-      // Get article by slug
-      const result = await getNewsBySlug(slug);
+      // Get article by ID
+      const result = await getNewsById(id);
       
       if (!result.success || !result.data) {
         setError('Artikel tidak ditemukan');
@@ -39,7 +39,7 @@ const Artikel = () => {
         const related = allNewsResult.data
           .filter(news => 
             news.category === result.data.category && 
-            news.slug !== result.data.slug
+            news.id !== result.data.id
           )
           .slice(0, 3);
         setRelatedArticles(related);
@@ -106,7 +106,7 @@ const Artikel = () => {
       {/* Article Header */}
       <section className="pt-32 pb-12 bg-gradient-to-r from-teal-600 to-teal-800">
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
+          <div className="max-w-6xl mx-auto text-center">
             {/* Breadcrumb */}
             <div className="flex items-center justify-center text-white/80 mb-6">
               <Link to="/" className="hover:text-white">Beranda</Link>
@@ -122,12 +122,12 @@ const Artikel = () => {
             </div>
             
             {/* Title */}
-            <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 px-4">
               {article.title}
             </h1>
             
             {/* Meta Info */}
-            <div className="flex items-center justify-center text-white/90 space-x-6 text-sm">
+            <div className="flex items-center justify-center text-white/90 space-x-4 md:space-x-6 text-sm">
               <div className="flex items-center">
                 <i className="far fa-calendar mr-2"></i>
                 <span>{formatDate(article.date)}</span>
@@ -142,15 +142,15 @@ const Artikel = () => {
       </section>
 
       {/* Article Content */}
-      <section className="py-16">
+      <section className="py-12 md:py-16">
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            {/* Featured Image - Optimized for Mobile */}
+          <div className="max-w-6xl mx-auto">
+            {/* Featured Image - Landscape Optimized */}
             <div className="mb-8 md:mb-12 rounded-xl md:rounded-2xl overflow-hidden shadow-2xl">
               <img
                 src={article.image}
                 alt={article.title}
-                className="w-full featured-image"
+                className="w-full h-64 md:h-96 lg:h-[500px] object-cover"
                 onError={(e) => {
                   e.target.src = 'https://via.placeholder.com/1200x600/14B8A6/FFFFFF?text=GCNI+News';
                 }}
@@ -158,7 +158,7 @@ const Artikel = () => {
             </div>
 
             {/* Article Body */}
-            <div className="bg-white rounded-2xl shadow-lg p-8 md:p-12">
+            <div className="bg-white rounded-2xl shadow-lg p-6 md:p-10 lg:p-12">
               <div 
                 className="article-content"
                 dangerouslySetInnerHTML={{ __html: article.content }}
@@ -220,7 +220,7 @@ const Artikel = () => {
                   {relatedArticles.map((news) => (
                     <Link
                       key={news.id}
-                      to={`/artikel/${news.slug}`}
+                      to={`/artikel/${news.id}`}
                       className="block bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all group"
                      
                      
