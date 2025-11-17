@@ -96,7 +96,7 @@ const Program = () => {
       subtitle: 'Kurikulum Cambridge',
       description: 'Program dengan standar internasional Cambridge untuk mempersiapkan siswa bersaing di kancah global dengan tetap berpegang pada nilai Islam.',
       icon: 'fa-globe',
-      image: 'https://res.cloudinary.com/dof6csq4i/image/upload/v1759634549/tpq.png',
+      image: 'https://res.cloudinary.com/dof6csq4i/image/upload/v1758591275/santri_zzlfdp.jpg',
       color: 'purple',
       features: [
         'Kurikulum Cambridge',
