@@ -46,7 +46,7 @@ const Home = () => {
       {/* Mengapa Memilih Kami Section */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16" data-scroll="fade-up">
+          <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
               <span className="gradient-text">Mengapa Memilih Kami?</span>
             </h2>
@@ -55,7 +55,7 @@ const Home = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8" data-scroll-stagger>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             <div className="bg-gradient-to-br from-emerald-50 to-teal-50 rounded-2xl p-8 hover-lift">
               <div className="w-16 h-16 bg-emerald-600 rounded-full flex items-center justify-center mx-auto mb-6">
                 <i className="fas fa-book-open text-2xl text-white"></i>
@@ -102,7 +102,7 @@ const Home = () => {
       {/* Programs Section */}
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16" data-scroll="fade-up">
+          <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
               Program Unggulan
             </h2>
@@ -111,7 +111,7 @@ const Home = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" data-scroll-stagger>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {/* Tahfidz */}
             <div className="bg-white rounded-xl shadow-lg overflow-hidden hover-lift">
               <div className="h-48 overflow-hidden relative">

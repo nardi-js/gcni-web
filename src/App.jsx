@@ -1,10 +1,9 @@
-import { lazy, Suspense, useEffect } from 'react';
+import { lazy, Suspense } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Layout from './components/Layout';
 import ScrollToTop from './components/ScrollToTop';
 import ProtectedRoute from './components/ProtectedRoute';
 import { AuthProvider } from './context/AuthContext';
-import useScrollAnimation from './hooks/useScrollAnimation';
 
 // Lazy load all pages for better code splitting
 const Home = lazy(() => import('./pages/Home'));
@@ -30,50 +29,41 @@ const PageLoader = () => (
   </div>
 );
 
-// App Content with scroll animation
-const AppContent = () => {
-  useScrollAnimation();
-  
-  return (
-    <Suspense fallback={<PageLoader />}>
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<Home />} />
-          <Route path="tentang" element={<Tentang />} />
-          <Route path="program" element={<Program />} />
-          <Route path="berita" element={<Berita />} />
-          <Route path="artikel/:id" element={<Artikel />} />
-          <Route path="faq" element={<FAQ />} />
-          <Route path="kontak" element={<Kontak />} />
-          <Route path="donasi" element={<Donasi />} />
-          <Route path="pendaftaran" element={<Pendaftaran />} />
-        </Route>
-        
-        {/* Admin Login - No Protection */}
-        <Route path="/admin/login" element={<AdminLogin />} />
-        
-        {/* Protected Admin Routes */}
-        <Route path="/admin/news" element={
-          <ProtectedRoute>
-            <AdminNews />
-          </ProtectedRoute>
-        } />
-        <Route path="/admin/messages" element={
-          <ProtectedRoute>
-            <AdminMessages />
-          </ProtectedRoute>
-        } />
-      </Routes>
-    </Suspense>
-  );
-};
-
 function App() {
   return (
     <AuthProvider>
       <Router>
         <ScrollToTop />
-        <AppContent />
+        <Suspense fallback={<PageLoader />}>
+          <Routes>
+            <Route path="/" element={<Layout />}>
+              <Route index element={<Home />} />
+              <Route path="tentang" element={<Tentang />} />
+              <Route path="program" element={<Program />} />
+              <Route path="berita" element={<Berita />} />
+              <Route path="artikel/:id" element={<Artikel />} />
+              <Route path="faq" element={<FAQ />} />
+              <Route path="kontak" element={<Kontak />} />
+              <Route path="donasi" element={<Donasi />} />
+              <Route path="pendaftaran" element={<Pendaftaran />} />
+            </Route>
+            
+            {/* Admin Login - No Protection */}
+            <Route path="/admin/login" element={<AdminLogin />} />
+            
+            {/* Protected Admin Routes */}
+            <Route path="/admin/news" element={
+              <ProtectedRoute>
+                <AdminNews />
+              </ProtectedRoute>
+            } />
+            <Route path="/admin/messages" element={
+              <ProtectedRoute>
+                <AdminMessages />
+              </ProtectedRoute>
+            } />
+          </Routes>
+        </Suspense>
       </Router>
     </AuthProvider>
   );
