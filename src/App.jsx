@@ -9,6 +9,7 @@ import Artikel from './pages/Artikel';
 import FAQ from './pages/FAQ';
 import Kontak from './pages/Kontak';
 import Donasi from './pages/Donasi';
+import Pendaftaran from './pages/Pendaftaran';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           <Route path="faq" element={<FAQ />} />
           <Route path="kontak" element={<Kontak />} />
           <Route path="donasi" element={<Donasi />} />
+          <Route path="pendaftaran" element={<Pendaftaran />} />
         </Route>
       </Routes>
     </Router>

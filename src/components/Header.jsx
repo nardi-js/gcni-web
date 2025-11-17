@@ -74,6 +74,9 @@ const Header = () => {
               <Link to="/kontak" className={`font-medium transition-colors ${location.pathname === '/kontak' ? 'text-teal-600' : 'text-gray-700 hover:text-teal-600'}`}>
                 Kontak
               </Link>
+              <Link to="/pendaftaran" className={`font-medium transition-colors ${location.pathname === '/pendaftaran' ? 'text-teal-600' : 'text-gray-700 hover:text-teal-600'}`}>
+                Pendaftaran
+              </Link>
               <Link 
                 to="/donasi" 
                 className="bg-teal-600 hover:bg-teal-700 text-white px-4 py-2 rounded-lg font-medium transition-all"
@@ -155,6 +158,13 @@ const Header = () => {
               className={`block py-3 px-4 rounded-lg font-medium transition-colors mb-2 ${location.pathname === '/kontak' ? 'bg-teal-50 text-teal-600' : 'text-gray-700 hover:bg-teal-50 hover:text-teal-600'}`}
             >
               <i className="fas fa-envelope mr-3"></i>Kontak
+            </Link>
+            <Link
+              to="/pendaftaran"
+              onClick={closeMobileMenu}
+              className={`block py-3 px-4 rounded-lg font-medium transition-colors mb-2 ${location.pathname === '/pendaftaran' ? 'bg-teal-50 text-teal-600' : 'text-gray-700 hover:bg-teal-50 hover:text-teal-600'}`}
+            >
+              <i className="fas fa-user-graduate mr-3"></i>Pendaftaran
             </Link>
             <Link
               to="/donasi"

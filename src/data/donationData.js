@@ -42,64 +42,29 @@ export const donationData = {
         {
             id: "bank",
             name: "Transfer Bank",
-            description: "BCA, Mandiri, BNI, BRI",
+            description: "Bank BTN & Bank BSI",
             icon: "fa-university",
             color: "blue",
             accounts: [
                 {
-                    bank: "Bank Mandiri",
-                    accountNumber: "1234567890",
-                    accountName: "Yayasan GCNI"
+                    bank: "Bank BTN",
+                    accountNumber: "3601501145904",
+                    accountName: "Yayasan Global Cahaya Nubuwwah Insani"
                 },
                 {
-                    bank: "Bank BCA",
-                    accountNumber: "0987654321",
-                    accountName: "Yayasan GCNI"
-                },
-                {
-                    bank: "Bank BNI",
-                    accountNumber: "1122334455",
-                    accountName: "Yayasan GCNI"
-                },
-                {
-                    bank: "Bank BRI",
-                    accountNumber: "5544332211",
-                    accountName: "Yayasan GCNI"
+                    bank: "Bank BSI",
+                    accountNumber: "7377776668",
+                    accountName: "Yayasan Global Cahaya Nubuwwah Insani"
                 }
             ]
         },
         {
             id: "ewallet",
             name: "E-Wallet",
-            description: "GoPay, OVO, DANA, ShopeePay",
+            description: "Hubungi admin untuk informasi E-Wallet",
             icon: "fa-mobile-alt",
             color: "green",
-            wallets: [
-                {
-                    name: "GoPay",
-                    number: "081234567890",
-                    icon: "fab fa-android",
-                    color: "green"
-                },
-                {
-                    name: "OVO",
-                    number: "081234567890",
-                    icon: "fas fa-mobile-alt",
-                    color: "purple"
-                },
-                {
-                    name: "DANA",
-                    number: "081234567890",
-                    icon: "fas fa-wallet",
-                    color: "blue"
-                },
-                {
-                    name: "ShopeePay",
-                    number: "081234567890",
-                    icon: "fas fa-shopping-bag",
-                    color: "orange"
-                }
-            ]
+            wallets: []
         },
         {
             id: "qris",

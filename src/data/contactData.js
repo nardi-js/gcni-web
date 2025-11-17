@@ -12,7 +12,7 @@ export const contactData = {
         province: "Jawa Barat",
         postalCode: "41163",
         country: "Indonesia",
-        full: "Kampung Tegalsapi, Neglasari, Kec. Darangdan, Kabupaten Purwakarta, Jawa Barat 41163, Indonesia",
+        full: "Kampung Tegalsapi, Neglasari, Darangdan, Purwakarta, Jawa Barat 41163",
         short: "Neglasari, Purwakarta, Jawa Barat 41163"
     },
     
@@ -26,11 +26,11 @@ export const contactData = {
     },
     
     // Kontak
-    phone: "(021) 1234-5678",
-    whatsapp: "628123456789", // Format tanpa + dan spasi
-    whatsappFormatted: "+62 812-3456-789",
-    email: "info@gcni.or.id",
-    emailRegistration: "pendaftaran@gcni.or.id",
+    phone: "+6283193257112",
+    whatsapp: "6283193257112", // Format tanpa + dan spasi
+    whatsappFormatted: "+62 831-9325-7112",
+    email: "iebs.gcni@gmail.com",
+    emailRegistration: "iebs.gcni@gmail.com",
     
     // Jam Operasional
     operatingHours: {

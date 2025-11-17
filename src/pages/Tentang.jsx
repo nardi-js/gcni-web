@@ -72,7 +72,7 @@ const Tentang = () => {
         {/* Visi Misi Section */}
         <section className="py-12 md:py-20 bg-white">
           <div className="container mx-auto px-4">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12">
               {/* Visi */}
               <motion.div
                 initial="hidden"
@@ -81,16 +81,72 @@ const Tentang = () => {
                 variants={variants.fadeRight}
                 transition={transition}
               >
-                <div className="bg-teal-50 rounded-2xl p-6 md:p-8">
+                <div className="bg-emerald-50 rounded-2xl p-6 md:p-8">
                   <div className="flex items-center mb-4 md:mb-6">
-                    <div className="w-12 h-12 md:w-16 md:h-16 bg-teal-600 rounded-full flex items-center justify-center mr-3 md:mr-4 flex-shrink-0">
+                    <div className="w-12 h-12 md:w-16 md:h-16 bg-emerald-600 rounded-full flex items-center justify-center mr-3 md:mr-4 flex-shrink-0">
                       <i className="fas fa-eye text-xl md:text-2xl text-white"></i>
                     </div>
                     <h2 className="text-2xl md:text-3xl font-bold text-gray-900">Visi</h2>
                   </div>
-                  <p className="text-gray-700 text-base md:text-lg leading-relaxed break-words">
-                    Menjadi lembaga pendidikan Islam terdepan yang mencetak generasi Qur'ani yang berakhlak mulia, cerdas, mandiri, dan berjiwa entrepreneur untuk kemaslahatan umat dan bangsa.
+                  <p className="text-gray-700 text-base md:text-lg leading-relaxed break-words mb-6">
+                    Terbentuknya santripreneur berjiwa leader dengan 3 karakter:
                   </p>
+                  
+                  <div className="space-y-4">
+                    {/* Morality */}
+                    <div className="bg-white rounded-xl p-4">
+                      <h3 className="font-bold text-emerald-600 mb-2 flex items-center">
+                        <i className="fas fa-praying-hands mr-2"></i>
+                        1. Morality
+                      </h3>
+                      <ul className="space-y-1 ml-6 text-gray-700 text-sm">
+                        <li className="flex items-start">
+                          <span className="mr-2">•</span>
+                          <span>Aqidah Salimah</span>
+                        </li>
+                        <li className="flex items-start">
+                          <span className="mr-2">•</span>
+                          <span>Ibadah Shalihah</span>
+                        </li>
+                      </ul>
+                    </div>
+
+                    {/* Intellectuality */}
+                    <div className="bg-white rounded-xl p-4">
+                      <h3 className="font-bold text-emerald-600 mb-2 flex items-center">
+                        <i className="fas fa-brain mr-2"></i>
+                        2. Intellectuality
+                      </h3>
+                      <ul className="space-y-1 ml-6 text-gray-700 text-sm">
+                        <li className="flex items-start">
+                          <span className="mr-2">•</span>
+                          <span>Syumuliyyatul Fahm (Pemahaman yang Menyeluruh)</span>
+                        </li>
+                        <li className="flex items-start">
+                          <span className="mr-2">•</span>
+                          <span>Wasatiyyatul Fikr (Pemikiran yang Moderat)</span>
+                        </li>
+                      </ul>
+                    </div>
+
+                    {/* Responsibility */}
+                    <div className="bg-white rounded-xl p-4">
+                      <h3 className="font-bold text-emerald-600 mb-2 flex items-center">
+                        <i className="fas fa-hands-helping mr-2"></i>
+                        3. Responsibility
+                      </h3>
+                      <ul className="space-y-1 ml-6 text-gray-700 text-sm">
+                        <li className="flex items-start">
+                          <span className="mr-2">•</span>
+                          <span>Mandiri Ekonomi</span>
+                        </li>
+                        <li className="flex items-start">
+                          <span className="mr-2">•</span>
+                          <span>Nafi'un Lighoirihi (Bermanfaat bagi Sesama)</span>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
                 </div>
               </motion.div>
 
@@ -102,31 +158,37 @@ const Tentang = () => {
                 variants={variants.fadeLeft}
                 transition={transition}
               >
-                <div className="bg-yellow-50 rounded-2xl p-6 md:p-8">
+                <div className="bg-yellow-50 rounded-2xl p-6 md:p-8 h-full">
                   <div className="flex items-center mb-4 md:mb-6">
                     <div className="w-12 h-12 md:w-16 md:h-16 bg-yellow-500 rounded-full flex items-center justify-center mr-3 md:mr-4 flex-shrink-0">
                       <i className="fas fa-bullseye text-xl md:text-2xl text-white"></i>
                     </div>
                     <h2 className="text-2xl md:text-3xl font-bold text-gray-900">Misi</h2>
                   </div>
-                  <ul className="text-gray-700 text-base md:text-lg leading-relaxed space-y-2 md:space-y-3">
-                    <li className="flex items-start">
-                      <i className="fas fa-check-circle text-yellow-500 mt-1 mr-2 md:mr-3 flex-shrink-0"></i>
-                      <span>Menyelenggarakan pendidikan Islam yang holistik dan berkualitas</span>
-                    </li>
-                    <li className="flex items-start">
-                      <i className="fas fa-check-circle text-yellow-500 mt-1 mr-2 md:mr-3 flex-shrink-0"></i>
-                      <span>Membina generasi penghafal Al-Qur'an yang berakhlak mulia</span>
-                    </li>
-                    <li className="flex items-start">
-                      <i className="fas fa-check-circle text-yellow-500 mt-1 mr-2 md:mr-3 flex-shrink-0"></i>
-                      <span>Mengembangkan jiwa kewirausahaan dan kemandirian</span>
-                    </li>
-                    <li className="flex items-start">
-                      <i className="fas fa-check-circle text-yellow-500 mt-1 mr-2 md:mr-3 flex-shrink-0"></i>
-                      <span>Memberdayakan masyarakat melalui program dakwah dan sosial</span>
-                    </li>
-                  </ul>
+                  <div className="bg-white rounded-xl p-6">
+                    <p className="text-gray-700 text-base md:text-lg leading-relaxed break-words">
+                      Menyelenggarakan proses pendidikan Islami yang <strong>komprehensif</strong>, <strong>universal</strong>, <strong>informatif</strong>, dan <strong>kontributif</strong> berbasis <strong>Islamic Entrepreneurship</strong> untuk kemajuan bangsa Indonesia dan umat Islam dunia.
+                    </p>
+                  </div>
+
+                  <div className="mt-6 space-y-3">
+                    <div className="flex items-start bg-white rounded-lg p-3">
+                      <i className="fas fa-check-circle text-yellow-500 mt-1 mr-3 flex-shrink-0"></i>
+                      <span className="text-gray-700 text-sm md:text-base">Pendidikan Islami yang komprehensif</span>
+                    </div>
+                    <div className="flex items-start bg-white rounded-lg p-3">
+                      <i className="fas fa-check-circle text-yellow-500 mt-1 mr-3 flex-shrink-0"></i>
+                      <span className="text-gray-700 text-sm md:text-base">Universal dan informatif</span>
+                    </div>
+                    <div className="flex items-start bg-white rounded-lg p-3">
+                      <i className="fas fa-check-circle text-yellow-500 mt-1 mr-3 flex-shrink-0"></i>
+                      <span className="text-gray-700 text-sm md:text-base">Kontributif berbasis Islamic Entrepreneurship</span>
+                    </div>
+                    <div className="flex items-start bg-white rounded-lg p-3">
+                      <i className="fas fa-check-circle text-yellow-500 mt-1 mr-3 flex-shrink-0"></i>
+                      <span className="text-gray-700 text-sm md:text-base">Untuk kemajuan bangsa dan umat Islam</span>
+                    </div>
+                  </div>
                 </div>
               </motion.div>
             </div>
@@ -146,7 +208,7 @@ const Tentang = () => {
                   variants={variants.fadeUp}
                   transition={transition}
                 >
-                  Sejarah Perjalanan GCNI
+                  Perjalanan GCNI
                 </motion.h2>
                 <motion.p 
                   className="text-base sm:text-lg md:text-xl text-gray-600 px-4"
@@ -156,7 +218,7 @@ const Tentang = () => {
                   variants={variants.fadeUp}
                   transition={{ ...transition, delay: 0.1 }}
                 >
-                  Perjalanan panjang dalam mengabdi untuk pendidikan umat
+                  Langkah demi langkah dalam mengabdi untuk pendidikan umat
                 </motion.p>
               </div>
 
@@ -170,13 +232,13 @@ const Tentang = () => {
                   variants={variants.fadeUp}
                   transition={{ ...transition, delay: 0.2 }}
                 >
-                  <div className="flex-shrink-0 w-16 h-16 md:w-20 md:h-20 bg-teal-600 rounded-full flex items-center justify-center">
-                    <span className="text-white font-bold text-sm md:text-lg">2015</span>
+                  <div className="flex-shrink-0 w-16 h-16 md:w-20 md:h-20 bg-emerald-600 rounded-full flex items-center justify-center">
+                    <i className="fas fa-flag text-2xl md:text-3xl text-white"></i>
                   </div>
                   <div className="bg-white rounded-xl p-4 md:p-6 shadow-lg hover-lift flex-1 min-w-0">
-                    <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-2 md:mb-3 break-words">Pendirian Yayasan</h3>
+                    <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-2 md:mb-3 break-words">Fase Awal - Pendirian</h3>
                     <p className="text-gray-600 text-sm md:text-base break-words">
-                      Yayasan GCNI didirikan dengan komitmen mencetak generasi Qur'ani yang unggul dalam ilmu pengetahuan dan teknologi serta berkarakter Islami.
+                      Yayasan Global Cahaya Nubuwwah Insani (GCNI) didirikan dengan visi mulia untuk mencetak generasi Qur'ani yang berakhlak mulia, cerdas, dan berjiwa entrepreneur. Dimulai dengan komitmen kuat untuk berkontribusi dalam pendidikan Islam yang berkualitas.
                     </p>
                   </div>
                 </motion.div>
@@ -191,12 +253,12 @@ const Tentang = () => {
                   transition={{ ...transition, delay: 0.3 }}
                 >
                   <div className="flex-shrink-0 w-16 h-16 md:w-20 md:h-20 bg-green-600 rounded-full flex items-center justify-center">
-                    <span className="text-white font-bold text-sm md:text-lg">2017</span>
+                    <i className="fas fa-book-quran text-2xl md:text-3xl text-white"></i>
                   </div>
                   <div className="bg-white rounded-xl p-4 md:p-6 shadow-lg hover-lift flex-1 min-w-0">
-                    <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-2 md:mb-3 break-words">Pembukaan Program TPQ</h3>
+                    <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-2 md:mb-3 break-words">Fase Pengembangan - Program Tahfidz</h3>
                     <p className="text-gray-600 text-sm md:text-base break-words">
-                      Membuka program Taman Pendidikan Al-Qur'an (TPQ) untuk memberikan pendidikan dasar Al-Qur'an kepada anak-anak usia dini di lingkungan sekitar.
+                      Meluncurkan program Tahfidz Al-Qur'an sebagai program unggulan, dengan metode pembelajaran yang terstruktur dan bimbingan ustadz berpengalaman. Target hafalan 30 juz dengan pembinaan karakter Islami yang komprehensif.
                     </p>
                   </div>
                 </motion.div>
@@ -211,12 +273,12 @@ const Tentang = () => {
                   transition={{ ...transition, delay: 0.4 }}
                 >
                   <div className="flex-shrink-0 w-16 h-16 md:w-20 md:h-20 bg-blue-600 rounded-full flex items-center justify-center">
-                    <span className="text-white font-bold text-sm md:text-lg">2019</span>
+                    <i className="fas fa-school text-2xl md:text-3xl text-white"></i>
                   </div>
                   <div className="bg-white rounded-xl p-4 md:p-6 shadow-lg hover-lift flex-1 min-w-0">
-                    <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-2 md:mb-3 break-words">Launching Program Tahfizh</h3>
+                    <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-2 md:mb-3 break-words">Fase Ekspansi - Jenjang Pendidikan</h3>
                     <p className="text-gray-600 text-sm md:text-base break-words">
-                      Meluncurkan program Tahfizh Al-Qur'an dengan target 30 juz, dilengkapi dengan metode pembelajaran modern dan pembinaan karakter yang intensif.
+                      Membuka jenjang pendidikan formal SMP dan SMA dengan mengintegrasikan kurikulum nasional, kurikulum Cambridge, dan nilai-nilai pendidikan Islam. Fokus pada pembentukan santripreneur yang berkarakter dan berprestasi.
                     </p>
                   </div>
                 </motion.div>
@@ -231,12 +293,32 @@ const Tentang = () => {
                   transition={{ ...transition, delay: 0.5 }}
                 >
                   <div className="flex-shrink-0 w-16 h-16 md:w-20 md:h-20 bg-purple-600 rounded-full flex items-center justify-center">
-                    <span className="text-white font-bold text-sm md:text-lg">2022</span>
+                    <i className="fas fa-rocket text-2xl md:text-3xl text-white"></i>
                   </div>
                   <div className="bg-white rounded-xl p-4 md:p-6 shadow-lg hover-lift flex-1 min-w-0">
-                    <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-2 md:mb-3 break-words">Islamic Entrepreneurship Boarding School</h3>
+                    <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-2 md:mb-3 break-words">Fase Transformasi - Islamic Entrepreneurship</h3>
                     <p className="text-gray-600 text-sm md:text-base break-words">
-                      Membuka IEBS (Islamic Entrepreneurship Boarding School) yang mengintegrasikan kurikulum nasional, pendidikan Islam, dan kewirausahaan untuk jenjang SMP dan SMA.
+                      Mengimplementasikan konsep Islamic Entrepreneurship Boarding School dengan 5 program unggulan: Tahfidz, Courtesy, Entrepreneurship, International Program, dan Language Development Center. Mewujudkan lulusan yang mandiri, berkarakter, dan siap bersaing global.
+                    </p>
+                  </div>
+                </motion.div>
+
+                {/* Timeline Item 5 - Present */}
+                <motion.div 
+                  className="flex items-start gap-4 md:gap-6"
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true, amount: 0.3 }}
+                  variants={variants.fadeUp}
+                  transition={{ ...transition, delay: 0.6 }}
+                >
+                  <div className="flex-shrink-0 w-16 h-16 md:w-20 md:h-20 bg-yellow-600 rounded-full flex items-center justify-center">
+                    <i className="fas fa-star text-2xl md:text-3xl text-white"></i>
+                  </div>
+                  <div className="bg-white rounded-xl p-4 md:p-6 shadow-lg hover-lift flex-1 min-w-0">
+                    <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-2 md:mb-3 break-words">Masa Kini - Terus Berkembang</h3>
+                    <p className="text-gray-600 text-sm md:text-base break-words">
+                      GCNI terus berkomitmen untuk memberikan pendidikan Islam terbaik dengan mengembangkan fasilitas, program, dan kualitas pembelajaran. Bersama mewujudkan generasi santripreneur berjiwa leader yang membawa keberkahan bagi umat dan bangsa.
                     </p>
                   </div>
                 </motion.div>
@@ -355,8 +437,317 @@ const Tentang = () => {
           </div>
         </section>
 
+        {/* Blended Curriculum Section */}
+        <section className="py-12 md:py-20 bg-white">
+          <div className="container mx-auto px-4">
+            <div className="text-center mb-12 md:mb-16">
+              <motion.h2 
+                className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 md:mb-6 px-4 break-words"
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.3 }}
+                variants={variants.fadeUp}
+                transition={transition}
+              >
+                <span className="gradient-text">Blended Curriculum</span>
+              </motion.h2>
+              <motion.p 
+                className="text-base sm:text-lg md:text-xl text-gray-600 px-4 max-w-3xl mx-auto"
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.3 }}
+                variants={variants.fadeUp}
+                transition={{ ...transition, delay: 0.1 }}
+              >
+                Kurikulum Unggulan yang Mengintegrasikan Tiga Pilar Utama
+              </motion.p>
+            </div>
+
+            {/* Tiga Pilar Kurikulum */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+              <motion.div 
+                className="bg-emerald-50 rounded-xl p-6 text-center"
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.3 }}
+                variants={variants.fadeUp}
+                transition={transition}
+              >
+                <div className="w-16 h-16 bg-emerald-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <i className="fas fa-book text-2xl text-white"></i>
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-2">Kurikulum Nasional</h3>
+                <p className="text-gray-600">Standar pendidikan Indonesia yang komprehensif</p>
+              </motion.div>
+
+              <motion.div 
+                className="bg-blue-50 rounded-xl p-6 text-center"
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.3 }}
+                variants={variants.fadeUp}
+                transition={{ ...transition, delay: 0.1 }}
+              >
+                <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <i className="fas fa-globe text-2xl text-white"></i>
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-2">Standar Cambridge</h3>
+                <p className="text-gray-600">Kurikulum internasional untuk daya saing global</p>
+              </motion.div>
+
+              <motion.div 
+                className="bg-yellow-50 rounded-xl p-6 text-center"
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.3 }}
+                variants={variants.fadeUp}
+                transition={{ ...transition, delay: 0.2 }}
+              >
+                <div className="w-16 h-16 bg-yellow-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <i className="fas fa-mosque text-2xl text-white"></i>
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-2">Pendidikan Islam</h3>
+                <p className="text-gray-600">Nilai-nilai luhur Islam sebagai fondasi</p>
+              </motion.div>
+            </div>
+
+            {/* Keunggulan */}
+            <motion.div 
+              className="bg-gradient-to-br from-emerald-50 to-teal-50 rounded-2xl p-8 mb-8"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.3 }}
+              variants={variants.fadeUp}
+              transition={transition}
+            >
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">Keunggulan Blended Curriculum:</h3>
+              <div className="grid md:grid-cols-3 gap-4">
+                <div className="flex items-start">
+                  <i className="fas fa-check-circle text-emerald-600 mr-3 mt-1"></i>
+                  <span className="text-gray-700">Lulusan berdaya saing global</span>
+                </div>
+                <div className="flex items-start">
+                  <i className="fas fa-check-circle text-emerald-600 mr-3 mt-1"></i>
+                  <span className="text-gray-700">Pembentukan karakter mulia</span>
+                </div>
+                <div className="flex items-start">
+                  <i className="fas fa-check-circle text-emerald-600 mr-3 mt-1"></i>
+                  <span className="text-gray-700">Kesiapan menghadapi masa depan</span>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Metode Pembelajaran */}
+            <div className="grid md:grid-cols-2 gap-6 mb-8">
+              <motion.div
+                className="bg-white rounded-xl p-6 shadow-lg"
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.3 }}
+                variants={variants.fadeRight}
+                transition={transition}
+              >
+                <h3 className="text-xl font-bold text-gray-900 mb-4">Metode Pembelajaran:</h3>
+                <ul className="space-y-3">
+                  <li className="flex items-start">
+                    <i className="fas fa-search text-emerald-600 mr-3 mt-1"></i>
+                    <span className="text-gray-700">Inquiry-Based Learning</span>
+                  </li>
+                  <li className="flex items-start">
+                    <i className="fas fa-project-diagram text-emerald-600 mr-3 mt-1"></i>
+                    <span className="text-gray-700">Project-Based Learning</span>
+                  </li>
+                  <li className="flex items-start">
+                    <i className="fas fa-users text-emerald-600 mr-3 mt-1"></i>
+                    <span className="text-gray-700">Collaborative Learning</span>
+                  </li>
+                  <li className="flex items-start">
+                    <i className="fas fa-brain text-emerald-600 mr-3 mt-1"></i>
+                    <span className="text-gray-700">Reflective Learning</span>
+                  </li>
+                </ul>
+              </motion.div>
+
+              <motion.div
+                className="bg-white rounded-xl p-6 shadow-lg"
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.3 }}
+                variants={variants.fadeLeft}
+                transition={transition}
+              >
+                <h3 className="text-xl font-bold text-gray-900 mb-4">Contoh Integrasi:</h3>
+                <ul className="space-y-3">
+                  <li className="flex items-start">
+                    <i className="fas fa-flask text-blue-600 mr-3 mt-1"></i>
+                    <span className="text-gray-700">Sains dikaitkan dengan ayat Al-Qur'an</span>
+                  </li>
+                  <li className="flex items-start">
+                    <i className="fas fa-shapes text-blue-600 mr-3 mt-1"></i>
+                    <span className="text-gray-700">Geometri melalui seni Islam</span>
+                  </li>
+                  <li className="flex items-start">
+                    <i className="fas fa-language text-blue-600 mr-3 mt-1"></i>
+                    <span className="text-gray-700">Bahasa berbasis standar Cambridge</span>
+                  </li>
+                  <li className="flex items-start">
+                    <i className="fas fa-chart-line text-blue-600 mr-3 mt-1"></i>
+                    <span className="text-gray-700">Penilaian formatif & portofolio</span>
+                  </li>
+                </ul>
+              </motion.div>
+            </div>
+          </div>
+        </section>
+
+        {/* Konsep Pembelajaran Section */}
+        <section className="py-12 md:py-20 bg-gray-50">
+          <div className="container mx-auto px-4">
+            <div className="text-center mb-12 md:mb-16">
+              <motion.h2 
+                className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 md:mb-6 px-4 break-words"
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.3 }}
+                variants={variants.fadeUp}
+                transition={transition}
+              >
+                <span className="gradient-text">Konsep Pembelajaran</span>
+              </motion.h2>
+              <motion.p 
+                className="text-base sm:text-lg md:text-xl text-gray-600 px-4 max-w-3xl mx-auto"
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.3 }}
+                variants={variants.fadeUp}
+                transition={{ ...transition, delay: 0.1 }}
+              >
+                Pembelajaran Aktif, Bermakna, dan Berkarakter
+              </motion.p>
+            </div>
+
+            {/* Empat Pilar Pembelajaran */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+              <motion.div 
+                className="bg-white rounded-xl p-6 shadow-lg text-center hover-lift"
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.3 }}
+                variants={variants.zoomIn}
+                transition={transition}
+              >
+                <div className="w-16 h-16 bg-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <i className="fas fa-search text-2xl text-white"></i>
+                </div>
+                <h3 className="text-lg font-bold text-gray-900 mb-2">Inquiry</h3>
+                <p className="text-gray-600 text-sm">Pembelajaran berbasis penyelidikan</p>
+              </motion.div>
+
+              <motion.div 
+                className="bg-white rounded-xl p-6 shadow-lg text-center hover-lift"
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.3 }}
+                variants={variants.zoomIn}
+                transition={{ ...transition, delay: 0.1 }}
+              >
+                <div className="w-16 h-16 bg-indigo-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <i className="fas fa-project-diagram text-2xl text-white"></i>
+                </div>
+                <h3 className="text-lg font-bold text-gray-900 mb-2">Project</h3>
+                <p className="text-gray-600 text-sm">Pembelajaran berbasis proyek</p>
+              </motion.div>
+
+              <motion.div 
+                className="bg-white rounded-xl p-6 shadow-lg text-center hover-lift"
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.3 }}
+                variants={variants.zoomIn}
+                transition={{ ...transition, delay: 0.2 }}
+              >
+                <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <i className="fas fa-users text-2xl text-white"></i>
+                </div>
+                <h3 className="text-lg font-bold text-gray-900 mb-2">Collaborative</h3>
+                <p className="text-gray-600 text-sm">Pembelajaran kolaboratif</p>
+              </motion.div>
+
+              <motion.div 
+                className="bg-white rounded-xl p-6 shadow-lg text-center hover-lift"
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.3 }}
+                variants={variants.zoomIn}
+                transition={{ ...transition, delay: 0.3 }}
+              >
+                <div className="w-16 h-16 bg-cyan-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <i className="fas fa-brain text-2xl text-white"></i>
+                </div>
+                <h3 className="text-lg font-bold text-gray-900 mb-2">Reflective</h3>
+                <p className="text-gray-600 text-sm">Pembelajaran reflektif</p>
+              </motion.div>
+            </div>
+
+            {/* Integrasi Nilai Islam */}
+            <motion.div 
+              className="bg-white rounded-2xl p-8 shadow-lg mb-8"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.3 }}
+              variants={variants.fadeUp}
+              transition={transition}
+            >
+              <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">Integrasi Nilai Islam</h3>
+              <div className="grid md:grid-cols-3 gap-6">
+                <div className="text-center">
+                  <i className="fas fa-quran text-4xl text-emerald-600 mb-3"></i>
+                  <h4 className="font-bold text-gray-900 mb-2">Ayat Qur'an & Hadits</h4>
+                  <p className="text-gray-600 text-sm">Integrasi nilai-nilai Al-Qur'an dan Hadits dalam setiap pembelajaran</p>
+                </div>
+                <div className="text-center">
+                  <i className="fas fa-heart text-4xl text-emerald-600 mb-3"></i>
+                  <h4 className="font-bold text-gray-900 mb-2">Penguatan Akhlak</h4>
+                  <p className="text-gray-600 text-sm">Pembentukan karakter dan akhlak mulia dalam setiap aktivitas</p>
+                </div>
+                <div className="text-center">
+                  <i className="fas fa-praying-hands text-4xl text-emerald-600 mb-3"></i>
+                  <h4 className="font-bold text-gray-900 mb-2">Penerapan Adab</h4>
+                  <p className="text-gray-600 text-sm">Praktik adab Islami dalam kehidupan sehari-hari</p>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Teknologi Pendukung */}
+            <motion.div 
+              className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl p-8"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.3 }}
+              variants={variants.fadeUp}
+              transition={transition}
+            >
+              <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">Didukung Teknologi</h3>
+              <div className="flex flex-wrap justify-center gap-4">
+                <div className="bg-white rounded-lg px-6 py-3 shadow">
+                  <i className="fas fa-laptop-code text-blue-600 mr-2"></i>
+                  <span className="text-gray-700">LMS (Learning Management System)</span>
+                </div>
+                <div className="bg-white rounded-lg px-6 py-3 shadow">
+                  <i className="fas fa-video text-blue-600 mr-2"></i>
+                  <span className="text-gray-700">Media Interaktif</span>
+                </div>
+                <div className="bg-white rounded-lg px-6 py-3 shadow">
+                  <i className="fas fa-network-wired text-blue-600 mr-2"></i>
+                  <span className="text-gray-700">Kolaborasi Digital</span>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </section>
+
         {/* CTA Section */}
-        <section className="py-12 md:py-20 bg-teal-600">
+        <section className="py-12 md:py-20 bg-emerald-600">
           <div className="container mx-auto px-4 text-center">
             <motion.h2 
               className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 md:mb-6"
@@ -388,7 +779,7 @@ const Tentang = () => {
             >
               <Link
                 to="/program"
-                className="inline-flex items-center justify-center bg-white text-teal-600 px-6 md:px-8 py-3 md:py-4 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg text-sm md:text-base"
+                className="inline-flex items-center justify-center bg-white text-emerald-600 px-6 md:px-8 py-3 md:py-4 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg text-sm md:text-base"
               >
                 <i className="fas fa-graduation-cap mr-2"></i>
                 Lihat Program Kami

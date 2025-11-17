@@ -37,110 +37,133 @@ const Program = () => {
 
   const programs = [
     {
-      id: 'iebs',
-      title: 'IEBS',
-      subtitle: 'Islamic Entrepreneurship Boarding School',
-      description: 'Program SMP & SMA dengan kurikulum terpadu Islam, IT, dan Entrepreneurship untuk mencetak generasi unggul yang siap menghadapi tantangan masa depan.',
-      icon: 'fa-graduation-cap',
-      image: 'https://res.cloudinary.com/dof6csq4i/image/upload/v1758591275/santri_zzlfdp.jpg', // Path ke gambar program
-      color: 'teal',
-      features: [
-        'Kurikulum Terpadu (Nasional + Islam + IT)',
-        'Pembinaan Hafalan Al-Qur\'an',
-        'Pelatihan Kewirausahaan',
-        'Asrama Putra & Putri',
-        'Fasilitas Modern'
-      ],
-      detail: 'Program pendidikan pesantren modern yang mengintegrasikan kurikulum nasional dengan pendidikan Islam dan kewirausahaan.'
-    },
-    {
-      id: 'tahfizh',
-      title: 'Tahfizh Qur\'an',
-      subtitle: 'Program Penghafal Al-Qur\'an',
-      description: 'Program intensif menghafal Al-Qur\'an 30 juz dengan bimbingan para ustadz berpengalaman dan metode pembelajaran yang terbukti efektif.',
+      id: 'tahfidz',
+      title: 'Tahfidz',
+      subtitle: 'Program Hafalan Al-Qur\'an',
+      description: 'Program intensif hafalan Al-Qur\'an dengan metode terbukti dan bimbingan ustadz berpengalaman untuk membentuk generasi Qur\'ani.',
       icon: 'fa-quran',
-      image: 'https://res.cloudinary.com/dof6csq4i/image/upload/v1758594705/pesantren/blog/f9blppo5nwwwgja39wp7.png', // Path ke gambar program
-      color: 'green',
+      image: 'https://res.cloudinary.com/dof6csq4i/image/upload/v1758594705/pesantren/blog/f9blppo5nwwwgja39wp7.png',
+      color: 'emerald',
       features: [
-        'Target Hafal 30 Juz',
+        'Target Hafalan 30 Juz',
         'Metode Pembelajaran Efektif',
-        'Pembinaan Karakter Islami',
+        'Bimbingan Ustadz Berpengalaman',
         'Evaluasi Berkala',
-        'Sertifikat Tahfizh'
+        'Pembinaan Karakter Islami',
+        'Tahsin & Tajwid'
       ],
-      detail: 'Program khusus untuk santri yang ingin menghafal Al-Qur\'an 30 juz dengan metode pembelajaran yang efektif.'
+      detail: 'Program tahfidz yang terstruktur dengan metode pembelajaran yang telah terbukti efektif dalam membantu santri menghafal Al-Qur\'an 30 juz dengan tartil dan tajwid yang benar.'
     },
     {
-      id: 'tpq',
-      title: 'TPQ',
-      subtitle: 'Taman Pendidikan Al-Qur\'an',
-      description: 'Pendidikan dasar Al-Qur\'an untuk anak-anak usia 4-12 tahun dengan metode fun learning dan pembinaan akhlak yang menyenangkan.',
-      icon: 'fa-child',
-      image: 'https://res.cloudinary.com/dof6csq4i/image/upload/v1759634549/tpq.png', // Path ke gambar program
+      id: 'courtesy',
+      title: 'Courtesy',
+      subtitle: 'Pendidikan Karakter & Adab',
+      description: 'Pembentukan akhlak mulia, etika, dan sopan santun sebagai dasar kepribadian Islami yang unggul dan berkarakter.',
+      icon: 'fa-handshake',
+      image: 'https://res.cloudinary.com/dof6csq4i/image/upload/v1758591275/santri_zzlfdp.jpg',
+      color: 'yellow',
+      features: [
+        'Pembinaan Akhlak Mulia',
+        'Pendidikan Adab Islami',
+        'Etika & Sopan Santun',
+        'Leadership Training',
+        'Character Building',
+        'Public Speaking'
+      ],
+      detail: 'Program pembentukan karakter yang komprehensif untuk menghasilkan lulusan yang tidak hanya cerdas secara intelektual, tetapi juga memiliki akhlak mulia dan kepribadian yang santun.'
+    },
+    {
+      id: 'entrepreneurship',
+      title: 'Entrepreneurship',
+      subtitle: 'Program Kewirausahaan',
+      description: 'Mengembangkan jiwa wirausaha, kreativitas, dan kemandirian ekonomi sejak dini untuk mencetak santripreneur yang sukses.',
+      icon: 'fa-lightbulb',
+      image: 'https://res.cloudinary.com/dof6csq4i/image/upload/v1758594351/pesantren/blog/guctu7vjf67czgapmfrp.png',
       color: 'blue',
       features: [
-        'Metode Fun Learning',
-        'Usia 4-12 Tahun',
-        'Belajar Hijaiyah',
-        'Praktek Ibadah',
-        'Pembinaan Akhlak'
+        'Pelatihan Business Skill',
+        'Praktik Bisnis Nyata',
+        'Mentoring dari Praktisi',
+        'Project-Based Learning',
+        'Digital Marketing',
+        'Financial Literacy'
       ],
-      detail: 'Program pendidikan Al-Qur\'an untuk anak-anak usia 4-12 tahun dengan metode pembelajaran yang menyenangkan.'
+      detail: 'Program kewirausahaan yang mengajarkan siswa untuk mandiri secara ekonomi dengan mengembangkan kemampuan bisnis dan inovasi sejak dini.'
     },
     {
-      id: 'diniyah',
-      title: 'Diniyah',
-      subtitle: 'Pendidikan Agama Islam',
-      description: 'Program pendidikan agama Islam yang komprehensif meliputi fiqh, akidah, akhlaq, dan sejarah Islam untuk semua kalangan.',
-      icon: 'fa-mosque',
-      image: 'https://res.cloudinary.com/dof6csq4i/image/upload/v1758594351/pesantren/blog/guctu7vjf67czgapmfrp.png', // Path ke gambar program
+      id: 'international',
+      title: 'International Program',
+      subtitle: 'Kurikulum Cambridge',
+      description: 'Program dengan standar internasional Cambridge untuk mempersiapkan siswa bersaing di kancah global dengan tetap berpegang pada nilai Islam.',
+      icon: 'fa-globe',
+      image: 'https://res.cloudinary.com/dof6csq4i/image/upload/v1759634549/tpq.png',
       color: 'purple',
       features: [
-        'Kurikulum Diniyah Terpadu',
-        'Pembelajaran Fiqih & Akhlak',
-        'Kajian Hadits & Tafsir',
-        'Praktik Ibadah Langsung',
-        'Ustadz Berpengalaman'
+        'Kurikulum Cambridge',
+        'Standar Internasional',
+        'Bilingual Education',
+        'Global Perspective',
+        'International Certification',
+        'Exchange Program Ready'
       ],
-      detail: 'Program pendidikan agama Islam yang komprehensif untuk memperdalam ilmu agama dan praktik ibadah sehari-hari.'
+      detail: 'Program pendidikan bertaraf internasional dengan kurikulum Cambridge yang dirancang untuk mempersiapkan siswa menghadapi tantangan global tanpa meninggalkan identitas Islami.'
     },
     {
-      id: 'entrepreneur',
-      title: 'Entrepreneur',
-      subtitle: 'Kewirausahaan Islam',
-      description: 'Pelatihan kewirausahaan dengan nilai-nilai Islam untuk mengembangkan jiwa entrepreneur yang mandiri dan berkah.',
-      icon: 'fa-briefcase',
-      image: 'https://res.cloudinary.com/dof6csq4i/image/upload/v1759635307/_storage_emulated_0_Android_data_com.miui.gallery_cache_SecurityShare_IMG_20250707_103340_ujhdks.jpg', // Path ke gambar program
-      color: 'orange',
+      id: 'language',
+      title: 'Language Development Center',
+      subtitle: 'Pengembangan Bahasa',
+      description: 'Pusat pengembangan kemampuan berbahasa Arab dan Inggris secara intensif untuk mendukung komunikasi global dan pemahaman Islam.',
+      icon: 'fa-comments',
+      image: 'https://res.cloudinary.com/dof6csq4i/image/upload/v1758591275/santri_zzlfdp.jpg',
+      color: 'red',
       features: [
-        'Mindset Entrepreneur Islami',
-        'Praktik Bisnis Langsung',
-        'Mentoring Pengusaha Sukses',
-        'Digital Marketing',
-        'Sertifikat Entrepreneur'
+        'Bahasa Arab Intensif',
+        'English Proficiency',
+        'Conversation Practice',
+        'Language Lab',
+        'Native Speaker Instruction',
+        'Language Certification'
       ],
-      detail: 'Program pelatihan kewirausahaan untuk mengembangkan jiwa bisnis Islami dan kemandirian ekonomi sejak dini.'
-    },
-    {
-      id: 'kajian',
-      title: 'Kajian',
-      subtitle: 'Dakwah & Pemberdayaan',
-      description: 'Program kajian rutin dan pemberdayaan masyarakat untuk meningkatkan pemahaman agama dan kualitas hidup umat.',
-      icon: 'fa-users',
-      image: 'https://res.cloudinary.com/dof6csq4i/image/upload/v1759635309/IMG_20210304_055050_ctlkd9.jpg', // Path ke gambar program
-      color: 'indigo',
-      features: [
-        'Kajian Mingguan & Bulanan',
-        'Ustadz Ahli & Berkompeten',
-        'Topik Aktual & Relevan',
-        'Tanya Jawab Interaktif',
-        'Gratis & Terbuka Umum'
-      ],
-      detail: 'Kajian Islam rutin mingguan dan bulanan untuk memperdalam pemahaman agama bagi masyarakat umum.'
+      detail: 'Program pengembangan bahasa yang intensif untuk menguasai bahasa Arab sebagai bahasa Al-Qur\'an dan bahasa Inggris sebagai bahasa internasional untuk komunikasi global.'
     }
   ];
 
   const colorClasses = {
+    emerald: {
+      gradient: 'from-emerald-400 to-teal-600',
+      button: 'bg-emerald-600 hover:bg-emerald-700',
+      text: 'text-emerald-600',
+      bg: 'bg-emerald-50',
+      icon: 'text-emerald-600'
+    },
+    yellow: {
+      gradient: 'from-yellow-400 to-amber-600',
+      button: 'bg-yellow-600 hover:bg-yellow-700',
+      text: 'text-yellow-600',
+      bg: 'bg-yellow-50',
+      icon: 'text-yellow-600'
+    },
+    blue: {
+      gradient: 'from-blue-400 to-indigo-600',
+      button: 'bg-blue-600 hover:bg-blue-700',
+      text: 'text-blue-600',
+      bg: 'bg-blue-50',
+      icon: 'text-blue-600'
+    },
+    purple: {
+      gradient: 'from-purple-400 to-purple-600',
+      button: 'bg-purple-600 hover:bg-purple-700',
+      text: 'text-purple-600',
+      bg: 'bg-purple-50',
+      icon: 'text-purple-600'
+    },
+    red: {
+      gradient: 'from-red-400 to-pink-600',
+      button: 'bg-red-600 hover:bg-red-700',
+      text: 'text-red-600',
+      bg: 'bg-red-50',
+      icon: 'text-red-600'
+    },
     teal: {
       gradient: 'from-teal-400 to-teal-600',
       button: 'bg-teal-600 hover:bg-teal-700',
