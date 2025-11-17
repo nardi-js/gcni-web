@@ -1,6 +1,36 @@
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 
 const Home = () => {
+  // Animation variants
+  const fadeInUp = {
+    hidden: { opacity: 0, y: 60 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: { duration: 0.6, ease: "easeOut" }
+    }
+  };
+
+  const staggerContainer = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2
+      }
+    }
+  };
+
+  const scaleIn = {
+    hidden: { opacity: 0, scale: 0.8 },
+    visible: { 
+      opacity: 1, 
+      scale: 1,
+      transition: { duration: 0.5, ease: "easeOut" }
+    }
+  };
+
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
@@ -15,16 +45,36 @@ const Home = () => {
       >
         <div className="absolute inset-0 bg-black/40"></div>
         <div className="relative text-center text-white z-10 px-4">
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 fade-in">
+          <motion.h1 
+            className="text-5xl md:text-7xl font-bold mb-6"
+            initial={{ opacity: 0, y: -50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+          >
             <span className="gradient-text">Yayasan GCNI</span>
-          </h1>
-          <h2 className="text-xl md:text-2xl mb-4 fade-up">
+          </motion.h1>
+          <motion.h2 
+            className="text-xl md:text-2xl mb-4"
+            initial={{ opacity: 0, y: -30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+          >
             Global Cahaya Nubuwwah Insani - Islamic Entrepreneurship Boarding School
-          </h2>
-          <p className="text-lg md:text-xl mb-8 fade-up max-w-3xl mx-auto">
+          </motion.h2>
+          <motion.p 
+            className="text-lg md:text-xl mb-8 max-w-3xl mx-auto"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
+          >
             Membentuk Santripreneur Berjiwa Leader Melalui Pendidikan Islam Terpadu
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center fade-up">
+          </motion.p>
+          <motion.div 
+            className="flex flex-col sm:flex-row gap-4 justify-center"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6, delay: 0.6, ease: "easeOut" }}
+          >
             <Link
               to="/tentang"
               className="inline-flex items-center bg-white text-emerald-600 px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg"
@@ -39,24 +89,40 @@ const Home = () => {
               <i className="fas fa-heart mr-2"></i>
               Donasi Sekarang
             </Link>
-          </div>
+          </motion.div>
         </div>
       </section>
 
       {/* Mengapa Memilih Kami Section */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
+          <motion.div 
+            className="text-center mb-16"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={fadeInUp}
+          >
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
               <span className="gradient-text">Mengapa Memilih Kami?</span>
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Keunggulan yang menjadikan GCNI pilihan terbaik untuk pendidikan putra-putri Anda
             </p>
-          </div>
+          </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div className="bg-gradient-to-br from-emerald-50 to-teal-50 rounded-2xl p-8 hover-lift">
+          <motion.div 
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            variants={staggerContainer}
+          >
+            <motion.div 
+              className="bg-gradient-to-br from-emerald-50 to-teal-50 rounded-2xl p-8 hover-lift"
+              variants={scaleIn}
+              whileHover={{ y: -8, transition: { duration: 0.3 } }}
+            >
               <div className="w-16 h-16 bg-emerald-600 rounded-full flex items-center justify-center mx-auto mb-6">
                 <i className="fas fa-book-open text-2xl text-white"></i>
               </div>
@@ -64,9 +130,13 @@ const Home = () => {
               <p className="text-gray-600 text-center">
                 Pendekatan pendidikan yang mengintegrasikan kurikulum nasional, kurikulum internasional, serta nilai-nilai pendidikan Islam.
               </p>
-            </div>
+            </motion.div>
 
-            <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl p-8 hover-lift">
+            <motion.div 
+              className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl p-8 hover-lift"
+              variants={scaleIn}
+              whileHover={{ y: -8, transition: { duration: 0.3 } }}
+            >
               <div className="w-16 h-16 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-6">
                 <i className="fas fa-quran text-2xl text-white"></i>
               </div>
@@ -74,9 +144,13 @@ const Home = () => {
               <p className="text-gray-600 text-center">
                 Membina generasi Qur'ani melalui program hafalan Al-Qur'an yang terstruktur dan dibimbing para ahli.
               </p>
-            </div>
+            </motion.div>
 
-            <div className="bg-gradient-to-br from-yellow-50 to-amber-50 rounded-2xl p-8 hover-lift">
+            <motion.div 
+              className="bg-gradient-to-br from-yellow-50 to-amber-50 rounded-2xl p-8 hover-lift"
+              variants={scaleIn}
+              whileHover={{ y: -8, transition: { duration: 0.3 } }}
+            >
               <div className="w-16 h-16 bg-yellow-600 rounded-full flex items-center justify-center mx-auto mb-6">
                 <i className="fas fa-heart text-2xl text-white"></i>
               </div>
@@ -84,9 +158,13 @@ const Home = () => {
               <p className="text-gray-600 text-center">
                 Penanaman nilai moral, santun, etika, dan kepemimpinan sebagai fondasi utama setiap siswa.
               </p>
-            </div>
+            </motion.div>
 
-            <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl p-8 hover-lift">
+            <motion.div 
+              className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl p-8 hover-lift"
+              variants={scaleIn}
+              whileHover={{ y: -8, transition: { duration: 0.3 } }}
+            >
               <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-6">
                 <i className="fas fa-lightbulb text-2xl text-white"></i>
               </div>
@@ -94,26 +172,42 @@ const Home = () => {
               <p className="text-gray-600 text-center">
                 Mengasah kreativitas dan kemandirian siswa melalui proyek nyata sejak dini.
               </p>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
       </section>
 
       {/* Programs Section */}
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
+          <motion.div 
+            className="text-center mb-16"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={fadeInUp}
+          >
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
               Program Unggulan
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Program-program berkualitas untuk mengembangkan potensi siswa secara optimal
             </p>
-          </div>
+          </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <motion.div 
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.1 }}
+            variants={staggerContainer}
+          >
             {/* Tahfidz */}
-            <div className="bg-white rounded-xl shadow-lg overflow-hidden hover-lift">
+            <motion.div 
+              className="bg-white rounded-xl shadow-lg overflow-hidden hover-lift"
+              variants={scaleIn}
+              whileHover={{ y: -8, scale: 1.02, transition: { duration: 0.3 } }}
+            >
               <div className="h-48 overflow-hidden relative">
                 <img 
                   src="https://res.cloudinary.com/dof6csq4i/image/upload/v1758594705/pesantren/blog/f9blppo5nwwwgja39wp7.png" 
@@ -133,10 +227,14 @@ const Home = () => {
                   Selengkapnya
                 </Link>
               </div>
-            </div>
+            </motion.div>
 
             {/* Courtesy */}
-            <div className="bg-white rounded-xl shadow-lg overflow-hidden hover-lift">
+            <motion.div 
+              className="bg-white rounded-xl shadow-lg overflow-hidden hover-lift"
+              variants={scaleIn}
+              whileHover={{ y: -8, scale: 1.02, transition: { duration: 0.3 } }}
+            >
               <div className="h-48 overflow-hidden relative">
                 <img 
                   src="https://res.cloudinary.com/dtcfexttw/image/upload/v1759675078/IMG_20210304_055050_xkk59n.jpg" 
@@ -156,10 +254,14 @@ const Home = () => {
                   Selengkapnya
                 </Link>
               </div>
-            </div>
+            </motion.div>
 
             {/* Entrepreneurship */}
-            <div className="bg-white rounded-xl shadow-lg overflow-hidden hover-lift">
+            <motion.div 
+              className="bg-white rounded-xl shadow-lg overflow-hidden hover-lift"
+              variants={scaleIn}
+              whileHover={{ y: -8, scale: 1.02, transition: { duration: 0.3 } }}
+            >
               <div className="h-48 overflow-hidden relative">
                 <img 
                   src="https://res.cloudinary.com/dtcfexttw/image/upload/v1759675082/_storage_emulated_0_Android_data_com.miui.gallery_cache_SecurityShare_IMG20250707_091615_lmc_8.4_p4w0v8.jpg" 
@@ -179,10 +281,14 @@ const Home = () => {
                   Selengkapnya
                 </Link>
               </div>
-            </div>
+            </motion.div>
 
             {/* International Program */}
-            <div className="bg-white rounded-xl shadow-lg overflow-hidden hover-lift">
+            <motion.div 
+              className="bg-white rounded-xl shadow-lg overflow-hidden hover-lift"
+              variants={scaleIn}
+              whileHover={{ y: -8, scale: 1.02, transition: { duration: 0.3 } }}
+            >
               <div className="h-48 overflow-hidden relative">
                 <img 
                   src="https://res.cloudinary.com/dof6csq4i/image/upload/v1758591275/santri_zzlfdp.jpg" 
@@ -202,10 +308,14 @@ const Home = () => {
                   Selengkapnya
                 </Link>
               </div>
-            </div>
+            </motion.div>
 
             {/* Language Development Center */}
-            <div className="bg-white rounded-xl shadow-lg overflow-hidden hover-lift">
+            <motion.div 
+              className="bg-white rounded-xl shadow-lg overflow-hidden hover-lift"
+              variants={scaleIn}
+              whileHover={{ y: -8, scale: 1.02, transition: { duration: 0.3 } }}
+            >
               <div className="h-48 overflow-hidden relative">
                 <img 
                   src="https://res.cloudinary.com/dtcfexttw/image/upload/v1759675073/f_bi8ais.jpg" 
@@ -225,10 +335,16 @@ const Home = () => {
                   Selengkapnya
                 </Link>
               </div>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
 
-          <div className="text-center mt-12">
+          <motion.div 
+            className="text-center mt-12"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+          >
             <Link
               to="/program"
               className="inline-flex items-center bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-4 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg"
@@ -236,73 +352,109 @@ const Home = () => {
               <i className="fas fa-arrow-right mr-2"></i>
               Lihat Semua Program
             </Link>
-          </div>
+          </motion.div>
         </div>
       </section>
 
       {/* Quick Links Section - Navigasi ke halaman penting */}
       <section className="py-20 bg-gradient-to-br from-emerald-50 via-white to-teal-50">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
+          <motion.div 
+            className="text-center mb-16"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={fadeInUp}
+          >
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
               <span className="gradient-text">Jelajahi GCNI</span>
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Temukan informasi lengkap tentang program, berita terkini, dan cara bergabung dengan kami
             </p>
-          </div>
+          </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
-            <Link to="/program" className="group bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100">
-              <div className="w-16 h-16 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
-                <i className="fas fa-graduation-cap text-2xl text-white"></i>
-              </div>
-              <h3 className="text-lg font-bold text-center mb-2 text-gray-900">Program Kami</h3>
-              <p className="text-sm text-gray-600 text-center">Lihat semua program unggulan dengan foto & detail lengkap</p>
-            </Link>
+          <motion.div 
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            variants={staggerContainer}
+          >
+            <motion.div variants={scaleIn}>
+              <Link to="/program" className="group bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 block h-full min-h-[240px] flex flex-col">
+                <div className="w-16 h-16 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform flex-shrink-0">
+                  <i className="fas fa-graduation-cap text-2xl text-white"></i>
+                </div>
+                <h3 className="text-lg font-bold text-center mb-2 text-gray-900">Program Kami</h3>
+                <p className="text-sm text-gray-600 text-center flex-grow">Lihat semua program unggulan dengan foto & detail lengkap</p>
+              </Link>
+            </motion.div>
 
-            <Link to="/berita" className="group bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100">
-              <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
-                <i className="fas fa-newspaper text-2xl text-white"></i>
-              </div>
-              <h3 className="text-lg font-bold text-center mb-2 text-gray-900">Berita & Artikel</h3>
-              <p className="text-sm text-gray-600 text-center">Update terbaru kegiatan & informasi seputar GCNI</p>
-            </Link>
+            <motion.div variants={scaleIn}>
+              <Link to="/berita" className="group bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 block h-full min-h-[240px] flex flex-col">
+                <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform flex-shrink-0">
+                  <i className="fas fa-newspaper text-2xl text-white"></i>
+                </div>
+                <h3 className="text-lg font-bold text-center mb-2 text-gray-900">Berita & Artikel</h3>
+                <p className="text-sm text-gray-600 text-center flex-grow">Update terbaru kegiatan & informasi seputar GCNI</p>
+              </Link>
+            </motion.div>
 
-            <Link to="/pendaftaran" className="group bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100">
-              <div className="w-16 h-16 bg-gradient-to-br from-yellow-500 to-amber-600 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
-                <i className="fas fa-user-plus text-2xl text-white"></i>
-              </div>
-              <h3 className="text-lg font-bold text-center mb-2 text-gray-900">Pendaftaran</h3>
-              <p className="text-sm text-gray-600 text-center">Informasi lengkap pendaftaran santri baru</p>
-            </Link>
+            <motion.div variants={scaleIn}>
+              <Link to="/pendaftaran" className="group bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 block h-full min-h-[240px] flex flex-col">
+                <div className="w-16 h-16 bg-gradient-to-br from-yellow-500 to-amber-600 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform flex-shrink-0">
+                  <i className="fas fa-user-plus text-2xl text-white"></i>
+                </div>
+                <h3 className="text-lg font-bold text-center mb-2 text-gray-900">Pendaftaran</h3>
+                <p className="text-sm text-gray-600 text-center flex-grow">Informasi lengkap pendaftaran santri baru</p>
+              </Link>
+            </motion.div>
 
-            <Link to="/faq" className="group bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100">
-              <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-600 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
-                <i className="fas fa-question-circle text-2xl text-white"></i>
-              </div>
-              <h3 className="text-lg font-bold text-center mb-2 text-gray-900">FAQ</h3>
-              <p className="text-sm text-gray-600 text-center">Pertanyaan umum seputar GCNI</p>
-            </Link>
-          </div>
+            <motion.div variants={scaleIn}>
+              <Link to="/faq" className="group bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 block h-full min-h-[240px] flex flex-col">
+                <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-600 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform flex-shrink-0">
+                  <i className="fas fa-question-circle text-2xl text-white"></i>
+                </div>
+                <h3 className="text-lg font-bold text-center mb-2 text-gray-900">FAQ</h3>
+                <p className="text-sm text-gray-600 text-center flex-grow">Pertanyaan umum seputar GCNI</p>
+              </Link>
+            </motion.div>
+          </motion.div>
         </div>
       </section>
 
       {/* Jenjang Pendidikan Section */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
+          <motion.div 
+            className="text-center mb-16"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={fadeInUp}
+          >
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
               <span className="gradient-text">Jenjang Pendidikan</span>
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Pendidikan berkualitas untuk setiap tahap perkembangan
             </p>
-          </div>
+          </motion.div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <motion.div 
+            className="grid grid-cols-1 lg:grid-cols-2 gap-8"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            variants={staggerContainer}
+          >
             {/* SMP */}
-            <div className="bg-gradient-to-br from-emerald-50 to-teal-50 rounded-2xl p-8 hover-lift">
+            <motion.div 
+              className="bg-gradient-to-br from-emerald-50 to-teal-50 rounded-2xl p-8 hover-lift"
+              variants={scaleIn}
+              whileHover={{ scale: 1.02, transition: { duration: 0.3 } }}
+            >
               <div className="flex items-center mb-6">
                 <div className="w-16 h-16 bg-emerald-600 rounded-full flex items-center justify-center mr-4">
                   <i className="fas fa-school text-2xl text-white"></i>
@@ -338,10 +490,14 @@ const Home = () => {
                   <span className="text-gray-700">Program pengembangan kepribadian</span>
                 </li>
               </ul>
-            </div>
+            </motion.div>
 
             {/* SMA */}
-            <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl p-8 hover-lift">
+            <motion.div 
+              className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl p-8 hover-lift"
+              variants={scaleIn}
+              whileHover={{ scale: 1.02, transition: { duration: 0.3 } }}
+            >
               <div className="flex items-center mb-6">
                 <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mr-4">
                   <i className="fas fa-graduation-cap text-2xl text-white"></i>
@@ -373,21 +529,45 @@ const Home = () => {
                   <span className="text-gray-700">Diniyyah Kurikulum Timur Tengah</span>
                 </li>
               </ul>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-emerald-600">
+      <motion.section 
+        className="py-20 bg-emerald-600"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8 }}
+      >
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+          <motion.h2 
+            className="text-4xl md:text-5xl font-bold text-white mb-6"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
             Mari Bergabung Bersama Kami
-          </h2>
-          <p className="text-xl text-emerald-100 mb-8 max-w-3xl mx-auto">
+          </motion.h2>
+          <motion.p 
+            className="text-xl text-emerald-100 mb-8 max-w-3xl mx-auto"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+          >
             Wujudkan pendidikan Islam terbaik untuk generasi penerus bangsa
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          </motion.p>
+          <motion.div 
+            className="flex flex-col sm:flex-row gap-4 justify-center"
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.6 }}
+          >
             <Link
               to="/program"
               className="inline-flex items-center bg-white text-emerald-600 px-8 py-4 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg"
@@ -402,9 +582,9 @@ const Home = () => {
               <i className="fas fa-phone mr-2"></i>
               Hubungi Kami
             </Link>
-          </div>
+          </motion.div>
         </div>
-      </section>
+      </motion.section>
     </div>
   );
 };
