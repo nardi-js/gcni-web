@@ -60,7 +60,7 @@ const Program = () => {
       subtitle: 'Pendidikan Karakter & Adab',
       description: 'Pembentukan akhlak mulia, etika, dan sopan santun sebagai dasar kepribadian Islami yang unggul dan berkarakter.',
       icon: 'fa-handshake',
-      image: 'https://res.cloudinary.com/dof6csq4i/image/upload/v1758591275/santri_zzlfdp.jpg',
+      image: 'https://res.cloudinary.com/dtcfexttw/image/upload/v1759675078/IMG_20210304_055050_xkk59n.jpg',
       color: 'yellow',
       features: [
         'Pembinaan Akhlak Mulia',
@@ -78,7 +78,7 @@ const Program = () => {
       subtitle: 'Program Kewirausahaan',
       description: 'Mengembangkan jiwa wirausaha, kreativitas, dan kemandirian ekonomi sejak dini untuk mencetak santripreneur yang sukses.',
       icon: 'fa-lightbulb',
-      image: 'https://res.cloudinary.com/dof6csq4i/image/upload/v1758594351/pesantren/blog/guctu7vjf67czgapmfrp.png',
+      image: 'https://res.cloudinary.com/dtcfexttw/image/upload/v1759675082/_storage_emulated_0_Android_data_com.miui.gallery_cache_SecurityShare_IMG20250707_091615_lmc_8.4_p4w0v8.jpg',
       color: 'blue',
       features: [
         'Pelatihan Business Skill',
@@ -114,7 +114,7 @@ const Program = () => {
       subtitle: 'Pengembangan Bahasa',
       description: 'Pusat pengembangan kemampuan berbahasa Arab dan Inggris secara intensif untuk mendukung komunikasi global dan pemahaman Islam.',
       icon: 'fa-comments',
-      image: 'https://res.cloudinary.com/dof6csq4i/image/upload/v1758591275/santri_zzlfdp.jpg',
+      image: 'https://res.cloudinary.com/dtcfexttw/image/upload/v1759675073/f_bi8ais.jpg',
       color: 'red',
       features: [
         'Bahasa Arab Intensif',

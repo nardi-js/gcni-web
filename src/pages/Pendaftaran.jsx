@@ -30,9 +30,9 @@ const Pendaftaran = () => {
   // Syarat Pendaftaran
   const syaratPendaftaran = [
     {
-      icon: 'fa-user',
-      title: 'Warga Negara Indonesia',
-      description: 'Calon santri adalah Warga Negara Indonesia (WNI)'
+      icon: 'fa-globe',
+      title: 'Warga Negara Indonesia/Asing',
+      description: 'Calon santri WNI dan WNA (Warga Negara Asing) dipersilahkan mendaftar'
     },
     {
       icon: 'fa-graduation-cap',
@@ -65,15 +65,9 @@ const Pendaftaran = () => {
   const berkasPendaftaran = [
     {
       icon: 'fa-file-alt',
-      title: 'Fotokopi Ijazah',
-      description: 'Fotokopi ijazah yang telah dilegalisir (2 lembar)',
+      title: 'Fotokopi Ijazah/SKL',
+      description: 'Fotokopi ijazah yang telah dilegalisir, atau Surat Keterangan Lulus (SKL) jika ijazah belum terbit',
       color: 'blue'
-    },
-    {
-      icon: 'fa-certificate',
-      title: 'Fotokopi SKHUN',
-      description: 'Fotokopi Surat Keterangan Hasil Ujian Nasional yang dilegalisir (2 lembar)',
-      color: 'green'
     },
     {
       icon: 'fa-id-card',
@@ -98,6 +92,12 @@ const Pendaftaran = () => {
       title: 'Pas Foto',
       description: 'Pas foto terbaru ukuran 3x4 (6 lembar) dan 4x6 (4 lembar), background merah',
       color: 'teal'
+    },
+    {
+      icon: 'fa-receipt',
+      title: 'Bukti Pembayaran',
+      description: 'Upload bukti pembayaran biaya pendaftaran ke sistem online',
+      color: 'green'
     }
   ];
 
@@ -105,43 +105,43 @@ const Pendaftaran = () => {
   const tahapanPendaftaran = [
     {
       step: '01',
-      title: 'Isi Formulir Online',
-      description: 'Isi formulir pendaftaran online melalui link yang tersedia. Pastikan data yang diisi lengkap dan benar.',
+      title: 'Isi Formulir & Upload Berkas',
+      description: 'Isi formulir pendaftaran online via Google Form. Upload semua berkas yang diperlukan dalam format digital.',
       icon: 'fa-clipboard-list',
       color: 'emerald'
     },
     {
       step: '02',
+      title: 'Bayar Biaya Pendaftaran',
+      description: 'Transfer biaya pendaftaran Rp 100.000 ke rekening yang tertera, lalu upload bukti pembayaran ke form.',
+      icon: 'fa-money-bill-wave',
+      color: 'green'
+    },
+    {
+      step: '03',
       title: 'Verifikasi Berkas',
-      description: 'Tim kami akan memverifikasi berkas dan data yang Anda kirimkan. Proses ini memakan waktu 1-3 hari kerja.',
+      description: 'Tim kami akan memverifikasi berkas dan bukti pembayaran yang Anda upload. Proses ini memakan waktu 1-3 hari kerja.',
       icon: 'fa-file-check',
       color: 'blue'
     },
     {
-      step: '03',
+      step: '04',
       title: 'Tes Masuk',
       description: 'Calon santri mengikuti tes akademik, tes baca Al-Qur\'an, dan wawancara dengan tim akademik.',
       icon: 'fa-pen-to-square',
       color: 'purple'
     },
     {
-      step: '04',
+      step: '05',
       title: 'Pengumuman Hasil',
       description: 'Pengumuman hasil seleksi akan diinformasikan melalui WhatsApp/email maksimal 7 hari setelah tes.',
       icon: 'fa-bullhorn',
       color: 'yellow'
     },
     {
-      step: '05',
-      title: 'Daftar Ulang',
-      description: 'Calon santri yang diterima wajib melakukan daftar ulang dengan membayar biaya pendaftaran dan melengkapi berkas.',
-      icon: 'fa-money-bill-wave',
-      color: 'green'
-    },
-    {
       step: '06',
-      title: 'Orientasi Santri',
-      description: 'Mengikuti masa orientasi santri baru (MOSB) untuk mengenal lingkungan pesantren dan peraturan.',
+      title: 'Daftar Ulang & Orientasi',
+      description: 'Calon santri yang diterima melakukan daftar ulang dengan melengkapi administrasi, lalu mengikuti orientasi santri baru (MOSB).',
       icon: 'fa-flag-checkered',
       color: 'red'
     }
@@ -150,13 +150,13 @@ const Pendaftaran = () => {
   // Biaya Pendidikan
   const biayaPendidikan = {
     smp: [
-      { item: 'Biaya Pendaftaran', nominal: 'Rp 500.000' },
+      { item: 'Biaya Pendaftaran', nominal: 'Rp 100.000' },
       { item: 'Biaya SPP/Bulan', nominal: 'Rp 1.500.000' },
       { item: 'Biaya Masuk (Sekali)', nominal: 'Rp 8.000.000' },
       { item: 'Seragam & Perlengkapan', nominal: 'Rp 2.500.000' }
     ],
     sma: [
-      { item: 'Biaya Pendaftaran', nominal: 'Rp 500.000' },
+      { item: 'Biaya Pendaftaran', nominal: 'Rp 100.000' },
       { item: 'Biaya SPP/Bulan', nominal: 'Rp 1.800.000' },
       { item: 'Biaya Masuk (Sekali)', nominal: 'Rp 10.000.000' },
       { item: 'Seragam & Perlengkapan', nominal: 'Rp 3.000.000' }
@@ -497,7 +497,7 @@ const Pendaftaran = () => {
                 <div className="space-y-4">
                   <div className="border-l-4 border-emerald-600 pl-4 py-2">
                     <h4 className="font-bold text-gray-900 mb-1">Apakah ada biaya pendaftaran?</h4>
-                    <p className="text-gray-600 text-sm">Ya, biaya pendaftaran sebesar Rp 500.000 (non-refundable) untuk proses administrasi dan tes masuk.</p>
+                    <p className="text-gray-600 text-sm">Ya, biaya pendaftaran sebesar Rp 100.000 (non-refundable) untuk proses administrasi dan tes masuk.</p>
                   </div>
                   <div className="border-l-4 border-blue-600 pl-4 py-2">
                     <h4 className="font-bold text-gray-900 mb-1">Apakah bisa daftar di tengah tahun ajaran?</h4>

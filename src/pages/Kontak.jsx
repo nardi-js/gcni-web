@@ -85,11 +85,11 @@ const Kontak = () => {
     try {
       // Kirim pesan ke Firebase
       const result = await createMessage({
-        nama: formData.nama,
+        name: formData.nama,
         email: formData.email,
-        telepon: formData.telepon || '-',
-        subjek: formData.subjek,
-        pesan: formData.pesan
+        phone: formData.telepon || '-',
+        subject: formData.subjek,
+        message: formData.pesan
       });
 
       if (result.success) {
@@ -103,16 +103,6 @@ const Kontak = () => {
           subjek: '',
           pesan: ''
         });
-
-        // Optional: Redirect to WhatsApp
-        const whatsappMessage = formatFormDataForWhatsApp(formData);
-        const whatsappUrl = getWhatsAppLink(whatsappMessage);
-        
-        setTimeout(() => {
-          if (window.confirm('Apakah Anda ingin melanjutkan ke WhatsApp untuk komunikasi lebih lanjut?')) {
-            window.open(whatsappUrl, '_blank');
-          }
-        }, 1000);
       } else {
         showMessage('Maaf, terjadi kesalahan: ' + result.message, 'error');
       }

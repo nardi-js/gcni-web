@@ -25,12 +25,13 @@ export const faqData = [
     category: "pendaftaran",
     question: "Apa saja persyaratan pendaftaran?",
     answer: `Dokumen yang diperlukan:<br>
+      ✓ Fotokopi Ijazah/SKL (Surat Keterangan Lulus jika ijazah belum terbit)<br>
       ✓ Fotokopi Akta Kelahiran<br>
       ✓ Fotokopi Kartu Keluarga<br>
-      ✓ Fotokopi Ijazah/Rapor terakhir<br>
-      ✓ Pas foto 3x4 (4 lembar)<br>
+      ✓ Pas foto 3x4 (6 lembar) dan 4x6 (4 lembar)<br>
       ✓ Surat keterangan sehat dari dokter<br>
-      ✓ Formulir pendaftaran yang sudah diisi lengkap`
+      ✓ Upload bukti pembayaran biaya pendaftaran<br>
+      Semua dokumen di-upload ke Google Form pendaftaran online`
   },
   {
     id: 4,
@@ -59,10 +60,11 @@ export const faqData = [
     category: "pendaftaran",
     question: "Berapa lama proses pendaftaran?",
     answer: `Proses pendaftaran biasanya memakan waktu 1-2 minggu:<br>
-      • <strong>Hari 1-3:</strong> Verifikasi dokumen<br>
-      • <strong>Hari 4-7:</strong> Test masuk dan wawancara<br>
-      • <strong>Hari 8-10:</strong> Pengumuman hasil seleksi<br>
-      • <strong>Hari 11-14:</strong> Daftar ulang dan pembayaran<br>
+      • <strong>Hari 1:</strong> Isi form online & upload berkas + bukti bayar Rp 100.000<br>
+      • <strong>Hari 2-4:</strong> Verifikasi dokumen dan pembayaran<br>
+      • <strong>Hari 5-8:</strong> Test masuk dan wawancara<br>
+      • <strong>Hari 9-11:</strong> Pengumuman hasil seleksi<br>
+      • <strong>Hari 12-14:</strong> Daftar ulang, administrasi, dan orientasi<br>
       Untuk pendaftaran urgent, hubungi tim kami untuk proses lebih cepat.`
   },
   {
@@ -109,6 +111,18 @@ export const faqData = [
       📹 <strong>Virtual Tour:</strong> Via Zoom (setiap Sabtu pukul 10.00)<br>
       🎉 <strong>Education Fair:</strong> 2x per tahun<br>
       Hubungi kami untuk jadwal kunjungan atau daftar open house berikutnya!`
+  },
+  {
+    id: 101,
+    category: "pendaftaran",
+    question: "Apakah WNA (Warga Negara Asing) bisa mendaftar?",
+    answer: `Ya, kami menerima calon santri Warga Negara Asing (WNA)! Persyaratan tambahan untuk WNA:<br>
+      ✓ Passport yang masih berlaku<br>
+      ✓ Visa pelajar atau KITAS<br>
+      ✓ Surat izin orang tua/wali yang dilegalisir<br>
+      ✓ Dokumen akademik terakhir (diterjemahkan ke Bahasa Indonesia jika diperlukan)<br>
+      ✓ Sertifikat kemampuan Bahasa Indonesia (jika ada)<br><br>
+      Kami akan membantu proses administrasi untuk siswa internasional. Hubungi tim kami untuk informasi lebih lanjut!`
   },
 
   // === PROGRAM (10 FAQs) ===
@@ -232,13 +246,18 @@ export const faqData = [
     id: 21,
     category: "biaya",
     question: "Berapa biaya pendidikan di GCNI?",
-    answer: `Biaya bervariasi tergantung program yang dipilih. Untuk informasi detail mengenai:<br>
-      • Biaya pendaftaran<br>
-      • SPP bulanan<br>
-      • Biaya asrama<br>
-      • Biaya makan<br>
-      • Seragam dan perlengkapan<br><br>
-      Silakan hubungi tim kami untuk mendapatkan rincian lengkap. Kami juga menyediakan program cicilan dan beasiswa!`
+    answer: `Rincian biaya pendidikan di GCNI:<br><br>
+      <strong>SMP:</strong><br>
+      • Biaya Pendaftaran: Rp 100.000<br>
+      • SPP Bulanan: Rp 1.500.000<br>
+      • Biaya Masuk (sekali): Rp 8.000.000<br>
+      • Seragam & Perlengkapan: Rp 2.500.000<br><br>
+      <strong>SMA:</strong><br>
+      • Biaya Pendaftaran: Rp 100.000<br>
+      • SPP Bulanan: Rp 1.800.000<br>
+      • Biaya Masuk (sekali): Rp 10.000.000<br>
+      • Seragam & Perlengkapan: Rp 3.000.000<br><br>
+      Biaya sudah termasuk asrama, makan 3x sehari, laundry, dan semua fasilitas pembelajaran. Tersedia program cicilan dan beasiswa!`
   },
   {
     id: 22,

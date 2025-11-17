@@ -215,117 +215,49 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Programs Section */}
-      <section className="py-20 bg-gray-50">
+      {/* Quick Links Section - Navigasi ke halaman penting */}
+      <section className="py-20 bg-gradient-to-br from-emerald-50 via-white to-teal-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Program Unggulan
+              <span className="gradient-text">Jelajahi GCNI</span>
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Program-program berkualitas untuk mengembangkan potensi siswa secara optimal
+              Temukan informasi lengkap tentang program, berita terkini, dan cara bergabung dengan kami
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {/* Tahfidz */}
-            <div className="bg-white rounded-xl shadow-lg overflow-hidden hover-lift border border-gray-100">
-              <div className="h-48 bg-gradient-to-r from-emerald-400 to-teal-600 relative flex items-center justify-center">
-                <i className="fas fa-quran text-6xl text-white"></i>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+            <Link to="/program" className="group bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100">
+              <div className="w-16 h-16 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+                <i className="fas fa-graduation-cap text-2xl text-white"></i>
               </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-gray-900 mb-2">Tahfidz</h3>
-                <p className="text-sm text-emerald-600 mb-3">Program Hafalan Al-Qur'an</p>
-                <p className="text-gray-600 mb-4">
-                  Program intensif hafalan Al-Qur'an dengan metode terbukti dan bimbingan ustadz berpengalaman.
-                </p>
-                <Link to="/program" className="inline-flex items-center text-emerald-600 hover:text-emerald-700 font-semibold">
-                  <i className="fas fa-arrow-right mr-2"></i>
-                  Selengkapnya
-                </Link>
-              </div>
-            </div>
+              <h3 className="text-lg font-bold text-center mb-2 text-gray-900">Program Kami</h3>
+              <p className="text-sm text-gray-600 text-center">Lihat semua program unggulan dengan foto & detail lengkap</p>
+            </Link>
 
-            {/* Courtesy */}
-            <div className="bg-white rounded-xl shadow-lg overflow-hidden hover-lift border border-gray-100">
-              <div className="h-48 bg-gradient-to-r from-yellow-400 to-amber-600 relative flex items-center justify-center">
-                <i className="fas fa-handshake text-6xl text-white"></i>
+            <Link to="/berita" className="group bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100">
+              <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+                <i className="fas fa-newspaper text-2xl text-white"></i>
               </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-gray-900 mb-2">Courtesy</h3>
-                <p className="text-sm text-yellow-600 mb-3">Pendidikan Karakter & Adab</p>
-                <p className="text-gray-600 mb-4">
-                  Pembentukan akhlak mulia, etika, dan sopan santun sebagai dasar kepribadian Islami.
-                </p>
-                <Link to="/program" className="inline-flex items-center text-yellow-600 hover:text-yellow-700 font-semibold">
-                  <i className="fas fa-arrow-right mr-2"></i>
-                  Selengkapnya
-                </Link>
-              </div>
-            </div>
+              <h3 className="text-lg font-bold text-center mb-2 text-gray-900">Berita & Artikel</h3>
+              <p className="text-sm text-gray-600 text-center">Update terbaru kegiatan & informasi seputar GCNI</p>
+            </Link>
 
-            {/* Entrepreneurship */}
-            <div className="bg-white rounded-xl shadow-lg overflow-hidden hover-lift border border-gray-100">
-              <div className="h-48 bg-gradient-to-r from-blue-400 to-indigo-600 relative flex items-center justify-center">
-                <i className="fas fa-lightbulb text-6xl text-white"></i>
+            <Link to="/pendaftaran" className="group bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100">
+              <div className="w-16 h-16 bg-gradient-to-br from-yellow-500 to-amber-600 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+                <i className="fas fa-user-plus text-2xl text-white"></i>
               </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-gray-900 mb-2">Entrepreneurship</h3>
-                <p className="text-sm text-blue-600 mb-3">Kewirausahaan</p>
-                <p className="text-gray-600 mb-4">
-                  Mengembangkan jiwa wirausaha, kreativitas, dan kemandirian ekonomi sejak dini.
-                </p>
-                <Link to="/program" className="inline-flex items-center text-blue-600 hover:text-blue-700 font-semibold">
-                  <i className="fas fa-arrow-right mr-2"></i>
-                  Selengkapnya
-                </Link>
-              </div>
-            </div>
+              <h3 className="text-lg font-bold text-center mb-2 text-gray-900">Pendaftaran</h3>
+              <p className="text-sm text-gray-600 text-center">Informasi lengkap pendaftaran santri baru</p>
+            </Link>
 
-            {/* International Program */}
-            <div className="bg-white rounded-xl shadow-lg overflow-hidden hover-lift border border-gray-100">
-              <div className="h-48 bg-gradient-to-r from-purple-400 to-purple-600 relative flex items-center justify-center">
-                <i className="fas fa-globe text-6xl text-white"></i>
+            <Link to="/faq" className="group bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100">
+              <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-600 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+                <i className="fas fa-question-circle text-2xl text-white"></i>
               </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-gray-900 mb-2">International Program</h3>
-                <p className="text-sm text-purple-600 mb-3">Kurikulum Cambridge</p>
-                <p className="text-gray-600 mb-4">
-                  Program dengan standar internasional Cambridge untuk daya saing global.
-                </p>
-                <Link to="/program" className="inline-flex items-center text-purple-600 hover:text-purple-700 font-semibold">
-                  <i className="fas fa-arrow-right mr-2"></i>
-                  Selengkapnya
-                </Link>
-              </div>
-            </div>
-
-            {/* Language Development Center */}
-            <div className="bg-white rounded-xl shadow-lg overflow-hidden hover-lift border border-gray-100">
-              <div className="h-48 bg-gradient-to-r from-red-400 to-pink-600 relative flex items-center justify-center">
-                <i className="fas fa-comments text-6xl text-white"></i>
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-gray-900 mb-2">Language Development Center</h3>
-                <p className="text-sm text-red-600 mb-3">Pengembangan Bahasa</p>
-                <p className="text-gray-600 mb-4">
-                  Pusat pengembangan kemampuan berbahasa Arab dan Inggris secara intensif.
-                </p>
-                <Link to="/program" className="inline-flex items-center text-red-600 hover:text-red-700 font-semibold">
-                  <i className="fas fa-arrow-right mr-2"></i>
-                  Selengkapnya
-                </Link>
-              </div>
-            </div>
-          </div>
-
-          <div className="text-center mt-12">
-            <Link
-              to="/program"
-              className="inline-flex items-center bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-4 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg"
-            >
-              <i className="fas fa-arrow-right mr-2"></i>
-              Lihat Semua Program
+              <h3 className="text-lg font-bold text-center mb-2 text-gray-900">FAQ</h3>
+              <p className="text-sm text-gray-600 text-center">Pertanyaan umum seputar GCNI</p>
             </Link>
           </div>
         </div>
