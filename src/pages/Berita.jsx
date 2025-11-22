@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { getAllNews, getNewsByCategory } from '../services/newsService';
 import { formatDate, getCategoryColor } from '../data/newsData';
+import { fadeInUp, staggerItem, cardHover } from '../utils/animations';
 
 const Berita = () => {
   const [filteredNews, setFilteredNews] = useState([]);
@@ -11,7 +12,7 @@ const Berita = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    document.title = 'Berita GCNI - Info Pendaftaran, Prestasi Santri, Kegiatan Islamic Boarding School';
+    document.title = 'Berita & Kegiatan GCNI School';
     loadNews('all');
   }, []);
 
@@ -139,12 +140,12 @@ const Berita = () => {
           {/* News Grid */}
           {!loading && !error && filteredNews.length > 0 && (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {filteredNews.map((news) => (
-                <article
+              {filteredNews.map((news, index) => (
+                <motion.article
                   key={news.id}
                   className="bg-white rounded-xl shadow-lg overflow-hidden hover-lift"
-                 
-                 
+                  {...staggerItem(index)}
+                  {...cardHover}
                 >
                   <div className={`h-40 sm:h-48 bg-gradient-to-r from-${getCategoryColor(news.category)}-400 to-${getCategoryColor(news.category)}-600 flex items-center justify-center relative overflow-hidden`}>
                     <img
@@ -183,7 +184,7 @@ const Berita = () => {
                       Baca Selengkapnya
                     </Link>
                   </div>
-                </article>
+                </motion.article>
               ))}
             </div>
           )}

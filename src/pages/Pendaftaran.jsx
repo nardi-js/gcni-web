@@ -1,8 +1,12 @@
 import { motion } from 'framer-motion';
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import contactData, { getWhatsAppLink } from '../data/contactData';
 
 const Pendaftaran = () => {
+  useEffect(() => {
+    document.title = 'Pendaftaran Santri GCNI School';
+  }, []);
+
   const [activeTab, setActiveTab] = useState('info');
 
   // Animation variants

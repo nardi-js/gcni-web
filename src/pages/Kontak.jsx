@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { createMessage } from '../services/messageService';
 import contactData, { 
@@ -11,6 +11,10 @@ import contactData, {
 } from '../data/contactData';
 
 const Kontak = () => {
+  useEffect(() => {
+    document.title = 'Kontak GCNI School Purwakarta';
+  }, []);
+
   const [formData, setFormData] = useState({
     nama: '',
     email: '',

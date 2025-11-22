@@ -1,9 +1,13 @@
 User-agent: *
 Allow: /
 
-# Disallow admin or private pages (if any in future)
 Disallow: /admin/
-Disallow: /private/
+Disallow: /admin/login
+Disallow: /admin/news
+Disallow: /admin/messages
+Disallow: /submit-form
+Disallow: /success
+Disallow: /error
 
-# Sitemap location
-Sitemap: https://gcni.or.id/sitemap.xml
+Sitemap: https://gcnischool.or.id/sitemap.xml
+Sitemap: https://gcnischool.or.id/sitemap-news.xml

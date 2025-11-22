@@ -1,61 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
-  
-  <!-- Homepage -->
+<urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
+
   <url>
-    <loc>https://gcni.or.id/</loc>
-    <lastmod>2025-10-05</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
+    <loc>https://gcnischool.or.id/</loc>
   </url>
-  
-  <!-- Tentang -->
+
   <url>
-    <loc>https://gcni.or.id/tentang</loc>
-    <lastmod>2025-10-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <loc>https://gcnischool.or.id/tentang</loc>
   </url>
-  
-  <!-- Program -->
+
   <url>
-    <loc>https://gcni.or.id/program</loc>
-    <lastmod>2025-10-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <loc>https://gcnischool.or.id/program</loc>
   </url>
-  
-  <!-- Berita -->
+
   <url>
-    <loc>https://gcni.or.id/berita</loc>
-    <lastmod>2025-10-05</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
+    <loc>https://gcnischool.or.id/berita</loc>
   </url>
-  
-  <!-- FAQ -->
+
   <url>
-    <loc>https://gcni.or.id/faq</loc>
-    <lastmod>2025-10-05</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
+    <loc>https://gcnischool.or.id/faq</loc>
   </url>
-  
-  <!-- Kontak -->
+
   <url>
-    <loc>https://gcni.or.id/kontak</loc>
-    <lastmod>2025-10-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://gcnischool.or.id/kontak</loc>
   </url>
-  
-  <!-- Donasi -->
+
   <url>
-    <loc>https://gcni.or.id/donasi</loc>
-    <lastmod>2025-10-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <loc>https://gcnischool.or.id/donasi</loc>
   </url>
-  
+
+  <url>
+    <loc>https://gcnischool.or.id/pendaftaran</loc>
+  </url>
+
 </urlset>

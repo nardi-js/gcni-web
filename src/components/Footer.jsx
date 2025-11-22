@@ -11,7 +11,7 @@ const Footer = () => {
           <div>
             <div className="flex items-center mb-4">
               <div className="w-12 h-12 bg-teal-600 rounded-full flex items-center justify-center mr-3">
-                <img className="text-white font-bold text-xl rounded-full" src="/logo/gcni-logo.png" alt="GCNI Logo" />
+                <img className="text-white font-bold text-xl rounded-full" src="gcni-logo.png" alt="GCNI Logo" />
               </div>
               <div>
                 <h3 className="font-bold text-xl">GCNI</h3>
@@ -23,26 +23,40 @@ const Footer = () => {
             </p>
             <div className="flex space-x-3 mt-4">
               <a 
+                href={contactData.social.instagram.url} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="w-10 h-10 bg-gray-800 hover:bg-pink-600 rounded-full flex items-center justify-center transition-colors"
+                aria-label="Instagram GCNI"
+              >
+                <i className="fab fa-instagram text-lg"></i>
+              </a>
+              <a 
+                href={contactData.social.youtube.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 bg-gray-800 hover:bg-red-600 rounded-full flex items-center justify-center transition-colors"
+                aria-label="YouTube GCNI"
+              >
+                <i className="fab fa-youtube text-lg"></i>
+              </a>
+              <a 
+                href={contactData.social.tiktok.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 bg-gray-800 hover:bg-gray-700 rounded-full flex items-center justify-center transition-colors"
+                aria-label="TikTok GCNI"
+              >
+                <i className="fab fa-tiktok text-lg"></i>
+              </a>
+              <a 
                 href={`https://wa.me/${contactData.whatsapp}`} 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="w-10 h-10 bg-gray-800 hover:bg-green-600 rounded-full flex items-center justify-center transition-colors"
+                aria-label="WhatsApp GCNI"
               >
                 <i className="fab fa-whatsapp text-lg"></i>
-              </a>
-              <a 
-                href={`mailto:${contactData.email}`}
-                className="w-10 h-10 bg-gray-800 hover:bg-blue-600 rounded-full flex items-center justify-center transition-colors"
-              >
-                <i className="fas fa-envelope text-lg"></i>
-              </a>
-              <a 
-                href={contactData.coordinates.googleMapsUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 bg-gray-800 hover:bg-red-600 rounded-full flex items-center justify-center transition-colors"
-              >
-                <i className="fas fa-map-marker-alt text-lg"></i>
               </a>
             </div>
           </div>

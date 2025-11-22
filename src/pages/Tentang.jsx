@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 const Tentang = () => {
   useEffect(() => {
     // Set page title
-    document.title = 'Tentang GCNI - Profil Yayasan Islamic Boarding School Jakarta | Visi Misi Sejarah';
+    document.title = 'Tentang GCNI School | Islamic Entrepreneur Boarding School';
   }, []);
 
   // Animation variants - Memoized for performance

@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import { faqData, getFaqByCategory, searchFaq, categories, getCategoryStats } from '../data/faqData';
+import { fadeInUp, iconRotate, staggerItem } from '../utils/animations';
 
 const FAQ = () => {
   const [filteredFaqs, setFilteredFaqs] = useState(faqData);
@@ -10,7 +12,7 @@ const FAQ = () => {
   const [categoryStats] = useState(getCategoryStats());
 
   useEffect(() => {
-    document.title = 'FAQ - Pertanyaan Umum GCNI | Informasi Lengkap Program & Pendaftaran';
+    document.title = 'FAQ - Pertanyaan Umum GCNI School';
   }, []);
 
   const handleCategoryFilter = (category) => {
@@ -62,19 +64,36 @@ const FAQ = () => {
       <section className="relative pt-32 pb-20 bg-gradient-to-r from-teal-600 to-teal-800 text-white">
         <div className="absolute inset-0 bg-black/20"></div>
         <div className="relative container mx-auto px-4 text-center">
-          <div className="w-20 h-20 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center mx-auto mb-6">
+          <motion.div 
+            className="w-20 h-20 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center mx-auto mb-6"
+            {...iconRotate}
+          >
             <i className="fas fa-question-circle text-5xl text-white"></i>
-          </div>
-          <h1 className="text-5xl md:text-6xl font-bold mb-6">
+          </motion.div>
+          <motion.h1 
+            className="text-5xl md:text-6xl font-bold mb-6"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2, duration: 0.6 }}
+          >
             <span className="gradient-text">Pertanyaan Umum</span>
-          </h1>
-          <p className="text-xl md:text-2xl text-teal-100 max-w-3xl mx-auto">
+          </motion.h1>
+          <motion.p 
+            className="text-xl md:text-2xl text-teal-100 max-w-3xl mx-auto"
+            {...fadeInUp}
+            transition={{ delay: 0.4, duration: 0.6 }}
+          >
             Temukan jawaban untuk pertanyaan Anda seputar GCNI, program, pendaftaran, dan fasilitas
-          </p>
-          <p className="text-teal-200 mt-4">
+          </motion.p>
+          <motion.p 
+            className="text-teal-200 mt-4"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.6, duration: 0.6 }}
+          >
             <i className="fas fa-book mr-2"></i>
             {faqData.length} pertanyaan yang sering ditanyakan
-          </p>
+          </motion.p>
         </div>
       </section>
 
@@ -173,10 +192,12 @@ const FAQ = () => {
                     )}
                     <div className="space-y-4">
                       {groupedFaqs[category].map((faq, index) => (
-                        <div
+                        <motion.div
                           key={faq.id}
                           className="bg-white rounded-xl p-6 shadow-md border border-gray-100 hover:shadow-lg transition-all duration-150 cursor-pointer"
                           onClick={() => toggleFaq(faq.id)}
+                          {...staggerItem(index, 0.05)}
+                          whileHover={{ scale: 1.01 }}
                         >
                           <div className="flex items-center justify-between">
                             <h3 className="text-lg font-semibold text-gray-900 pr-8 flex-1">
@@ -198,7 +219,7 @@ const FAQ = () => {
                               dangerouslySetInnerHTML={{ __html: faq.answer }}
                             />
                           </div>
-                        </div>
+                        </motion.div>
                       ))}
                     </div>
                   </div>

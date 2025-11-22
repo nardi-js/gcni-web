@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import donationData, {
   formatCurrency,
   formatNumber,
@@ -14,6 +14,10 @@ import donationData, {
 } from '../data/donationData';
 
 const Donasi = () => {
+  useEffect(() => {
+    document.title = 'Donasi & Infaq untuk GCNI School';
+  }, []);
+
   const [currentStep, setCurrentStep] = useState(1);
   const [selectedAmount, setSelectedAmount] = useState(0);
   const [customAmount, setCustomAmount] = useState('');

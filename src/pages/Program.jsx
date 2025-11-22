@@ -1,12 +1,14 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
+import { fadeInUp, iconRotate, staggerItem, cardHover } from '../utils/animations';
 
 const Program = () => {
   const [activeModal, setActiveModal] = useState(null);
   const [imageErrors, setImageErrors] = useState({});
 
   useEffect(() => {
-    document.title = 'Program GCNI Jakarta - IEBS, Tahfizh Qur\'an, TPQ, Pesantren Modern | Daftar Sekarang';
+    document.title = 'Program Pendidikan GCNI School';
   }, []);
 
   const handleImageError = (programId) => {
@@ -176,18 +178,6 @@ const Program = () => {
       text: 'text-green-600',
       check: 'text-green-600'
     },
-    blue: {
-      gradient: 'from-blue-400 to-blue-600',
-      button: 'bg-blue-600 hover:bg-blue-700',
-      text: 'text-blue-600',
-      check: 'text-blue-600'
-    },
-    purple: {
-      gradient: 'from-purple-400 to-purple-600',
-      button: 'bg-purple-600 hover:bg-purple-700',
-      text: 'text-purple-600',
-      check: 'text-purple-600'
-    },
     orange: {
       gradient: 'from-orange-400 to-orange-600',
       button: 'bg-orange-600 hover:bg-orange-700',
@@ -208,15 +198,27 @@ const Program = () => {
       <section className="relative pt-32 pb-20 bg-gradient-to-r from-teal-600 to-teal-800 text-white">
         <div className="absolute inset-0 bg-black/20"></div>
         <div className="relative container mx-auto px-4 text-center">
-          <div className="w-20 h-20 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center mx-auto mb-6">
+          <motion.div 
+            className="w-20 h-20 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center mx-auto mb-6"
+            {...iconRotate}
+          >
             <i className="fas fa-graduation-cap text-5xl text-white"></i>
-          </div>
-          <h1 className="text-5xl md:text-6xl font-bold mb-6">
+          </motion.div>
+          <motion.h1 
+            className="text-5xl md:text-6xl font-bold mb-6"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2, duration: 0.6 }}
+          >
             <span className="gradient-text">Program Unggulan</span>
-          </h1>
-          <p className="text-xl md:text-2xl text-teal-100 max-w-3xl mx-auto">
+          </motion.h1>
+          <motion.p 
+            className="text-xl md:text-2xl text-teal-100 max-w-3xl mx-auto"
+            {...fadeInUp}
+            transition={{ delay: 0.4, duration: 0.6 }}
+          >
             Berbagai program berkualitas untuk mendukung pendidikan dan pemberdayaan generasi Qur'ani
-          </p>
+          </motion.p>
         </div>
       </section>
 
@@ -225,11 +227,11 @@ const Program = () => {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8">
             {programs.map((program, index) => (
-              <div 
+              <motion.div 
                 key={program.id}
-                className="bg-white rounded-xl shadow-lg overflow-hidden hover-lift" 
-                
-               
+                className="bg-white rounded-xl shadow-lg overflow-hidden hover-lift"
+                {...staggerItem(index)}
+                {...cardHover}
               >
                 <div className={`h-64 bg-gradient-to-r ${colorClasses[program.color].gradient} flex items-center justify-center overflow-hidden relative`}>
                   {program.image && !imageErrors[program.id] ? (
@@ -257,7 +259,7 @@ const Program = () => {
                     Detail Program
                   </button>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>

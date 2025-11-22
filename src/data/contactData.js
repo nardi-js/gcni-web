@@ -148,7 +148,7 @@ export const contactData = {
         tahunAjaran: "2025/2026",
         features: [
             { icon: "fa-clipboard-list", title: "Pendaftaran Online", description: "Proses cepat dan mudah" },
-            { icon: "fa-coins", title: "Gratis Biaya Pendaftaran", description: "Tidak ada biaya administrasi" },
+            { icon: "fa-comments", title: "Konsultasi Gratis", description: "Tanya dulu sebelum daftar" },
             { icon: "fa-clock", title: "Respon Cepat", description: "Tim kami akan segera menghubungi Anda" }
         ],
         note: "PENTING: Ganti FORM_ID_ANDA dengan ID Google Form yang sebenarnya"

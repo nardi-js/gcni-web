@@ -38,7 +38,7 @@ const Header = () => {
           <div className="flex items-center justify-between py-4">
             <Link to="/" className="flex items-center">
               <img 
-                src="/logo/gcni-logo.png" 
+                src="gcni-logo.png" 
                 alt="Logo GCNI" 
                 className="w-12 h-12 rounded-full mr-3"
                 onError={(e) => {

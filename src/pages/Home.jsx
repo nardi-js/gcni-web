@@ -1,7 +1,12 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { useEffect } from 'react';
 
 const Home = () => {
+  useEffect(() => {
+    document.title = 'GCNI School - Islamic Entrepreneur Boarding School Purwakarta';
+  }, []);
+
   // Animation variants
   const fadeInUp = {
     hidden: { opacity: 0, y: 60 },
